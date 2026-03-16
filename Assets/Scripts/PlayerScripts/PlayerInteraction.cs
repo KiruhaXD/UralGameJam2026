@@ -38,9 +38,11 @@ public class PlayerInteraction : MonoBehaviour
             {
                 Debug.Log($"луч столкнулся с тегом: {hit.collider.tag}");
 
-                interact.Interact();
                 interact.Description();
                 hitSomething = true;
+
+                if(Input.GetKeyDown(KeyCode.F))
+                    interact.Interact();
             }
 
         }
