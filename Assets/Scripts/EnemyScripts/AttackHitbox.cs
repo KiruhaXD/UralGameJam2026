@@ -11,6 +11,8 @@ public class AttackHitbox : MonoBehaviour
         {
             playerHealth.healthCount -= damage;
 
+            playerHealth.TakeHit();
+
             if (playerHealth.healthCount <= 0) 
             {
                 playerHealth.healthCount = 0;

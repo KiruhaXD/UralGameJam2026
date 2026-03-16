@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class FollowRange : MonoBehaviour
 {
+    [Header("Enemy")]
     [SerializeField] CharacterController enemyContoller;
     [SerializeField] Enemy enemy;
 
@@ -10,6 +11,7 @@ public class FollowRange : MonoBehaviour
 
     [SerializeField] Animator animatorEnemy;
 
+    [Header("Player")]
     [SerializeField] Transform playerPosition;
     [SerializeField] Transform playerRotation;
 
@@ -38,7 +40,7 @@ public class FollowRange : MonoBehaviour
 
     public void MoveEnemy() 
     {
-        Vector3 move = (enemyPosition.position - playerPosition.position) * Time.deltaTime;
+        Vector3 move = ((enemyPosition.position - playerPosition.position) / 3f) * Time.deltaTime;
 
         enemyContoller.Move(-move * enemy.speedEnemy);
     }

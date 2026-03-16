@@ -20245,6 +20245,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 36026112}
     m_Modifications:
+    - target: {fileID: 1370995784227579044, guid: 6bea409c2c58c244abc54c57ac58102f, type: 3}
+      propertyPath: speedEnemy
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895105769564077308, guid: 6bea409c2c58c244abc54c57ac58102f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.075425
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895105769564077308, guid: 6bea409c2c58c244abc54c57ac58102f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.075425
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895105769564077308, guid: 6bea409c2c58c244abc54c57ac58102f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.075425
+      objectReference: {fileID: 0}
     - target: {fileID: 3818708181143515199, guid: 6bea409c2c58c244abc54c57ac58102f, type: 3}
       propertyPath: playerHealth
       value: 
@@ -20514,8 +20530,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3541754000158237759}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f8af0573aab879f4c9cd410a4e0a39f9, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4a159ba1d7ff9f04cbd099589f4bbb09, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
+  m_Controller: {fileID: 9100000, guid: 07b1dbf226a1f6b41aa40c3ef70cd295, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -20589,6 +20605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   healthCount: 100
   textHealth: {fileID: 510884695}
+  playerAnimator: {fileID: 7635726066245598038}
 --- !u!1 &7678658566016549503
 GameObject:
   m_ObjectHideFlags: 0
