@@ -12,11 +12,6 @@ public class PlayerInteraction : MonoBehaviour
     [Header("Image")]
     [SerializeField] Image imageInteraction;
 
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
         InteractionRay();

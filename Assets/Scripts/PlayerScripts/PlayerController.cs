@@ -8,7 +8,7 @@ namespace Assets.Scripts.PlayerScripts
         [SerializeField] Animator animator;
 
         [Header("Settings")]
-        [SerializeField] float speedun = 6f;
+        [SerializeField] float speedRun = 6f;
 
         [Header("Character Contoller")]
         [SerializeField] CharacterController characterController;
@@ -38,7 +38,7 @@ namespace Assets.Scripts.PlayerScripts
                 animator.SetBool("isRunning", true);
 
                 moveDirectional = transform.TransformDirection(new Vector3(horizontalDirectional, 0f, verticalDirectional));
-                characterController.Move(moveDirectional * speedun * Time.deltaTime);
+                characterController.Move(moveDirectional * speedRun * Time.deltaTime);
             }
 
             else
