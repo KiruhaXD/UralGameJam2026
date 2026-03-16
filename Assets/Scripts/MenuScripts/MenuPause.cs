@@ -9,9 +9,9 @@ public class MenuPause : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            switch (countPressKeyEscape) 
+            switch (countPressKeyEscape)
             {
                 case 0:
                     Pause();
@@ -22,7 +22,6 @@ public class MenuPause : MonoBehaviour
                     break;
             }
         }
-
     }
 
     public void Pause() 

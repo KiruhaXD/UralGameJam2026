@@ -12,9 +12,18 @@ public class PlayerInteraction : MonoBehaviour
     [Header("Image")]
     [SerializeField] Image imageInteraction;
 
+    public static bool hitSomething = false;
+    public static bool isEnableRay = false;
+
+    private void Awake()
+    {
+        isEnableRay = true;
+    }
+
     private void Update()
     {
-        InteractionRay();
+        if(isEnableRay == true)
+            InteractionRay();
     }
 
     private void InteractionRay()
@@ -23,8 +32,6 @@ public class PlayerInteraction : MonoBehaviour
         Vector3 directionRay = rayPoint.transform.forward;
 
         RaycastHit hit;
-
-        bool hitSomething = false;
 
         Debug.DrawRay(positionRay, directionRay, Color.red);
 

@@ -18,9 +18,17 @@ namespace Assets.Scripts.PlayerScripts
 
         Vector3 moveDirectional;
 
+        public static bool isCanRun = false;
+
+        private void Awake()
+        {
+            isCanRun = true;
+        }
+
         private void Update()
         {
-            Run();
+            if (isCanRun == true)
+                Run();
         }
 
         private void InputKeyboards()
@@ -43,6 +51,7 @@ namespace Assets.Scripts.PlayerScripts
 
             else
                 animator.SetBool("isRunning", false);
+
         }
     }
 }

@@ -10,9 +10,13 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
     [SerializeField] PlayerController playerController;
     [SerializeField] CameraController cameraController;
 
+    [Header("Animator")]
+    [SerializeField] Animator playerAnimator;
+
     [Header("UI")]
     [SerializeField] TMP_Text textInteract;
     [SerializeField] Image imageInteract;
+    [SerializeField] GameObject fixButtons;
 
     [Header("Player Camera")]
     [SerializeField] CinemachineCamera playerCamera;
@@ -20,17 +24,23 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
     [Header("Camera Check Broken Robot")]
     [SerializeField] CinemachineCamera cinemachineCameraCheckBrokenRobot;
 
+    public int isHappenPressToggle = 0;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (isHappenPressToggle == 6) // enable six toggle (fix all part in broken robot)
             EnablePlayerCamera();
     }
 
     public void Interact() 
     {
-        imageInteract.gameObject.SetActive(false);
+        playerAnimator.SetBool("isRunning", false);
 
+        PlayerController.isCanRun = false;
+        CameraController.isCanRotateBody = false;
+
+        PlayerInteraction.hitSomething = false;
+        PlayerInteraction.isEnableRay = false;
         EnableCameraCheckBrokenRobot();
     }
 
@@ -41,20 +51,33 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
     private void EnableCameraCheckBrokenRobot() 
     {
-
         playerCamera.enabled = false;
         cinemachineCameraCheckBrokenRobot.enabled = true;
 
         DisableScripts();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        imageInteract.gameObject.SetActive(false);
+
+        fixButtons.SetActive(true);
     }
 
     private void EnablePlayerCamera() 
     {
-
         playerCamera.enabled = true;
         cinemachineCameraCheckBrokenRobot.enabled = false;
 
         EnableScripts();
+
+        PlayerController.isCanRun = true;
+        CameraController.isCanRotateBody = true;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        fixButtons.SetActive(false);
     }
 
     private void EnableScripts() 

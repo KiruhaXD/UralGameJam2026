@@ -20,7 +20,7 @@ public class AttackHitbox : MonoBehaviour
             }
 
 
-            playerHealth.textHealth.text = playerHealth.healthCount.ToString();
+            playerHealth.textHealth.text = playerHealth.healthCount.ToString() + "HP";
         }
 
         if (damage < 0)
