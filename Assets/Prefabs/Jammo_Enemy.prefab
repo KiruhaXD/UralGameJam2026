@@ -3024,7 +3024,6 @@ GameObject:
   - component: {fileID: 4993217093120313510}
   - component: {fileID: 7265123814169405822}
   - component: {fileID: 1370995784227579044}
-  - component: {fileID: 3818708181143515199}
   - component: {fileID: 9036296898206075477}
   m_Layer: 0
   m_Name: Jammo_Enemy
@@ -3086,7 +3085,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5142047094608678648}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4a159ba1d7ff9f04cbd099589f4bbb09, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -3137,7 +3136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   sliderHealth: {fileID: 3082806723154776209}
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 244358869680337026}
 --- !u!114 &1370995784227579044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3152,19 +3151,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemyType: 0
   speedEnemy: 3
---- !u!114 &3818708181143515199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5142047094608678648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a28d950ea7005234187b35dec1cd385c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AttackHitbox
-  enemyHealth: {fileID: 0}
 --- !u!114 &9036296898206075477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4764,6 +4750,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
   animatorEnemy: {fileID: 244358869680337026}
   followRange: {fileID: 4073693347470244674}
+  enemyHealth: {fileID: 0}
+  damageCountToEnemy: 10
 --- !u!135 &44099587355743423
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator AfterHit() 
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
         playerAnimator.SetBool("isHit", false);
     }
 }

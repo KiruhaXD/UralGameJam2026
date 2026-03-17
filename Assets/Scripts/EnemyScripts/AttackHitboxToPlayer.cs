@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
 
-public class AttackHitboxPlayer : MonoBehaviour
+public class AttackHitboxToPlayer : MonoBehaviour
 {
+    [SerializeField] int damageCountToPlayer = 10;
+
     [SerializeField] PlayerHealth playerHealth;
 
-    public void ApplyDamage(int damage) // вызывать у хитбокса руки в анимации через триггеры
+    public void ApplyDamagePlayer(int damage) // вызывать у хитбокса руки в анимации через триггеры
     {
         if (playerHealth.sliderHealth.value > 0)
         {

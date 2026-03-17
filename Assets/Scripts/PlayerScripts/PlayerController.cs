@@ -35,6 +35,7 @@ namespace Assets.Scripts.PlayerScripts
 
             if (horizontalDirectional != 0 || verticalDirectional != 0)
             {
+
                 animator.SetBool("isRunning", true);
 
                 moveDirectional = transform.TransformDirection(new Vector3(horizontalDirectional, 0f, verticalDirectional));

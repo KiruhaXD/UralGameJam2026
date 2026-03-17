@@ -6,18 +6,20 @@ public class EnemyHealth : MonoBehaviour
 {
     public Slider sliderHealth;
 
-    [SerializeField] Animator playerAnimator;
+    [SerializeField] Animator enemyAnimator;
+
+    public int currentNumberEnemy;
 
     public void TakeHit()
     {
-        playerAnimator.SetBool("isHit", true);
+        enemyAnimator.SetBool("isHit", true);
 
         StartCoroutine(AfterHit());
     }
 
     IEnumerator AfterHit()
     {
-        yield return new WaitForSeconds(1);
-        playerAnimator.SetBool("isHit", false);
+        yield return new WaitForSeconds(.5f);
+        enemyAnimator.SetBool("isHit", false);
     }
 }

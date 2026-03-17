@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AttackRangePlayer : MonoBehaviour
@@ -11,7 +12,7 @@ public class AttackRangePlayer : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && isCanPunch == true)
             Punch();
 
-        if (AttackHitboxEnemy.isDead == true)
+        if (AttackHitboxToEnemy.isDeadEnemy == true)
             FightNonactive();
     }
 
