@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AttackRange : MonoBehaviour
+public class AttackRangeEnemy : MonoBehaviour
 { 
     [SerializeField] Animator animatorEnemy;
     [SerializeField] FollowRange followRange;

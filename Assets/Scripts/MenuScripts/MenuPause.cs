@@ -46,6 +46,8 @@ public class MenuPause : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void ExitGame() => Application.Quit();
+
     private void HideCursor() 
     {
         Cursor.visible = false;

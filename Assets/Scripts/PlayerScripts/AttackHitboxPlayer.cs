@@ -1,26 +1,24 @@
 using System;
 using UnityEngine;
 
-public class AttackHitbox : MonoBehaviour
-{    
+public class AttackHitboxPlayer : MonoBehaviour
+{
     [SerializeField] PlayerHealth playerHealth;
 
     public void ApplyDamage(int damage) // вызывать у хитбокса руки в анимации через триггеры
     {
-        if (playerHealth.healthCount > 0)
+        if (playerHealth.sliderHealth.value > 0)
         {
-            playerHealth.healthCount -= damage;
+            playerHealth.sliderHealth.value -= damage;
 
             playerHealth.TakeHit();
 
-            if (playerHealth.healthCount <= 0) 
+            if (playerHealth.sliderHealth.value <= 0)
             {
-                playerHealth.healthCount = 0;
+                playerHealth.sliderHealth.value = 0;
                 // влючить меню для перезапуса игры
             }
 
-
-            playerHealth.textHealth.text = playerHealth.healthCount.ToString() + "HP";
         }
 
         if (damage < 0)
