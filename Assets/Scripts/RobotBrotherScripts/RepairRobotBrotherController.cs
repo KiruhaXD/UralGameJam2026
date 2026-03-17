@@ -37,7 +37,7 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
     public void Interact() 
     {
-        playerAnimator.enabled = false;
+        playerAnimator.SetBool("isRunning", false);
 
         PlayerInteraction.hitSomething = false;
         PlayerInteraction.isEnableRay = false;
@@ -71,10 +71,9 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
         EnableScripts();
 
-        playerAnimator.enabled = true;
-
         for (int i = 0; i < outlines.Length; i++)
             outlines[i].enabled = false;
+        
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
