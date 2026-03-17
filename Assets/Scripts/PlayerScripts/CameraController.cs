@@ -18,18 +18,9 @@ namespace Assets.Scripts.PlayerScripts
 
         float xRotationLimit;
 
-        public static bool isCanRotateBody = false;
-
-        private void Awake()
-        {
-            isCanRotateBody = true;
-        }
-
         private void Update()
         {
-            if (isCanRotateBody == true)
-                RotateBody();
-
+            RotateBody();
         }
 
         private void InputMouse()

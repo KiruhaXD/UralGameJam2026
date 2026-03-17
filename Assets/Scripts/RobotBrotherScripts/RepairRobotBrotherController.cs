@@ -10,6 +10,9 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
     [SerializeField] PlayerController playerController;
     [SerializeField] CameraController cameraController;
 
+    [Header("Outline")]
+    [SerializeField] Outline[] outlines;
+
     [Header("Animator")]
     [SerializeField] Animator playerAnimator;
 
@@ -34,10 +37,7 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
     public void Interact() 
     {
-        playerAnimator.SetBool("isRunning", false);
-
-        PlayerController.isCanRun = false;
-        CameraController.isCanRotateBody = false;
+        playerAnimator.enabled = false;
 
         PlayerInteraction.hitSomething = false;
         PlayerInteraction.isEnableRay = false;
@@ -71,8 +71,10 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
         EnableScripts();
 
-        PlayerController.isCanRun = true;
-        CameraController.isCanRotateBody = true;
+        playerAnimator.enabled = true;
+
+        for (int i = 0; i < outlines.Length; i++)
+            outlines[i].enabled = false;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

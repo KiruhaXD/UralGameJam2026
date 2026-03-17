@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// скрипт отвечающих за зарядку нашего брата робота
 public class ChargeRobotBrotherController : MonoBehaviour, IInteract
 {
     [SerializeField] TMP_Text textInteract;
