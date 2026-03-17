@@ -13,8 +13,8 @@ namespace Assets.Scripts.PlayerScripts
         [Header("Character Contoller")]
         [SerializeField] CharacterController characterController;
 
-        float horizontalDirectional;
-        float verticalDirectional;
+        public float horizontalDirectional;
+        public float verticalDirectional;
 
         Vector3 moveDirectional;
 

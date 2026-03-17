@@ -20,6 +20,7 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
     [SerializeField] TMP_Text textInteract;
     [SerializeField] Image imageInteract;
     [SerializeField] GameObject fixButtons;
+    [SerializeField] Slider sliderHealth;
 
     [Header("Player Camera")]
     [SerializeField] CinemachineCamera playerCamera;
@@ -62,6 +63,8 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         imageInteract.gameObject.SetActive(false);
 
         fixButtons.SetActive(true);
+
+        sliderHealth.gameObject.SetActive(false);
     }
 
     private void EnablePlayerCamera() 
@@ -73,12 +76,13 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
         for (int i = 0; i < outlines.Length; i++)
             outlines[i].enabled = false;
-        
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         fixButtons.SetActive(false);
+
+        sliderHealth.gameObject.SetActive(true);
     }
 
     private void EnableScripts() 

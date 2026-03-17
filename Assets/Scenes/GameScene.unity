@@ -5952,10 +5952,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RepairRobotBrotherController
   playerController: {fileID: 7635726066245598039}
   cameraController: {fileID: 106187926}
+  outlines: []
   playerAnimator: {fileID: 7635726066245598038}
   textInteract: {fileID: 1731186999}
   imageInteract: {fileID: 1352100763}
   fixButtons: {fileID: 1199099430}
+  sliderHealth: {fileID: 56767030}
   playerCamera: {fileID: 106187923}
   cinemachineCameraCheckBrokenRobot: {fileID: 348768333}
   isHappenPressToggle: 0
@@ -32015,6 +32017,8 @@ MonoBehaviour:
   animator: {fileID: 7635726066245598038}
   speedRun: 6
   characterController: {fileID: 4757836856647164648}
+  horizontalDirectional: 0
+  verticalDirectional: 0
 --- !u!114 &7635726066245598040
 MonoBehaviour:
   m_ObjectHideFlags: 0
