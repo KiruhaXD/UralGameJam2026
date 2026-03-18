@@ -43,10 +43,15 @@ public class FollowRange : MonoBehaviour
         Vector3 move = ((enemyPosition.position - playerPosition.position) / 3f) * Time.deltaTime;
 
         enemyContoller.Move(-move * enemy.speedEnemy);
+
     }
 
     public void RotateEnemy() 
     {
+        xRotationLimitEnemy = enemyRotation.rotation.y / playerPosition.position.x;
 
+        //enemyRotation.localRotation = Quaternion.Euler(0, xRotationLimitEnemy, 0);
+
+        enemyRotation.Rotate(new Vector3(0f, xRotationLimitEnemy * Time.deltaTime, 0f));
     }
 }

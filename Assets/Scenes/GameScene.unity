@@ -9508,6 +9508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RepairRobotBrotherController
   textInteract: {fileID: 1731186999}
   imageInteract: {fileID: 1352100763}
+  playerAnimator: {fileID: 0}
 --- !u!136 &849805237
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21336,7 +21337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9e90fb8dd97544882bbfd7200dd0e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivateAnimations
-  playerAnimator: {fileID: 7635726066245598038}
 --- !u!1 &2092205663
 GameObject:
   m_ObjectHideFlags: 0
