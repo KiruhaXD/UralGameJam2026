@@ -38,7 +38,8 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
     public void Interact() 
     {
-        playerAnimator.SetBool("isRunning", false);
+        playerAnimator.SetBool("isRunningKeyboardInput", false);
+        playerAnimator.SetBool("isRunningMouseInput", false);
 
         PlayerInteraction.hitSomething = false;
         PlayerInteraction.isEnableRay = false;

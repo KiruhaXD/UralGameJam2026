@@ -34,19 +34,19 @@ namespace Assets.Scripts.PlayerScripts
 
             if (mouseX != 0)
             {
-                animator.SetBool("isRunning", true);
+                animator.SetBool("isRunningMouseInput", true);
 
                 xRotationLimit += mouseX;
-                xRotationLimit = Mathf.Clamp(xRotationLimit, -40f, 40f);
+                //xRotationLimit = Mathf.Clamp(xRotationLimit, -40f, 40f);
 
                 playerRotation.Rotate(new Vector3(0f, mouseX, 0f));
 
-                playerRotation.localRotation = Quaternion.Euler(0f, xRotationLimit, 0f);
+                //playerRotation.localRotation = Quaternion.Euler(0f, xRotationLimit, 0f);
 
             }
 
             else
-                animator.SetBool("isRunning", false);
+                animator.SetBool("isRunningMouseInput", false);
 
         }
     }

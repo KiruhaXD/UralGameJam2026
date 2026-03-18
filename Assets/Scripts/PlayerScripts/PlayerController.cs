@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 namespace Assets.Scripts.PlayerScripts 
@@ -12,6 +13,9 @@ namespace Assets.Scripts.PlayerScripts
 
         [Header("Character Contoller")]
         [SerializeField] CharacterController characterController;
+
+        [Header("Player Rotation")]
+        [SerializeField] Transform playerRotation;
 
         public float horizontalDirectional;
         public float verticalDirectional;
@@ -35,15 +39,16 @@ namespace Assets.Scripts.PlayerScripts
 
             if (horizontalDirectional != 0 || verticalDirectional != 0)
             {
-
-                animator.SetBool("isRunning", true);
+                animator.SetBool("isRunningKeyboardInput", true);
 
                 moveDirectional = transform.TransformDirection(new Vector3(horizontalDirectional, 0f, verticalDirectional));
                 characterController.Move(moveDirectional * speedRun * Time.deltaTime);
+
+                playerRotation.Rotate(new Vector3(0f, horizontalDirectional, 0f));
             }
 
             else
-                animator.SetBool("isRunning", false);
+                animator.SetBool("isRunningKeyboardInput", false);
 
         }
     }
