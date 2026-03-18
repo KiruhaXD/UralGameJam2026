@@ -28,7 +28,8 @@ public class AttackRangePlayer : MonoBehaviour
         {
             isCanPunch = true;
 
-            playerAnimator.SetBool("isRunning", false);
+            playerAnimator.SetBool("isRunningMouseInput", false);
+            playerAnimator.SetBool("isRunningKeyboardInput", false);
         }
     }
 
@@ -44,7 +45,8 @@ public class AttackRangePlayer : MonoBehaviour
     {
         isCanPunch = false;
 
-        playerAnimator.SetBool("isRunning", true);
+        playerAnimator.SetBool("isRunningMouseInput", true);
+        playerAnimator.SetBool("isRunningKeyboardInput", true);
 
         playerAnimator.SetBool("isBattleReady", false);
         playerAnimator.SetBool("isPunching", false);

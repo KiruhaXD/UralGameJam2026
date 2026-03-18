@@ -34,6 +34,9 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
     [Header("Charge Broken Robot")]
     [SerializeField] GameObject chargeBrokenRobot;
 
+    [Header("Settings")]
+    [SerializeField] float timeForShowNextModelRobot = 3f;
+
     private void Update()
     {
         if (isHappenPressToggle == 6) // enable six toggle (fix all part in broken robot)                              
@@ -52,8 +55,10 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         playerAnimator.SetBool("isRunningKeyboardInput", false);
         playerAnimator.SetBool("isRunningMouseInput", false);
 
-        PlayerInteraction.hitSomething = false;
-        PlayerInteraction.isEnableRay = false;
+        imageInteract.gameObject.SetActive(false);
+
+        PlayerInteraction.isActiveRay = false;
+
         EnableCameraCheckBrokenRobot();
     }
 
@@ -81,6 +86,8 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
     private void EnablePlayerCamera() 
     {
+        PlayerInteraction.isActiveRay = true;
+
         playerCamera.enabled = true;
         cinemachineCameraCheckBrokenRobot.enabled = false;
 
@@ -111,11 +118,9 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
     public IEnumerator ShowRobotForCharge() 
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(timeForShowNextModelRobot);
 
         this.gameObject.SetActive(false); // off current model (repair broken robot)
         chargeBrokenRobot.SetActive(true);
-
-        PlayerInteraction.isEnableRay = true;
     }
 }

@@ -17,14 +17,15 @@ public class FollowRange : MonoBehaviour
 
     public bool isFollowing = false;
 
-    float xRotationLimitEnemy;
+    Vector3 moveEnemyToPlayer;
 
     private void Update()
     {
         if (isFollowing == true) 
         {
+            //enemy.EnemyRay();
             MoveEnemy();
-            RotateEnemy();
+            //RotateEnemy();
         }
 
     }
@@ -38,20 +39,19 @@ public class FollowRange : MonoBehaviour
         }
     }
 
-    public void MoveEnemy() 
+    public void MoveEnemy()
     {
-        Vector3 move = ((enemyPosition.position - playerPosition.position) / 3f) * Time.deltaTime;
+        moveEnemyToPlayer = (playerPosition.position - enemyPosition.position) / enemy.speedEnemy * Time.deltaTime;
 
-        enemyContoller.Move(-move * enemy.speedEnemy);
+        enemyContoller.Move(moveEnemyToPlayer * enemy.speedEnemy);
 
     }
 
-    public void RotateEnemy() 
-    {
-        xRotationLimitEnemy = enemyRotation.rotation.y / playerPosition.position.x;
 
+    public void RotateEnemy()
+    {
         //enemyRotation.localRotation = Quaternion.Euler(0, xRotationLimitEnemy, 0);
 
-        enemyRotation.Rotate(new Vector3(0f, xRotationLimitEnemy * Time.deltaTime, 0f));
+        transform.Rotate(new Vector3(0f, moveEnemyToPlayer.x, 0f));
     }
 }

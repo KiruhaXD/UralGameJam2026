@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class AttackHitboxToPlayer : MonoBehaviour
 {
-    [SerializeField] int damageCountToPlayer = 10;
-
     [SerializeField] PlayerHealth playerHealth;
 
     public void ApplyDamagePlayer(int damage) // вызывать у хитбокса руки в анимации через триггеры

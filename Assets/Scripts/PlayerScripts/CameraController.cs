@@ -11,6 +11,9 @@ namespace Assets.Scripts.PlayerScripts
         [Header("Player Rotation")]
         [SerializeField] Transform playerRotation;
 
+        [Header("Brother Rotation")]
+        [SerializeField] Transform brotherRotation;
+
         [Header("Settings")]
         [SerializeField] float mouseSensivity = 100f;
 
@@ -41,6 +44,7 @@ namespace Assets.Scripts.PlayerScripts
 
                 playerRotation.Rotate(new Vector3(0f, mouseX, 0f));
 
+                brotherRotation.Rotate(new Vector3(0f, mouseX, 0f));
                 //playerRotation.localRotation = Quaternion.Euler(0f, xRotationLimit, 0f);
 
             }

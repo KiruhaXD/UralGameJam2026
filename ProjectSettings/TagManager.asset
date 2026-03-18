@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - HitboxPlayer
   - HitboxEnemy
+  - BrotherRobot
   layers:
   - Default
   - TransparentFX

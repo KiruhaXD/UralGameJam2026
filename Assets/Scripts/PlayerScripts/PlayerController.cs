@@ -11,8 +11,8 @@ namespace Assets.Scripts.PlayerScripts
         [Header("Settings")]
         [SerializeField] float speedRun = 6f;
 
-        [Header("Character Contoller")]
-        [SerializeField] CharacterController characterController;
+        [Header("Player Character Contoller")]
+        [SerializeField] CharacterController playerCharacterController;
 
         [Header("Player Rotation")]
         [SerializeField] Transform playerRotation;
@@ -42,7 +42,8 @@ namespace Assets.Scripts.PlayerScripts
                 animator.SetBool("isRunningKeyboardInput", true);
 
                 moveDirectional = transform.TransformDirection(new Vector3(horizontalDirectional, 0f, verticalDirectional));
-                characterController.Move(moveDirectional * speedRun * Time.deltaTime);
+
+                playerCharacterController.Move(moveDirectional * speedRun * Time.deltaTime);
 
                 playerRotation.Rotate(new Vector3(0f, horizontalDirectional, 0f));
             }
