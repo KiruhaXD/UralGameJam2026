@@ -1,3 +1,4 @@
+using System.Collections;
 using Assets.Scripts.PlayerScripts;
 using TMPro;
 using Unity.Cinemachine;
@@ -30,10 +31,20 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
     public int isHappenPressToggle = 0;
 
+    [Header("Charge Broken Robot")]
+    [SerializeField] GameObject chargeBrokenRobot;
+
     private void Update()
     {
-        if (isHappenPressToggle == 6) // enable six toggle (fix all part in broken robot)
+        if (isHappenPressToggle == 6) // enable six toggle (fix all part in broken robot)                              
+        {
             EnablePlayerCamera();
+            // create method for call animation (repair) and effects
+
+            StartCoroutine(ShowRobotForCharge());
+
+            // after repair need charge our brother robot
+        }
     }
 
     public void Interact() 
@@ -96,5 +107,15 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
     {
         playerController.enabled = false;
         cameraController.enabled = false;
+    }
+
+    public IEnumerator ShowRobotForCharge() 
+    {
+        yield return new WaitForSeconds(2);
+
+        this.gameObject.SetActive(false); // off current model (repair broken robot)
+        chargeBrokenRobot.SetActive(true);
+
+        PlayerInteraction.isEnableRay = true;
     }
 }
