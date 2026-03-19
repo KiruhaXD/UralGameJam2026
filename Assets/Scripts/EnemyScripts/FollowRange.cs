@@ -23,9 +23,7 @@ public class FollowRange : MonoBehaviour
     {
         if (isFollowing == true) 
         {
-            //enemy.EnemyRay();
             MoveEnemy();
-            //RotateEnemy();
         }
 
     }
@@ -45,13 +43,12 @@ public class FollowRange : MonoBehaviour
 
         enemyContoller.Move(moveEnemyToPlayer * enemy.speedEnemy);
 
+        RotateEnemy();
     }
 
 
     public void RotateEnemy()
     {
-        //enemyRotation.localRotation = Quaternion.Euler(0, xRotationLimitEnemy, 0);
-
-        transform.Rotate(new Vector3(0f, moveEnemyToPlayer.x, 0f));
+        enemyRotation.LookAt(playerRotation.position);
     }
 }

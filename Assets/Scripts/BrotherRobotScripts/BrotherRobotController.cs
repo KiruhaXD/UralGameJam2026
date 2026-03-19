@@ -15,9 +15,10 @@ public class BrotherRobotController : MonoBehaviour
     [SerializeField] Transform brotherRotation;
 
     [Header("Follow Point to Player")]
-    public Transform followPointPlayer;
+    [SerializeField] Transform followPointPlayer;
 
-    public Transform playerPosition;
+    [Header("Target")]
+    [SerializeField] Transform targetPosition;
 
     public float horizontalDirectional;
     public float verticalDirectional;
@@ -63,11 +64,13 @@ public class BrotherRobotController : MonoBehaviour
 
         brotherCharacterController.Move(moveToFollowPoint * speedRun * Time.deltaTime);
 
-        //RotateBodyToEnemys();
+        RotateToSideDirectionForward();
     }
 
-    /*public void RotateBodyToEnemys() 
+    public void RotateToSideDirectionForward() 
     {
-        brotherRotation.Rotate(new Vector3(0f, playerPosition.position.x, 0f));
-    }*/
+        brotherRotation.LookAt(targetPosition.position);
+    }
+
+
 }
