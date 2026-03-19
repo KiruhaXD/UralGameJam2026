@@ -6,6 +6,8 @@ public class AttackRangePlayer : MonoBehaviour
 
     public bool isCanPunch = false;
 
+    [SerializeField] ChoiseEffectAttack choiseEffectAttack;
+
     private void Update()
     {
         if (CheckHitboxTriggerEnemy.isDeadEnemy == true)
@@ -46,6 +48,8 @@ public class AttackRangePlayer : MonoBehaviour
     {
         playerAnimator.SetBool("isBattleReady", true);
         playerAnimator.SetBool("isPunching", true);
+
+        choiseEffectAttack.EffectsAttack(choiseEffectAttack.currentEffect);
     }
 
     public void FightNonactive() 

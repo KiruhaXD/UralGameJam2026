@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuPause : MonoBehaviour
 {
@@ -34,6 +35,12 @@ public class MenuPause : MonoBehaviour
 
         Time.timeScale = 0f;
     }
+
+    public void RestartLevel() 
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    } 
 
     public void Continue() 
     {

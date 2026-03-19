@@ -10,6 +10,7 @@ public class CheckHitboxTriggerPlayer : MonoBehaviour
 
     [SerializeField] Animator playerAnimator;
 
+    [SerializeField] MenuPause menuPause;
 
     public void ApplyDamagePlayer(int damage) // вызывать у хитбокса руки в анимации через триггеры
     {
@@ -22,6 +23,7 @@ public class CheckHitboxTriggerPlayer : MonoBehaviour
             if (playerHealth.sliderHealth.value <= 0)
             {
                 playerHealth.sliderHealth.value = 0;
+                menuPause.Pause();
                 // влючить меню для перезапуса игры
             }
 

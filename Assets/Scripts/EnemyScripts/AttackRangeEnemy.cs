@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class AttackRangeEnemy : MonoBehaviour
 { 
-    [SerializeField] Animator animatorEnemy;
-    [SerializeField] FollowRange followRange;
+    public Animator animatorEnemy;
+    public FollowRange followRange;
 
     private void OnTriggerStay(Collider other)
     {

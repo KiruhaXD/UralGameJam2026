@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AttackRangeBrother : MonoBehaviour
@@ -11,6 +12,8 @@ public class AttackRangeBrother : MonoBehaviour
 
     [Header("Enemys Position")]
     [SerializeField] Transform[] enemysPosition;
+
+    [SerializeField] ChoiseEffectAttack choiseEffectAttack;
 
     private void Update()
     {
@@ -54,6 +57,8 @@ public class AttackRangeBrother : MonoBehaviour
     {
         brotherAnimator.SetBool("isBattleReady", true);
         brotherAnimator.SetBool("isPunching", true);
+
+        choiseEffectAttack.EffectsAttack(choiseEffectAttack.currentEffect);
     }
 
     public void FightNonactive()
