@@ -1,8 +1,12 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class CheckHitboxTriggerEnemy : MonoBehaviour
 {
+
+    [SerializeField] Animator enemyAnimator;
+
     [Header("Enemy Prefab")]
     [SerializeField] GameObject enemyObject;
 
@@ -21,7 +25,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
         {
             enemyHealth.sliderHealth.value -= damage;
 
-            enemyHealth.TakeHit();
+            TakeHit();
 
             if (enemyHealth.sliderHealth.value <= 0)
             {
@@ -42,5 +46,18 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
         if (other.CompareTag("HitboxAttackPlayer") || other.CompareTag("HitboxAttackBrother") && enemy.currentNumberEnemy == currentNumberEnemy) 
             ApplyDamageEnemy(damageCountToEnemy);
         
+    }
+
+    public void TakeHit()
+    {
+        enemyAnimator.SetBool("isHit", true);
+
+        StartCoroutine(AfterHit());
+    }
+
+    IEnumerator AfterHit()
+    {
+        yield return new WaitForSeconds(.5f);
+        enemyAnimator.SetBool("isHit", false);
     }
 }

@@ -12419,6 +12419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CheckHitboxTriggerPlayer
   playerHealth: {fileID: 7635726066245598042}
   damageCountToPlayer: 10
+  playerAnimator: {fileID: 7635726066245598038}
 --- !u!54 &660243159
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21178,7 +21179,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -28813,7 +28814,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrotherRobotHealth
   sliderHealth: {fileID: 711454873}
-  brotherAnimator: {fileID: 1529276059}
 --- !u!1 &1534889719
 GameObject:
   m_ObjectHideFlags: 0
@@ -29036,6 +29036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223c00709ba785644bde5336cd4b43a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckHitboxTriggerEnemy
+  enemyAnimator: {fileID: 244358868555355210}
   enemyObject: {fileID: 5142047095482264112}
   enemy: {fileID: 1370995783356579948}
   enemyHealth: {fileID: 7265123813287398838}
@@ -30860,6 +30861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223c00709ba785644bde5336cd4b43a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckHitboxTriggerEnemy
+  enemyAnimator: {fileID: 7287300021734971926}
   enemyObject: {fileID: 2385125824237692012}
   enemy: {fileID: 8449688295520587312}
   enemyHealth: {fileID: 186745760115246058}
@@ -31520,7 +31522,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -33419,6 +33421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CheckHitboxTriggerBrother
   brotherHealth: {fileID: 1529276068}
   damageCountToBrother: 10
+  brotherAnimator: {fileID: 1529276059}
 --- !u!54 &1770201834
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -39968,7 +39971,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   sliderHealth: {fileID: 5516284728780864005}
-  enemyAnimator: {fileID: 7287300021734971926}
 --- !u!1 &191948015189982793
 GameObject:
   m_ObjectHideFlags: 0
@@ -44659,7 +44661,6 @@ GameObject:
   - component: {fileID: 1166100477602729257}
   - component: {fileID: 7287300021734971926}
   - component: {fileID: 2526215547116249650}
-  - component: {fileID: 4959248017658920095}
   - component: {fileID: 1798320261431196158}
   - component: {fileID: 186745760115246058}
   - component: {fileID: 8449688295520587312}
@@ -45038,18 +45039,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00000028312206, y: 0.0067705484, z: 0.00010433188}
     m_Extent: {x: 0.0053279833, y: 0.00273103, z: 0.003697755}
   m_DirtyAABB: 0
---- !u!114 &2492559951447093955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5142047095482264112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f314db29bc2d6204f8b807908830fa39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyDeath
 --- !u!1 &2506245677138067756
 GameObject:
   m_ObjectHideFlags: 0
@@ -45813,7 +45802,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -49771,7 +49760,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -50639,18 +50628,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4959248017658920095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2385125824237692012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f314db29bc2d6204f8b807908830fa39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyDeath
 --- !u!4 &4977372145608701126
 Transform:
   m_ObjectHideFlags: 0
@@ -51514,7 +51491,6 @@ GameObject:
   - component: {fileID: 8532986413353550709}
   - component: {fileID: 244358868555355210}
   - component: {fileID: 4993217094384233582}
-  - component: {fileID: 2492559951447093955}
   - component: {fileID: 9129211398050461602}
   - component: {fileID: 7265123813287398838}
   - component: {fileID: 1370995783356579948}
@@ -55254,7 +55230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   sliderHealth: {fileID: 3082806724015813721}
-  enemyAnimator: {fileID: 244358868555355210}
 --- !u!95 &7287300021734971926
 Animator:
   serializedVersion: 7
@@ -56132,7 +56107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   sliderHealth: {fileID: 56767030}
-  playerAnimator: {fileID: 7635726066245598038}
 --- !u!4 &7636593057140274715
 Transform:
   m_ObjectHideFlags: 0
