@@ -4,23 +4,29 @@ public class AttackRangePlayer : MonoBehaviour
 {
     [SerializeField] Animator playerAnimator;
 
-    bool isCanPunch = false;
+    public bool isCanPunch = false;
 
     private void Update()
     {
         if (CheckHitboxTriggerEnemy.isDeadEnemy == true)
             FightNonactive();
+
+        if (Input.GetMouseButtonDown(0) && isCanPunch == true)
+            Punch();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            isCanPunch = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Enemy")) 
         {
-            isCanPunch = true;
-
-            if (Input.GetMouseButtonDown(0) && isCanPunch == true)
-                Punch();
-
             //playerAnimator.SetBool("isRunningMouseInput", false);
             //playerAnimator.SetBool("isRunningKeyboardInput", false);
         }
@@ -30,6 +36,8 @@ public class AttackRangePlayer : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            isCanPunch = false;
+
             FightNonactive();
         }
     }
@@ -42,8 +50,6 @@ public class AttackRangePlayer : MonoBehaviour
 
     public void FightNonactive() 
     {
-        isCanPunch = false;
-
         //playerAnimator.SetBool("isRunningMouseInput", true);
         //playerAnimator.SetBool("isRunningKeyboardInput", true);
 

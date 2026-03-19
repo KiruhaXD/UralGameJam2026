@@ -16,6 +16,17 @@ public class AttackRangeBrother : MonoBehaviour
     {
         if (CheckHitboxTriggerEnemy.isDeadEnemy == true)
             FightNonactive();
+
+        if (Input.GetMouseButtonDown(0) && isCanPunch == true)
+            Punch();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            isCanPunch = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -23,11 +34,6 @@ public class AttackRangeBrother : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             RotateBodyToEnemys();
-
-            isCanPunch = true;
-
-            if (Input.GetMouseButtonDown(0) && isCanPunch == true)
-                Punch();
 
             //brotherAnimator.SetBool("isRunningMouseInput", false);
             //brotherAnimator.SetBool("isRunningKeyboardInput", false);
@@ -38,6 +44,8 @@ public class AttackRangeBrother : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            isCanPunch = false;
+
             FightNonactive();
         }
     }
@@ -50,8 +58,6 @@ public class AttackRangeBrother : MonoBehaviour
 
     public void FightNonactive()
     {
-        isCanPunch = false;
-
         //brotherAnimator.SetBool("isRunningMouseInput", true);
         //brotherAnimator.SetBool("isRunningKeyboardInput", true);
 
