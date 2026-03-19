@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
 
-public class AttackHitboxToPlayer : MonoBehaviour
+public class CheckHitboxTriggerPlayer : MonoBehaviour
 {
     [SerializeField] PlayerHealth playerHealth;
+
+    [SerializeField] int damageCountToPlayer = 10;
 
     public void ApplyDamagePlayer(int damage) // вызывать у хитбокса руки в анимации через триггеры
     {
@@ -24,5 +26,11 @@ public class AttackHitboxToPlayer : MonoBehaviour
         if (damage < 0)
             throw new ArgumentOutOfRangeException();
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("HitboxAttackEnemy"))
+            ApplyDamagePlayer(damageCountToPlayer);
     }
 }

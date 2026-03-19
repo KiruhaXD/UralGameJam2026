@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     [Header("Settings")]
     public float speedEnemy = 0.2f;
 
+    public int currentNumberEnemy;
+
     /*[Header("Nav Mesh Agent")]
     [SerializeField] NavMeshAgent currentAgent;
 

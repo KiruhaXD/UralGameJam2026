@@ -8,9 +8,10 @@ TagManager:
   - Ground
   - BrokenRobot
   - Enemy
-  - HitboxPlayer
-  - HitboxEnemy
   - BrotherRobot
+  - HitboxAttackEnemy
+  - HitboxAttackPlayer
+  - HitboxAttackBrother
   layers:
   - Default
   - TransparentFX

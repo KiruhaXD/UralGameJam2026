@@ -12,7 +12,7 @@ public class AttackRangePlayer : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && isCanPunch == true)
             Punch();
 
-        if (AttackHitboxToEnemy.isDeadEnemy == true)
+        if (CheckHitboxTriggerEnemy.isDeadEnemy == true)
             FightNonactive();
     }
 

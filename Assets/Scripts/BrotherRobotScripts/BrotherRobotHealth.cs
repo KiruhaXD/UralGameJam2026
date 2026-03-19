@@ -1,16 +1,16 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
-public class EnemyHealth : MonoBehaviour
+public class BrotherRobotHealth : MonoBehaviour
 {
     public Slider sliderHealth;
 
-    [SerializeField] Animator enemyAnimator;
+    [SerializeField] Animator brotherAnimator;
 
     public void TakeHit()
     {
-        enemyAnimator.SetBool("isHit", true);
+        brotherAnimator.SetBool("isHit", true);
 
         StartCoroutine(AfterHit());
     }
@@ -18,6 +18,6 @@ public class EnemyHealth : MonoBehaviour
     IEnumerator AfterHit()
     {
         yield return new WaitForSeconds(.5f);
-        enemyAnimator.SetBool("isHit", false);
+        brotherAnimator.SetBool("isHit", false);
     }
 }

@@ -8,7 +8,7 @@ public class AttackRangeEnemy : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player")) 
+        if (other.CompareTag("Player") || other.CompareTag("BrotherRobot")) 
         {
             followRange.isFollowing = false;
 
@@ -21,7 +21,7 @@ public class AttackRangeEnemy : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("BrotherRobot"))
         {
             followRange.isFollowing = true;
 

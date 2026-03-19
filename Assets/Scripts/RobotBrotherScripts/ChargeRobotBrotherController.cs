@@ -9,6 +9,7 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
     [Header("UI")]
     [SerializeField] TMP_Text textInteract;
     [SerializeField] Image imageInteract;
+    [SerializeField] Slider sliderBrotherHealth;
 
     [Header("Animator")]
     [SerializeField] Animator playerAnimator;
@@ -44,5 +45,7 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
 
         this.gameObject.SetActive(false);
         normalChargedRobot.SetActive(true);
+
+        sliderBrotherHealth.gameObject.SetActive(true);
     }
 }
