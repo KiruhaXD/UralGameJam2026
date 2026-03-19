@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class AttackRangePlayer : MonoBehaviour
@@ -9,17 +8,8 @@ public class AttackRangePlayer : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isCanPunch == true)
-            Punch();
-
         if (CheckHitboxTriggerEnemy.isDeadEnemy == true)
             FightNonactive();
-    }
-
-    private void Punch() 
-    {
-        playerAnimator.SetBool("isBattleReady", true);
-        playerAnimator.SetBool("isPunching", true);
     }
 
     private void OnTriggerStay(Collider other)
@@ -28,8 +18,11 @@ public class AttackRangePlayer : MonoBehaviour
         {
             isCanPunch = true;
 
-            playerAnimator.SetBool("isRunningMouseInput", false);
-            playerAnimator.SetBool("isRunningKeyboardInput", false);
+            if (Input.GetMouseButtonDown(0) && isCanPunch == true)
+                Punch();
+
+            //playerAnimator.SetBool("isRunningMouseInput", false);
+            //playerAnimator.SetBool("isRunningKeyboardInput", false);
         }
     }
 
@@ -41,12 +34,18 @@ public class AttackRangePlayer : MonoBehaviour
         }
     }
 
+    private void Punch()
+    {
+        playerAnimator.SetBool("isBattleReady", true);
+        playerAnimator.SetBool("isPunching", true);
+    }
+
     public void FightNonactive() 
     {
         isCanPunch = false;
 
-        playerAnimator.SetBool("isRunningMouseInput", true);
-        playerAnimator.SetBool("isRunningKeyboardInput", true);
+        //playerAnimator.SetBool("isRunningMouseInput", true);
+        //playerAnimator.SetBool("isRunningKeyboardInput", true);
 
         playerAnimator.SetBool("isBattleReady", false);
         playerAnimator.SetBool("isPunching", false);

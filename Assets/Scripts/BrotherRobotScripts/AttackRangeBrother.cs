@@ -14,33 +14,23 @@ public class AttackRangeBrother : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isCanPunch == true)
-            Punch();
-
         if (CheckHitboxTriggerEnemy.isDeadEnemy == true)
             FightNonactive();
-    }
-
-    private void Punch()
-    {
-        brotherAnimator.SetBool("isBattleReady", true);
-        brotherAnimator.SetBool("isPunching", true);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-            RotateBodyToEnemys();
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
+            RotateBodyToEnemys();
+
             isCanPunch = true;
 
-            brotherAnimator.SetBool("isRunningMouseInput", false);
-            brotherAnimator.SetBool("isRunningKeyboardInput", false);
+            if (Input.GetMouseButtonDown(0) && isCanPunch == true)
+                Punch();
+
+            //brotherAnimator.SetBool("isRunningMouseInput", false);
+            //brotherAnimator.SetBool("isRunningKeyboardInput", false);
         }
     }
 
@@ -52,12 +42,18 @@ public class AttackRangeBrother : MonoBehaviour
         }
     }
 
+    private void Punch()
+    {
+        brotherAnimator.SetBool("isBattleReady", true);
+        brotherAnimator.SetBool("isPunching", true);
+    }
+
     public void FightNonactive()
     {
         isCanPunch = false;
 
-        brotherAnimator.SetBool("isRunningMouseInput", true);
-        brotherAnimator.SetBool("isRunningKeyboardInput", true);
+        //brotherAnimator.SetBool("isRunningMouseInput", true);
+        //brotherAnimator.SetBool("isRunningKeyboardInput", true);
 
         brotherAnimator.SetBool("isBattleReady", false);
         brotherAnimator.SetBool("isPunching", false);
