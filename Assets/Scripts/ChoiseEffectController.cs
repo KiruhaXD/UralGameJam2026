@@ -9,16 +9,16 @@ public class ChoiseEffectController : MonoBehaviour
     [SerializeField] BrotherRobotController brotherRobotController;
     [SerializeField] CameraController cameraController;
 
-    [SerializeField] ChoiseEffectAttack[] choiseEffectsAttacks;
+    [SerializeField] ChoiseEffectAttack[] choiseEffectAttack;
     [SerializeField] EffectItemTrigger[] effectItemsTrigger; // done
 
-    [SerializeField] Sprite[] sprites;
-    [SerializeField] Image[] imagesSlotEffects;
+    [SerializeField] Sprite[] sprites; // done
+    [SerializeField] Image[] imagesSlotEffects; // done
     [SerializeField] GameObject[] imagesEffectsWindowChoise; // done
 
     [SerializeField] GameObject choiseEffectAttackWindow;
 
-    //public int currentEffectTag = 0;
+    int currentChoiseIndex = 0;
 
     private void Update()
     {
@@ -51,47 +51,67 @@ public class ChoiseEffectController : MonoBehaviour
 
     public void ChoiseBrotherClickBtn(int choiseBrotherIndex) 
     {
-        int curentChoiseIndex = 1;
+        currentChoiseIndex = 1;
 
-        if(curentChoiseIndex == choiseBrotherIndex)
-            PickUpEffectAttack(curentChoiseIndex);
+        if(currentChoiseIndex == choiseBrotherIndex)
+            UseEffectAttack(currentChoiseIndex);
 
         EnableScriptsAndHideCursor();
     }
 
     public void ChoisePlayerClickBtn(int choisePlayerIndex) 
     {
-        int curentChoiseIndex = 0;
+        currentChoiseIndex = 0;
 
-        if(curentChoiseIndex == choisePlayerIndex)
-            PickUpEffectAttack(curentChoiseIndex);
+        if(currentChoiseIndex == choisePlayerIndex)
+            UseEffectAttack(currentChoiseIndex);
 
         EnableScriptsAndHideCursor();
     }
 
-    public void PickUpEffectAttack(int choiseIndex) 
+    public void UseEffectAttack(int choiseIndex) 
     {
         imagesSlotEffects[choiseIndex].gameObject.SetActive(true);
 
-        for (int k = 0; k < effectItemsTrigger.Length; k++)
+        for (int i = 0; i < effectItemsTrigger.Length; i++)
         {
-            switch (effectItemsTrigger[k].tagCurrentEffect)
+            for (int k = 0; k < choiseEffectAttack[choiseIndex].particleSystemsAttack.Length; k++)
             {
-                case "EffectIce":
-                    
-                    imagesSlotEffects[choiseIndex].sprite = sprites[0];
-                    effectItemsTrigger[0].tagCurrentEffect = "";
-                    break;
+                choiseEffectAttack[choiseIndex].particleSystemsAttack[k].gameObject.SetActive(false);
 
-                case "EffectShock":
-                    imagesSlotEffects[choiseIndex].sprite = sprites[1];
-                    effectItemsTrigger[1].tagCurrentEffect = "";
-                    break;
+                switch (effectItemsTrigger[i].tagCurrentEffect)
+                {
+                    case "EffectIce":
+                        imagesSlotEffects[choiseIndex].sprite = sprites[0];
+                        effectItemsTrigger[0].tagCurrentEffect = "";
 
-                case "EffectFire":
-                    imagesSlotEffects[choiseIndex].sprite = sprites[2];
-                    effectItemsTrigger[2].tagCurrentEffect = "";
-                    break;
+                        choiseEffectAttack[choiseIndex].currentEffect = 1;
+
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[1].gameObject.SetActive(true);
+                        Debug.Log($"{choiseEffectAttack[choiseIndex].particleSystemsAttack[1].name}, {choiseEffectAttack[choiseIndex].particleSystemsAttack[1].gameObject.activeSelf}");
+                        Debug.Log(choiseIndex);
+                        break;
+
+                    case "EffectShock":
+                        imagesSlotEffects[choiseIndex].sprite = sprites[1];
+                        effectItemsTrigger[1].tagCurrentEffect = "";
+
+                        choiseEffectAttack[choiseIndex].currentEffect = 2;
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[2].gameObject.SetActive(true);
+                        Debug.Log($"{choiseEffectAttack[choiseIndex].particleSystemsAttack[2].name}, {choiseEffectAttack[choiseIndex].particleSystemsAttack[2].gameObject.activeSelf}");
+                        Debug.Log(choiseIndex);
+                        break;
+
+                    case "EffectFire":
+                        imagesSlotEffects[choiseIndex].sprite = sprites[2];
+                        effectItemsTrigger[2].tagCurrentEffect = "";
+
+                        choiseEffectAttack[choiseIndex].currentEffect = 3;
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[3].gameObject.SetActive(true);
+                        Debug.Log($"{choiseEffectAttack[choiseIndex].particleSystemsAttack[3].name}, {choiseEffectAttack[choiseIndex].particleSystemsAttack[3].gameObject.activeSelf}");
+                        Debug.Log(choiseIndex);
+                        break;
+                }
             }
         }
 
