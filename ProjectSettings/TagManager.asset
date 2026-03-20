@@ -12,6 +12,9 @@ TagManager:
   - HitboxAttackEnemy
   - HitboxAttackPlayer
   - HitboxAttackBrother
+  - EffectIce
+  - EffectShock
+  - EffectFire
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,7 @@ using UnityEngine;
 public class ChoiseEffectAttack : MonoBehaviour
 {
     [Header("Effects")]
-    [SerializeField] ParticleSystem[] particleSystemsAttack;
+    public ParticleSystem[] particleSystemsAttack;
 
     public int currentEffect = 0;
 
