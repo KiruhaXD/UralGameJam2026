@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using Assets.Scripts.PlayerScripts;
 
 public class CheckHitboxTriggerPlayer : MonoBehaviour
 {
     [SerializeField] PlayerHealth playerHealth;
+    [SerializeField] PlayerController playerController;
 
     [SerializeField] int damageCountToPlayer = 10;
 
@@ -14,7 +16,22 @@ public class CheckHitboxTriggerPlayer : MonoBehaviour
 
     public void ApplyDamagePlayer(int damage) // вызывать у хитбокса руки в анимации через триггеры
     {
-        if (playerHealth.sliderHealth.value > 0)
+        if (playerHealth.sliderArmor.value > 0)
+        {
+            playerHealth.sliderArmor.value -= damage;
+
+            TakeHit();
+
+            if (playerHealth.sliderArmor.value <= 0) 
+            {
+                playerHealth.sliderArmor.value = 0;
+                playerHealth.fillSliderArmor.gameObject.SetActive(false);
+            }
+
+            
+        }
+
+        if (playerHealth.sliderArmor.value == 0 && playerHealth.sliderHealth.value > 0)
         {
             playerHealth.sliderHealth.value -= damage;
 
@@ -23,10 +40,11 @@ public class CheckHitboxTriggerPlayer : MonoBehaviour
             if (playerHealth.sliderHealth.value <= 0)
             {
                 playerHealth.sliderHealth.value = 0;
-                menuPause.Pause();
+                playerHealth.fillSliderHealth.gameObject.SetActive(false);
+                //playerController.enabled = false;
+                //menuPause.Pause();
                 // влючить меню для перезапуса игры
             }
-
         }
 
         if (damage < 0)

@@ -5,6 +5,7 @@ using System.Collections;
 public class CheckHitboxTriggerBrother : MonoBehaviour
 {
     [SerializeField] BrotherRobotHealth brotherHealth;
+    [SerializeField] BrotherRobotController brotherController;
 
     [SerializeField] int damageCountToBrother = 10;
 
@@ -12,16 +13,33 @@ public class CheckHitboxTriggerBrother : MonoBehaviour
 
     public void ApplyDamageBrotherRobot(int damage) // вызывать у хитбокса руки в анимации через триггеры
     {
-        if (brotherHealth.sliderHealth.value > 0)
+        if (brotherHealth.sliderArmor.value > 0)
+        {
+            brotherHealth.sliderArmor.value -= damage;
+
+            TakeHit();
+
+            if (brotherHealth.sliderArmor.value <= 0) 
+            {
+                brotherHealth.sliderArmor.value = 0;
+                brotherHealth.fillSliderArmor.gameObject.SetActive(false);
+            }
+
+
+        }
+
+        if (brotherHealth.sliderArmor.value == 0 && brotherHealth.sliderHealth.value > 0) 
         {
             brotherHealth.sliderHealth.value -= damage;
 
             TakeHit();
 
-            if (brotherHealth.sliderHealth.value <= 0)
+            if (brotherHealth.sliderHealth.value <= 0) 
             {
                 brotherHealth.sliderHealth.value = 0;
-                // влючить меню для перезапуса игры
+                brotherHealth.fillSliderHealth.gameObject.SetActive(false);
+                //brotherController.enabled = false;
+                // анимация смерти и отключить скрипты чтоб он не двигался
             }
 
         }
