@@ -4,7 +4,10 @@ using System.Collections;
 
 public class CheckHitboxTriggerEnemy : MonoBehaviour
 {
+    [Header("Spawn Items")]
+    [SerializeField] SpawnItems spawnItems;
 
+    [Header("Animator")]
     [SerializeField] Animator enemyAnimator;
 
     [Header("Enemy Prefab")]
@@ -33,6 +36,8 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
                 isDeadEnemy = true;
                 enemyObject.gameObject.SetActive(false);
+
+                spawnItems.Spawn();
             }
 
         }

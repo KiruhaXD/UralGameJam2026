@@ -1,4 +1,5 @@
 using System.Collections;
+using Assets.Scripts.PlayerScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,10 @@ using UnityEngine.UI;
 // скрипт отвечающих за зарядку нашего брата робота
 public class ChargeRobotBrotherController : MonoBehaviour, IInteract
 {
+    [Header("References")]
+    [SerializeField] PlayerController playerController;
+    [SerializeField] CameraController cameraController;
+
     [Header("UI")]
     [SerializeField] TMP_Text textInteract;
     [SerializeField] Image imageInteract;
@@ -47,5 +52,13 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
         normalChargedRobot.SetActive(true);
 
         sliderBrotherHealth.gameObject.SetActive(true);
+
+        EnableScripts();
+    }
+
+    private void EnableScripts()
+    {
+        playerController.enabled = true;
+        cameraController.enabled = true;
     }
 }

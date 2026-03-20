@@ -22,6 +22,10 @@ public class ChoiseEffectAttack : MonoBehaviour
             case 2:
                 particleSystemsAttack[currentEffect].Play();
                 break;
+
+            case 3:
+                particleSystemsAttack[currentEffect].Play();
+                break;
         }
     }
 }

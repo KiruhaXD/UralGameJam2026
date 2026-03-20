@@ -91,7 +91,7 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         playerCamera.enabled = true;
         cinemachineCameraCheckBrokenRobot.enabled = false;
 
-        EnableScripts();
+        DisableScripts();
 
         for (int i = 0; i < outlines.Length; i++)
             outlines[i].enabled = false;
@@ -102,12 +102,6 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         fixButtons.SetActive(false);
 
         barBrother.gameObject.SetActive(true);
-    }
-
-    private void EnableScripts() 
-    {
-        playerController.enabled = true;
-        cameraController.enabled = true;
     }
 
     private void DisableScripts() 

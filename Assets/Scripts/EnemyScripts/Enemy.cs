@@ -14,7 +14,8 @@ public class Enemy : MonoBehaviour
     [Header("Settings")]
     public float speedEnemy = 0.2f;
 
-    public int currentNumberEnemy;
+    [Header("Number Enemy, !!! NEED CHANGE AFTER SPAWN NEXT ENEMY !!! ")]
+    [SerializeField] internal int currentNumberEnemy;
 
     /*[Header("Nav Mesh Agent")]
     [SerializeField] NavMeshAgent currentAgent;
