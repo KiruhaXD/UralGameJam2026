@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class RepairRobotBrotherController : MonoBehaviour, IInteract
 {
+    [Header("Effects")]
+    [SerializeField] ParticleSystem fixEffect;
+
     [Header("References")]
     [SerializeField] PlayerController playerController;
     [SerializeField] CameraController cameraController;
@@ -99,6 +102,8 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        fixEffect.gameObject.SetActive(true);
+
         fixButtons.SetActive(false);
 
         barBrother.gameObject.SetActive(true);
@@ -116,5 +121,7 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
         this.gameObject.SetActive(false); // off current model (repair broken robot)
         chargeBrokenRobot.SetActive(true);
+
+        fixEffect.gameObject.SetActive(false);
     }
 }

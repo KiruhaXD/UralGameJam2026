@@ -8,6 +8,8 @@ public class ChoiseEffectController : MonoBehaviour
     [SerializeField] PlayerController playerController;
     [SerializeField] BrotherRobotController brotherRobotController;
     [SerializeField] CameraController cameraController;
+    [SerializeField] Animator playerAnimator;
+    [SerializeField] Animator brotherAnimator;
 
     [SerializeField] ChoiseEffectAttack[] choiseEffectAttack;
     [SerializeField] EffectItemTrigger[] effectItemsTrigger; // done
@@ -18,7 +20,7 @@ public class ChoiseEffectController : MonoBehaviour
 
     [SerializeField] GameObject choiseEffectAttackWindow;
 
-    int currentChoiseIndex = 0;
+    public int currentChoiseIndex = 0;
 
     private void Update()
     {
@@ -77,8 +79,6 @@ public class ChoiseEffectController : MonoBehaviour
         {
             for (int k = 0; k < choiseEffectAttack[choiseIndex].particleSystemsAttack.Length; k++)
             {
-                choiseEffectAttack[choiseIndex].particleSystemsAttack[k].gameObject.SetActive(false);
-
                 switch (effectItemsTrigger[i].tagCurrentEffect)
                 {
                     case "EffectIce":
@@ -86,10 +86,11 @@ public class ChoiseEffectController : MonoBehaviour
                         effectItemsTrigger[0].tagCurrentEffect = "";
 
                         choiseEffectAttack[choiseIndex].currentEffect = 1;
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[0].gameObject.SetActive(false);
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[2].gameObject.SetActive(false);
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[3].gameObject.SetActive(false);
 
                         choiseEffectAttack[choiseIndex].particleSystemsAttack[1].gameObject.SetActive(true);
-                        Debug.Log($"{choiseEffectAttack[choiseIndex].particleSystemsAttack[1].name}, {choiseEffectAttack[choiseIndex].particleSystemsAttack[1].gameObject.activeSelf}");
-                        Debug.Log(choiseIndex);
                         break;
 
                     case "EffectShock":
@@ -97,9 +98,12 @@ public class ChoiseEffectController : MonoBehaviour
                         effectItemsTrigger[1].tagCurrentEffect = "";
 
                         choiseEffectAttack[choiseIndex].currentEffect = 2;
+
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[0].gameObject.SetActive(false);
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[1].gameObject.SetActive(false);
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[3].gameObject.SetActive(false);
+
                         choiseEffectAttack[choiseIndex].particleSystemsAttack[2].gameObject.SetActive(true);
-                        Debug.Log($"{choiseEffectAttack[choiseIndex].particleSystemsAttack[2].name}, {choiseEffectAttack[choiseIndex].particleSystemsAttack[2].gameObject.activeSelf}");
-                        Debug.Log(choiseIndex);
                         break;
 
                     case "EffectFire":
@@ -107,9 +111,12 @@ public class ChoiseEffectController : MonoBehaviour
                         effectItemsTrigger[2].tagCurrentEffect = "";
 
                         choiseEffectAttack[choiseIndex].currentEffect = 3;
+
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[0].gameObject.SetActive(false);
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[1].gameObject.SetActive(false);
+                        choiseEffectAttack[choiseIndex].particleSystemsAttack[2].gameObject.SetActive(false);
+
                         choiseEffectAttack[choiseIndex].particleSystemsAttack[3].gameObject.SetActive(true);
-                        Debug.Log($"{choiseEffectAttack[choiseIndex].particleSystemsAttack[3].name}, {choiseEffectAttack[choiseIndex].particleSystemsAttack[3].gameObject.activeSelf}");
-                        Debug.Log(choiseIndex);
                         break;
                 }
             }
@@ -125,6 +132,8 @@ public class ChoiseEffectController : MonoBehaviour
         playerController.enabled = true;
         brotherRobotController.enabled = true;
         cameraController.enabled = true;
+        playerAnimator.enabled = true;
+        brotherAnimator.enabled = true;
 
         choiseEffectAttackWindow.SetActive(false);
     }

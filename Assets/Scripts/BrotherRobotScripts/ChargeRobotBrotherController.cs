@@ -7,6 +7,9 @@ using UnityEngine.UI;
 // скрипт отвечающих за зарядку нашего брата робота
 public class ChargeRobotBrotherController : MonoBehaviour, IInteract
 {
+    [Header("Effects")]
+    [SerializeField] ParticleSystem fixEffect;
+
     [Header("References")]
     [SerializeField] PlayerController playerController;
     [SerializeField] CameraController cameraController;
@@ -38,6 +41,8 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
 
         PlayerInteraction.isActiveRay = false;
 
+        fixEffect.gameObject.SetActive(true);
+
         StartCoroutine(ShowNormalRobot());
     }
 
@@ -47,6 +52,8 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
     public IEnumerator ShowNormalRobot() 
     {
         yield return new WaitForSeconds(timeForShowNextModelRobot);
+
+        fixEffect.gameObject.SetActive(false);
 
         this.gameObject.SetActive(false);
         normalChargedRobot.SetActive(true);

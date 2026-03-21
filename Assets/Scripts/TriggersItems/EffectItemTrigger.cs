@@ -6,6 +6,8 @@ public class EffectItemTrigger : MonoBehaviour
     [SerializeField] PlayerController playerController;
     [SerializeField] BrotherRobotController brotherRobotController;
     [SerializeField] CameraController cameraController;
+    [SerializeField] Animator playerAnimator;
+    [SerializeField] Animator brotherAnimator;
 
     [SerializeField] GameObject choiseEffectAttackWindow;
 
@@ -33,5 +35,7 @@ public class EffectItemTrigger : MonoBehaviour
         playerController.enabled = false;
         brotherRobotController.enabled = false;
         cameraController.enabled = false;
+        playerAnimator.enabled = false;
+        brotherAnimator.enabled = false;
     }
 }

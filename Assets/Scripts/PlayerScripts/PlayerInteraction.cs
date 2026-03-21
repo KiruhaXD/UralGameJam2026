@@ -46,11 +46,11 @@ public class PlayerInteraction : MonoBehaviour
         {
             IInteract interact = hit.collider.GetComponent<IInteract>();
 
-            Debug.Log($" позиция луча: {positionRay} / направление луча: {directionRay}, сам луч: {hit}");
+            //Debug.Log($" позиция луча: {positionRay} / направление луча: {directionRay}, сам луч: {hit}");
 
             if (interact != null && hit.collider.tag == "BrokenRobot")
             {
-                Debug.Log($"луч столкнулся с тегом: {hit.collider.tag}");
+                //Debug.Log($"луч столкнулся с тегом: {hit.collider.tag}");
 
                 interact.Description();
                 hitSomething = true;

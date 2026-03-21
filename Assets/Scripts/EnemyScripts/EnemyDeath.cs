@@ -1,16 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] AttackRangeEnemy attackRangeEnemy;
+    [SerializeField] FollowRange followRange;
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator DeathCoroutine() 
     {
-        
+        attackRangeEnemy.enabled = false;
+        followRange.enabled = false;
+
+        yield return new WaitForSeconds(.5f);
+        this.gameObject.SetActive(false);
     }
 }

@@ -1,7 +1,9 @@
 using UnityEngine;
 
 public class AttackRangeEnemy : MonoBehaviour
-{ 
+{
+    [SerializeField] CheckHitboxTriggerEnemy checkHitboxTriggerEnemy;
+
     public Animator animatorEnemy;
     public FollowRange followRange;
 
@@ -13,8 +15,20 @@ public class AttackRangeEnemy : MonoBehaviour
 
             animatorEnemy.SetBool("isRunning", false);
 
-            animatorEnemy.SetBool("isBattleReady", true);
-            animatorEnemy.SetBool("isPunching", true);
+            if (checkHitboxTriggerEnemy.isTakeHit == false)
+            {
+                animatorEnemy.SetBool("isBattleReady", true);
+                animatorEnemy.SetBool("isPunching", true);
+            }
+
+            else 
+            {
+                animatorEnemy.SetBool("isBattleReady", false);
+                animatorEnemy.SetBool("isPunching", false);
+            }
+                
+
+
         }
     }
 
