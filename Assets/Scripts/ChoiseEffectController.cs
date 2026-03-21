@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Assets.Scripts.PlayerScripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,9 @@ public class ChoiseEffectController : MonoBehaviour
 
     [SerializeField] GameObject choiseEffectAttackWindow;
 
-    public int currentChoiseIndex = 0;
+    public int currentChoiseCharacterIndex = 0;  // 0 - Player, 1 - Brother
+
+    public bool isPickUpEffectIce, isPickUpEffectShock, isPickUpEffectFire = false;
 
     private void Update()
     {
@@ -53,20 +56,20 @@ public class ChoiseEffectController : MonoBehaviour
 
     public void ChoiseBrotherClickBtn(int choiseBrotherIndex) 
     {
-        currentChoiseIndex = 1;
+        currentChoiseCharacterIndex = 1;
 
-        if(currentChoiseIndex == choiseBrotherIndex)
-            UseEffectAttack(currentChoiseIndex);
+        if(currentChoiseCharacterIndex == choiseBrotherIndex)
+            UseEffectAttack(currentChoiseCharacterIndex);
 
         EnableScriptsAndHideCursor();
     }
 
     public void ChoisePlayerClickBtn(int choisePlayerIndex) 
     {
-        currentChoiseIndex = 0;
+        currentChoiseCharacterIndex = 0;
 
-        if(currentChoiseIndex == choisePlayerIndex)
-            UseEffectAttack(currentChoiseIndex);
+        if(currentChoiseCharacterIndex == choisePlayerIndex)
+            UseEffectAttack(currentChoiseCharacterIndex);
 
         EnableScriptsAndHideCursor();
     }
@@ -82,6 +85,9 @@ public class ChoiseEffectController : MonoBehaviour
                 switch (effectItemsTrigger[i].tagCurrentEffect)
                 {
                     case "EffectIce":
+
+                        isPickUpEffectIce = true;
+
                         imagesSlotEffects[choiseIndex].sprite = sprites[0];
                         effectItemsTrigger[0].tagCurrentEffect = "";
 
@@ -94,6 +100,9 @@ public class ChoiseEffectController : MonoBehaviour
                         break;
 
                     case "EffectShock":
+
+                        isPickUpEffectShock = true;
+
                         imagesSlotEffects[choiseIndex].sprite = sprites[1];
                         effectItemsTrigger[1].tagCurrentEffect = "";
 
@@ -107,6 +116,9 @@ public class ChoiseEffectController : MonoBehaviour
                         break;
 
                     case "EffectFire":
+
+                        isPickUpEffectFire = true;
+
                         imagesSlotEffects[choiseIndex].sprite = sprites[2];
                         effectItemsTrigger[2].tagCurrentEffect = "";
 

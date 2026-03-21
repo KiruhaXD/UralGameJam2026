@@ -3,6 +3,8 @@ using UnityEngine;
 public class AttackRangeEnemy : MonoBehaviour
 {
     [SerializeField] CheckHitboxTriggerEnemy checkHitboxTriggerEnemy;
+    [SerializeField] TimerEndEffect timerEndEffect;
+    [SerializeField] ParticleSystem iceEffect;
 
     public Animator animatorEnemy;
     public FollowRange followRange;
@@ -26,9 +28,6 @@ public class AttackRangeEnemy : MonoBehaviour
                 animatorEnemy.SetBool("isBattleReady", false);
                 animatorEnemy.SetBool("isPunching", false);
             }
-                
-
-
         }
     }
 

@@ -2,11 +2,15 @@ using System;
 using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Your summary
+/// </summary>
 public class CheckHitboxTriggerEnemy : MonoBehaviour
 {
     [Header("Effects")]
     [SerializeField] ParticleSystem[] effectsTakeHit;
-    [SerializeField] ChoiseEffectAttack[] choiseEffectAttack;
+    [SerializeField] ChoiseEffectAttackPlayer choiseEffectAttackPlayer;
+    [SerializeField] ChoiseEffectAttackBrother choiseEffectAttackBrother;
 
     [Header("Spawn Items")]
     [SerializeField] SpawnItems spawnItems;
@@ -29,13 +33,28 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
     public bool isTakeHit = false;
 
-    public void ApplyDamageEnemy(int damage) // вызывать у хитбокса руки в анимации через триггеры
+    public string hitboxTagName = string.Empty;
+
+    public bool isTakeHitEffectIce, isTakeHitEffectShock, isTakeHitEffectFire = false;
+
+    public void ApplyDamageEnemy(int damage, string hitboxTagName) // вызывать у хитбокса руки в анимации через триггеры
     {
         if (enemyHealth.sliderHealth.value > 0)
         {
             enemyHealth.sliderHealth.value -= damage;
 
-            PlayEffectHit();
+            this.hitboxTagName = hitboxTagName;
+
+            if (this.hitboxTagName == "HitboxAttackPlayer" && choiseEffectAttackPlayer.currentNamePerson == "Player")
+            {
+                PlayEffectHit(choiseEffectAttackPlayer.currentEffect);
+            }
+
+            if (this.hitboxTagName == "HitboxAttackBrother" && choiseEffectAttackBrother.currentNamePerson == "Brother")
+            {
+                PlayEffectHit(choiseEffectAttackBrother.currentEffect);
+            }
+
 
             TakeHit();
 
@@ -60,15 +79,13 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("HitboxAttackPlayer") || other.CompareTag("HitboxAttackBrother") && enemy.currentNumberEnemy == currentNumberEnemy) 
-            ApplyDamageEnemy(damageCountToEnemy);
+            ApplyDamageEnemy(damageCountToEnemy, other.tag);
         
     }
 
     public void TakeHit()
     {
         isTakeHit = true;
-
-        StartCoroutine(StopEffectHit());
 
         enemyAnimator.SetBool("isHit", true);
 
@@ -81,56 +98,70 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
         enemyAnimator.SetBool("isHit", false);
 
         isTakeHit = false;
+
+        StartCoroutine(ChoiseStopEffectHit());
     }
 
-    public void PlayEffectHit() 
-    {
-        for (int i = 0; i < choiseEffectAttack.Length; i++)
-        {
-            switch (choiseEffectAttack[i].currentEffect)
-            {
-                case 1:
-                    effectsTakeHit[0].gameObject.SetActive(true);
-                    effectsTakeHit[0].Play();
-                    break;
-
-                case 2:
-                    effectsTakeHit[1].gameObject.SetActive(true);
-                    effectsTakeHit[1].Play();
-                    break;
-
-                case 3:
-                    effectsTakeHit[2].gameObject.SetActive(true);
-                    effectsTakeHit[2].Play();
-                    break;
-            }
-
-        }
-    }
-
-    IEnumerator StopEffectHit() 
+    IEnumerator ChoiseStopEffectHit() 
     {
         yield return new WaitForSeconds(.5f);
 
-        for (int i = 0; i < choiseEffectAttack.Length; i++)
+        if (this.hitboxTagName == "HitboxAttackPlayer" && choiseEffectAttackPlayer.currentNamePerson == "Player")
         {
-            switch (choiseEffectAttack[i].currentEffect)
-            {
-                case 1:
-                    effectsTakeHit[0].Stop();
-                    effectsTakeHit[0].gameObject.SetActive(false);
-                    break;
+            StopEffectHit(choiseEffectAttackPlayer.currentEffect);
+        }
 
-                case 2:
-                    effectsTakeHit[1].Stop();
-                    effectsTakeHit[1].gameObject.SetActive(false);
-                    break;
+        if (this.hitboxTagName == "HitboxAttackBrother" && choiseEffectAttackBrother.currentNamePerson == "Brother")
+        {
+            StopEffectHit(choiseEffectAttackBrother.currentEffect);
+        }
+    }
 
-                case 3:
-                    effectsTakeHit[2].Stop();
-                    effectsTakeHit[2].gameObject.SetActive(false);
-                    break;
-            }
+    public void PlayEffectHit(int currentEffect) 
+    {
+        switch (currentEffect)
+        {
+            case 1:
+                effectsTakeHit[0].gameObject.SetActive(true);
+                effectsTakeHit[0].Play();
+
+                isTakeHitEffectIce = true;
+                break;
+
+            case 2:
+                effectsTakeHit[1].gameObject.SetActive(true);
+                effectsTakeHit[1].Play();
+
+                isTakeHitEffectShock = true;
+                break;
+
+            case 3:
+                effectsTakeHit[2].gameObject.SetActive(true);
+                effectsTakeHit[2].Play();
+
+                isTakeHitEffectFire = true;
+                break;
+        }
+    }
+
+    public void StopEffectHit(int currentEffect) 
+    {
+        switch (currentEffect)
+        {
+            case 1:
+                effectsTakeHit[0].Stop();
+                effectsTakeHit[0].gameObject.SetActive(false);
+                break;
+
+            case 2:
+                effectsTakeHit[1].Stop();
+                effectsTakeHit[1].gameObject.SetActive(false);
+                break;
+
+            case 3:
+                effectsTakeHit[2].Stop();
+                effectsTakeHit[2].gameObject.SetActive(false);
+                break;
         }
     }
 

@@ -7,6 +7,13 @@ public class ChoiseEffectAttack : MonoBehaviour
 
     public int currentEffect = 0;
 
+    public string currentNamePerson;
+
+    private void Awake()
+    {
+        currentNamePerson = this.name;
+    }
+
     public void EffectsAttack(int currentEffect)
     {
         switch (currentEffect)

@@ -1,7 +1,16 @@
+using System.Collections;
 using UnityEngine;
 
 public class FollowRange : MonoBehaviour
 {
+    [SerializeField] CheckHitboxTriggerEnemy checkHitboxTriggerEnemy;
+    [SerializeField] TimerEndEffect timerEndEffect;
+    [SerializeField] ParticleSystem iceEffect;
+
+    [Header("Settings")]
+    [SerializeField] float slowlySpeed = 1f;
+    [SerializeField] int timer = 5;
+
     [Header("Enemy")]
     [SerializeField] CharacterController enemyContoller;
     [SerializeField] Enemy enemy;
@@ -17,15 +26,25 @@ public class FollowRange : MonoBehaviour
 
     public bool isFollowing = false;
 
-    Vector3 moveEnemyToPlayer;
-
     private void Update()
     {
         if (isFollowing == true) 
         {
-            MoveEnemy();
-        }
+            if (checkHitboxTriggerEnemy.isTakeHitEffectIce == false)
+                MoveEnemy();
 
+            if (checkHitboxTriggerEnemy.isTakeHitEffectIce == true)
+            {
+                SlowlyMoveEnemy();
+
+                if (timer == 0)
+                {
+                    iceEffect.Stop();
+
+                    checkHitboxTriggerEnemy.isTakeHitEffectIce = false;
+                }
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,11 +58,25 @@ public class FollowRange : MonoBehaviour
 
     public void MoveEnemy()
     {
-        moveEnemyToPlayer = (playerPosition.position - enemyPosition.position) / enemy.speedEnemy * Time.deltaTime;
+        Vector3 moveEnemyToPlayer = (playerPosition.position - enemyPosition.position) / enemy.speedEnemy * Time.deltaTime;
 
         enemyContoller.Move(moveEnemyToPlayer * enemy.speedEnemy);
 
         RotateEnemy();
+
+    }
+
+    public void SlowlyMoveEnemy() 
+    {
+        iceEffect.Play();
+
+        Vector3 moveEnemyToPlayer = (playerPosition.position - enemyPosition.position) / slowlySpeed * Time.deltaTime;
+
+        enemyContoller.Move(moveEnemyToPlayer * slowlySpeed);
+
+        RotateEnemy();
+
+        StartCoroutine(timerEndEffect.Timer(timer));
     }
 
 
@@ -51,4 +84,5 @@ public class FollowRange : MonoBehaviour
     {
         enemyRotation.LookAt(playerRotation.position);
     }
+
 }
