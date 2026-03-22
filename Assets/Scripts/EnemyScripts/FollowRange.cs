@@ -30,7 +30,9 @@ public class FollowRange : MonoBehaviour
     {
         if (isFollowing == true) 
         {
-            if (checkHitboxTriggerEnemy.isTakeHitEffectIce == false)
+            MoveEnemy();
+
+            /*if (checkHitboxTriggerEnemy.isTakeHitEffectIce == false)
                 MoveEnemy();
 
             if (checkHitboxTriggerEnemy.isTakeHitEffectIce == true)
@@ -43,7 +45,7 @@ public class FollowRange : MonoBehaviour
 
                     checkHitboxTriggerEnemy.isTakeHitEffectIce = false;
                 }
-            }
+            }*/
         }
     }
 
@@ -66,7 +68,7 @@ public class FollowRange : MonoBehaviour
 
     }
 
-    public void SlowlyMoveEnemy() 
+    /*public void SlowlyMoveEnemy() 
     {
         iceEffect.Play();
 
@@ -77,7 +79,7 @@ public class FollowRange : MonoBehaviour
         RotateEnemy();
 
         StartCoroutine(timerEndEffect.Timer(timer));
-    }
+    }*/
 
 
     public void RotateEnemy()
