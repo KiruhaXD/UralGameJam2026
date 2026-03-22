@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class FollowRange : MonoBehaviour
 {
+
     [SerializeField] CheckHitboxTriggerEnemy checkHitboxTriggerEnemy;
     [SerializeField] TimerEndEffect timerEndEffect;
     [SerializeField] ParticleSystem iceEffect;
+
+    [Header("Audio")]
+    [SerializeField] AudioSource audioRun;
 
     [Header("Settings")]
     [SerializeField] float slowlySpeed = 1f;
@@ -65,6 +69,9 @@ public class FollowRange : MonoBehaviour
         enemyContoller.Move(moveEnemyToPlayer * enemy.speedEnemy);
 
         RotateEnemy();
+
+        if (audioRun.isPlaying) return;
+        audioRun.PlayDelayed(0.1f);
 
     }
 

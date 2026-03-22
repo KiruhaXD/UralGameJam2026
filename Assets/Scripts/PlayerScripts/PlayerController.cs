@@ -5,6 +5,9 @@ namespace Assets.Scripts.PlayerScripts
 {
     public class PlayerController : MonoBehaviour
     {
+        [Header("Audio")]
+        [SerializeField] AudioSource audioRun;
+
         [Header("Animator")]
         [SerializeField] Animator animator;
 
@@ -46,10 +49,17 @@ namespace Assets.Scripts.PlayerScripts
                 playerCharacterController.Move(moveDirectional * speedRun * Time.deltaTime);
 
                 playerRotation.Rotate(new Vector3(0f, horizontalDirectional, 0f));
+
+                if (audioRun.isPlaying) return;
+                audioRun.PlayDelayed(0.1f);
             }
 
-            else
+            else 
+            {
                 animator.SetBool("isRunningKeyboardInput", false);
+                audioRun.Stop();
+            }
+
 
         }
     }

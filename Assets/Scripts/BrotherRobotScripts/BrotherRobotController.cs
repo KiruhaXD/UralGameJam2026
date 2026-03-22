@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class BrotherRobotController : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] AudioSource audioRun;
+
     [Header("Animator")]
     public Animator brotherAnimator;
 
@@ -51,10 +54,17 @@ public class BrotherRobotController : MonoBehaviour
             brotherCharacterController.Move(moveDirectional * speedRun * Time.deltaTime);
 
             brotherRotation.Rotate(new Vector3(0f, horizontalDirectional, 0f));
+
+            if (audioRun.isPlaying) return;
+            audioRun.PlayDelayed(0.1f);
         }
 
         else
+        {
             brotherAnimator.SetBool("isRunningKeyboardInput", false);
+            audioRun.Stop();
+        }
+
 
     }
 
@@ -65,6 +75,9 @@ public class BrotherRobotController : MonoBehaviour
         brotherCharacterController.Move(moveToFollowPoint * speedRun * Time.deltaTime);
 
         RotateToSideDirectionForward();
+
+        if (audioRun.isPlaying) return;
+        audioRun.PlayDelayed(0.1f);
     }
 
     public void RotateToSideDirectionForward() 
