@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class RepairRobotBrotherController : MonoBehaviour, IInteract
 {
+    [Header("Border Collider")]
+    [SerializeField] GameObject border;
+
     [Header("Effects")]
     [SerializeField] ParticleSystem fixEffect;
 
@@ -25,6 +28,7 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
     [SerializeField] Image imageInteract;
     [SerializeField] GameObject fixButtons;
     [SerializeField] GameObject barBrother;
+    [SerializeField] Image imageEvent;
 
     [Header("Player Camera")]
     [SerializeField] CinemachineCamera playerCamera;
@@ -61,6 +65,9 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         imageInteract.gameObject.SetActive(false);
 
         PlayerInteraction.isActiveRay = false;
+
+        imageEvent.gameObject.SetActive(false);
+        border.gameObject.SetActive(false);
 
         EnableCameraCheckBrokenRobot();
     }

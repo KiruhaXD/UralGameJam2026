@@ -8,6 +8,16 @@ public class MenuPause : MonoBehaviour
 
     [SerializeField] GameObject menuPausePanel;
 
+    [SerializeField] GameObject menuSettings;
+
+    [Header("Array Units Audio")]
+    [SerializeField] AudioSource[] audioSourcesRun;
+
+    [Header("Background Audio")]
+    [SerializeField] AudioSource audioBackgroundSource;
+
+    public bool isShowSettings = false;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -23,6 +33,15 @@ public class MenuPause : MonoBehaviour
                     break;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && isShowSettings == true) 
+        {
+            isShowSettings = false;
+
+            menuSettings.SetActive(false);
+
+            Pause();
+        }
     }
 
     public void Pause() 
@@ -33,7 +52,14 @@ public class MenuPause : MonoBehaviour
 
         countPressKeyEscape = 1;
 
+        for (int i = 0; i < audioSourcesRun.Length; i++)
+            audioSourcesRun[i].Pause();
+
+        audioBackgroundSource.Pause();
+
         Time.timeScale = 0f;
+
+
     }
 
     public void RestartLevel() 
@@ -51,7 +77,23 @@ public class MenuPause : MonoBehaviour
         countPressKeyEscape = 0;
 
         Time.timeScale = 1f;
+
+        audioBackgroundSource.Play();
     }
+
+    public void Settings() 
+    {
+        isShowSettings = true;
+
+        menuPausePanel.SetActive(false);
+        menuSettings.SetActive(true);
+    }
+
+    public void ExitInMenu() 
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MenuScene");
+    } 
 
     public void ExitGame() => Application.Quit();
 

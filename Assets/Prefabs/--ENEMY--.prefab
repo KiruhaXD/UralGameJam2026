@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286155f3c331cfb45a43e12c48c4021c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
+  menuPause: {fileID: 0}
   checkHitboxTriggerEnemy: {fileID: 3925043747028174542}
   timerEndEffect: {fileID: 0}
   iceEffect: {fileID: 6804895477594863661}
@@ -3108,6 +3109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223c00709ba785644bde5336cd4b43a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckHitboxTriggerEnemy
+  audioRun: {fileID: 8910925866144084120}
+  attackRangePlayer: {fileID: 0}
+  attackRangeBrother: {fileID: 0}
   effectsTakeHit:
   - {fileID: 2130533019430981776}
   - {fileID: 3904381148786781726}
@@ -4541,19 +4545,19 @@ AudioSource:
   m_GameObject: {fileID: 5527913457443806871}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1407665376735288849, guid: 2b31c6e8f42a45747b51e34f20c3a4cd, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 6418180475301049370, guid: 17e7797eb7d9e09499bdee9468cac6d6, type: 2}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.2
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
+  MinDistance: 3
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -6267,7 +6271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808f76424e9378e42832dba1a233175b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
-  audioRun: {fileID: 8910925866144084120}
   checkHitboxTriggerEnemy: {fileID: 3925043747028174542}
   animatorEnemy: {fileID: 2611780816593255164}
   followRange: {fileID: 268822157096923220}

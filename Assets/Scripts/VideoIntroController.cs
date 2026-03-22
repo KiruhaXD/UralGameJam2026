@@ -14,6 +14,6 @@ public class VideoIntroController : MonoBehaviour
     IEnumerator VideoIntroLoadSceneCoroutine() 
     {
         yield return new WaitForSeconds(timeVideoIntro);
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("MenuScene");
     }
 }

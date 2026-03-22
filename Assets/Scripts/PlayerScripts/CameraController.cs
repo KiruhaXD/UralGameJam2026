@@ -20,7 +20,7 @@ namespace Assets.Scripts.PlayerScripts
         [Header("Settings")]
         [SerializeField] float mouseSensivity = 100f;
 
-        float mouseX;
+        public float mouseX;
 
         float xRotationLimit;
 
@@ -51,14 +51,13 @@ namespace Assets.Scripts.PlayerScripts
                 //playerRotation.localRotation = Quaternion.Euler(0f, xRotationLimit, 0f);
 
                 if (audioRun.isPlaying) return;
-                audioRun.PlayDelayed(0.1f);
+                audioRun.Play();
 
             }
 
             else 
             {
                 animator.SetBool("isRunningMouseInput", false);
-                audioRun.Stop();
             }
 
 

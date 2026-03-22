@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BrotherRobotController : MonoBehaviour
 {
+    [SerializeField] MenuPause menuPause;
+
     [Header("Audio")]
     [SerializeField] AudioSource audioRun;
 
@@ -30,9 +32,19 @@ public class BrotherRobotController : MonoBehaviour
 
     private void Update()
     {
-        Run();
+        if (menuPause.countPressKeyEscape == 1)
+        {
+            horizontalDirectional = 0;
+            verticalDirectional = 0;
+        }
 
-        FollowToPlayerPoint();
+        else 
+        {
+            Run();
+
+            FollowToPlayerPoint();
+        }
+
     }
 
     private void InputKeyboards()
@@ -56,13 +68,12 @@ public class BrotherRobotController : MonoBehaviour
             brotherRotation.Rotate(new Vector3(0f, horizontalDirectional, 0f));
 
             if (audioRun.isPlaying) return;
-            audioRun.PlayDelayed(0.1f);
+            audioRun.Play();
         }
 
         else
         {
             brotherAnimator.SetBool("isRunningKeyboardInput", false);
-            audioRun.Stop();
         }
 
 

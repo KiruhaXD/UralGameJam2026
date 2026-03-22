@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class FollowRange : MonoBehaviour
 {
+    [SerializeField] MenuPause menuPause;
 
     [SerializeField] CheckHitboxTriggerEnemy checkHitboxTriggerEnemy;
     [SerializeField] TimerEndEffect timerEndEffect;
@@ -34,7 +35,8 @@ public class FollowRange : MonoBehaviour
     {
         if (isFollowing == true) 
         {
-            MoveEnemy();
+            if (menuPause.countPressKeyEscape == 0) 
+                MoveEnemy();
 
             /*if (checkHitboxTriggerEnemy.isTakeHitEffectIce == false)
                 MoveEnemy();
@@ -71,7 +73,7 @@ public class FollowRange : MonoBehaviour
         RotateEnemy();
 
         if (audioRun.isPlaying) return;
-        audioRun.PlayDelayed(0.1f);
+        audioRun.Play();
 
     }
 

@@ -5,6 +5,8 @@ namespace Assets.Scripts.PlayerScripts
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] MenuPause menuPause;
+
         [Header("Audio")]
         [SerializeField] AudioSource audioRun;
 
@@ -27,7 +29,15 @@ namespace Assets.Scripts.PlayerScripts
 
         private void Update()
         {
-            Run();
+            if (menuPause.countPressKeyEscape == 1)
+            {
+                horizontalDirectional = 0;
+                verticalDirectional = 0;
+            }
+
+            else
+                Run();
+
         }
 
         private void InputKeyboards()
@@ -51,13 +61,12 @@ namespace Assets.Scripts.PlayerScripts
                 playerRotation.Rotate(new Vector3(0f, horizontalDirectional, 0f));
 
                 if (audioRun.isPlaying) return;
-                audioRun.PlayDelayed(0.1f);
+                audioRun.Play();
             }
 
-            else 
+            else
             {
                 animator.SetBool("isRunningKeyboardInput", false);
-                audioRun.Stop();
             }
 
 

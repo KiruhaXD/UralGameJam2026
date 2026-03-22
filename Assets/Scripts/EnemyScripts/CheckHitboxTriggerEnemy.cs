@@ -1,12 +1,22 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using Assets.Scripts.PlayerScripts;
 
 /// <summary>
 /// Your summary
 /// </summary>
 public class CheckHitboxTriggerEnemy : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] AudioSource audioRun;
+
+    [Header("Player")]
+    [SerializeField] AttackRangePlayer attackRangePlayer;
+
+    [Header("Brother")]
+    [SerializeField] AttackRangeBrother attackRangeBrother;
+
     [Header("Effects")]
     [SerializeField] ParticleSystem[] effectsTakeHit;
     [SerializeField] ChoiseEffectAttackPlayer choiseEffectAttackPlayer;
@@ -66,6 +76,14 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
                 enemyDeath.StartCoroutine(enemyDeath.DeathCoroutine());
                 //enemyObject.gameObject.SetActive(false);
+
+                attackRangePlayer.isCanPunch = false;
+
+                attackRangePlayer.FightNonactive();
+                attackRangeBrother.FightNonactiveBrother();
+
+                audioRun.Stop();
+
                 // анимация смерти
                 spawnItems.Spawn();
             }

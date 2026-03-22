@@ -12,15 +12,6 @@ public class AttackRangePlayer : MonoBehaviour
 
     private void Update()
     {
-        if (CheckHitboxTriggerEnemy.isDeadEnemy == true) 
-        {
-            isCanPunch = false;
-
-            FightNonactive();
-            attackRangeBrother.FightNonactiveBrother();
-        }
-
-
         if (Input.GetMouseButtonDown(0) && isCanPunch == true) 
         {
             Punch();
@@ -37,15 +28,6 @@ public class AttackRangePlayer : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Enemy")) 
-        {
-            //playerAnimator.SetBool("isRunningMouseInput", false);
-            //playerAnimator.SetBool("isRunningKeyboardInput", false);
-        }
-    }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -53,6 +35,7 @@ public class AttackRangePlayer : MonoBehaviour
             isCanPunch = false;
 
             FightNonactive();
+            attackRangeBrother.FightNonactiveBrother();
         }
     }
 
@@ -66,9 +49,6 @@ public class AttackRangePlayer : MonoBehaviour
 
     public void FightNonactive() 
     {
-        //playerAnimator.SetBool("isRunningMouseInput", true);
-        //playerAnimator.SetBool("isRunningKeyboardInput", true);
-
         playerAnimator.SetBool("isBattleReady", false);
         playerAnimator.SetBool("isPunching", false);
     }
