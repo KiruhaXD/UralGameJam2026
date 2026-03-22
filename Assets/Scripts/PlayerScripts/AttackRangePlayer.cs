@@ -4,17 +4,29 @@ public class AttackRangePlayer : MonoBehaviour
 {
     [SerializeField] Animator playerAnimator;
 
+    [SerializeField] AttackRangeBrother attackRangeBrother;
+
     public bool isCanPunch = false;
 
     [SerializeField] ChoiseEffectAttack choiseEffectAttack;
 
     private void Update()
     {
-        if (CheckHitboxTriggerEnemy.isDeadEnemy == true)
-            FightNonactive();
+        if (CheckHitboxTriggerEnemy.isDeadEnemy == true) 
+        {
+            isCanPunch = false;
 
-        if (Input.GetMouseButtonDown(0) && isCanPunch == true)
+            FightNonactive();
+            attackRangeBrother.FightNonactiveBrother();
+        }
+
+
+        if (Input.GetMouseButtonDown(0) && isCanPunch == true) 
+        {
             Punch();
+            attackRangeBrother.PunchBrother();
+        }
+            
     }
 
     private void OnTriggerEnter(Collider other)

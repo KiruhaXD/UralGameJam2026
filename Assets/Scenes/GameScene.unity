@@ -10180,6 +10180,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10458,6 +10466,14 @@ PrefabInstance:
       propertyPath: brotherRobotHealth
       value: 
       objectReference: {fileID: 1529276068}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10792,6 +10808,14 @@ PrefabInstance:
       propertyPath: brotherRobotHealth
       value: 
       objectReference: {fileID: 1529276068}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21009,6 +21033,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23026,6 +23058,14 @@ PrefabInstance:
     - target: {fileID: 7674271930617649169, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36413,6 +36453,14 @@ PrefabInstance:
       propertyPath: brotherRobotHealth
       value: 
       objectReference: {fileID: 1529276068}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41400,6 +41448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackRangePlayer
   playerAnimator: {fileID: 7635726066245598038}
+  attackRangeBrother: {fileID: 671078389}
   isCanPunch: 0
   choiseEffectAttack: {fileID: 7635726066245598044}
 --- !u!1001 &848441240
@@ -64843,6 +64892,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -70828,14 +70885,14 @@ AudioSource:
   m_Resource: {fileID: 6418180475301049370, guid: 17e7797eb7d9e09499bdee9468cac6d6, type: 2}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
+  MinDistance: 3
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -83323,6 +83380,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -90238,14 +90303,14 @@ AudioSource:
   m_Resource: {fileID: 6418180475301049370, guid: 17e7797eb7d9e09499bdee9468cac6d6, type: 2}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
+  MinDistance: 3
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -93635,6 +93700,14 @@ PrefabInstance:
       propertyPath: brotherRobotHealth
       value: 
       objectReference: {fileID: 1529276068}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -95195,6 +95268,14 @@ PrefabInstance:
     - target: {fileID: 7674271930617649169, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -104292,6 +104373,14 @@ PrefabInstance:
       propertyPath: brotherRobotHealth
       value: 
       objectReference: {fileID: 1529276068}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -104437,6 +104526,14 @@ PrefabInstance:
       propertyPath: brotherRobotHealth
       value: 
       objectReference: {fileID: 1529276068}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910925866144084120, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

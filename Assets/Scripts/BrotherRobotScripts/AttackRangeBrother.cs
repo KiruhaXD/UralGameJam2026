@@ -5,7 +5,7 @@ public class AttackRangeBrother : MonoBehaviour
 {
     [SerializeField] Animator brotherAnimator;
 
-    bool isCanPunch = false;
+    public bool isCanPunch = false;
 
     [Header("Brother Rotation")]
     [SerializeField] Transform brotherRotation;
@@ -18,10 +18,9 @@ public class AttackRangeBrother : MonoBehaviour
     private void Update()
     {
         if (CheckHitboxTriggerEnemy.isDeadEnemy == true)
-            FightNonactive();
-
-        if (Input.GetMouseButtonDown(0) && isCanPunch == true)
-            Punch();
+        {
+            isCanPunch = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,15 +44,15 @@ public class AttackRangeBrother : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || (other.gameObject.activeSelf == false && other.CompareTag("Enemy")))
         {
             isCanPunch = false;
 
-            FightNonactive();
+            FightNonactiveBrother();
         }
     }
 
-    private void Punch()
+    public void PunchBrother()
     {
         brotherAnimator.SetBool("isBattleReady", true);
         brotherAnimator.SetBool("isPunching", true);
@@ -61,7 +60,7 @@ public class AttackRangeBrother : MonoBehaviour
         choiseEffectAttack.EffectsAttack(choiseEffectAttack.currentEffect);
     }
 
-    public void FightNonactive()
+    public void FightNonactiveBrother()
     {
         //brotherAnimator.SetBool("isRunningMouseInput", true);
         //brotherAnimator.SetBool("isRunningKeyboardInput", true);
