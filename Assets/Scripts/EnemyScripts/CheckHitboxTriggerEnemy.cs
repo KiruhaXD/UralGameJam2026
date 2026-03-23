@@ -39,6 +39,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     [Header("Settings")]
     [SerializeField] int damageCountToEnemy = 10;
     [SerializeField] int currentNumberEnemy = 0;
+
     public bool isDeadEnemy = false;
 
     public bool isTakeHit = false;
@@ -46,6 +47,11 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     public string hitboxTagName = string.Empty;
 
     public bool isTakeHitEffectIce, isTakeHitEffectShock, isTakeHitEffectFire = false;
+
+    [Header("Fire Effect")]
+    [SerializeField] ParticleSystem effectFire;
+    public float damageFire = 1;
+    public int timeFireEffect = 5;
 
     public void ApplyDamageEnemy(int damage, string hitboxTagName) // вызывать у хитбокса руки в анимации через триггеры
     {
@@ -68,25 +74,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
             TakeHit();
 
-            if (enemyHealth.sliderHealth.value <= 0)
-            {
-                enemyHealth.sliderHealth.value = 0;
-
-                isDeadEnemy = true;
-
-                enemyDeath.StartCoroutine(enemyDeath.DeathCoroutine());
-                //enemyObject.gameObject.SetActive(false);
-
-                attackRangePlayer.isCanPunchPlayer = false;
-
-                attackRangePlayer.FightNonactive();
-                attackRangeBrother.FightNonactiveBrother();
-
-                audioRun.Stop();
-
-                // анимация смерти
-                spawnItems.Spawn();
-            }
+            Death();
 
         }
 
@@ -97,7 +85,32 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("HitboxAttackPlayer") || other.CompareTag("HitboxAttackBrother") && enemy.currentNumberEnemy == currentNumberEnemy) 
+        {
             ApplyDamageEnemy(damageCountToEnemy, other.tag);
+
+            // Effect Hit Fire
+            if (isTakeHitEffectFire == true)
+            {
+                //effectFire.Play();
+                effectFire.gameObject.SetActive(true);
+
+                Debug.Log(enemyHealth.sliderHealth.value);
+
+                //timerEndEffect.StartCoroutine(timerEndEffect.Timer(timeFireEffect));
+
+                StartCoroutine(Timer(timeFireEffect));
+
+                if (timeFireEffect == 0)
+                {
+                    isTakeHitEffectFire = false;
+                    //effectFire.Stop();
+                    effectFire.gameObject.SetActive(false);
+                }
+
+                Death();
+            }
+        } 
+
         
     }
 
@@ -183,4 +196,43 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
         }
     }
 
+    public IEnumerator Timer(int startTime)
+    {
+        while (startTime > 0)
+        {
+            yield return new WaitForSeconds(1);
+            startTime--;
+
+            enemyHealth.sliderHealth.value -= damageFire;
+
+            if (startTime <= 0)
+                startTime = 0;
+
+        }
+
+        yield return new WaitForSeconds(1);
+    }
+
+    public void Death() 
+    {
+        if (enemyHealth.sliderHealth.value <= 0)
+        {
+            enemyHealth.sliderHealth.value = 0;
+
+            isDeadEnemy = true;
+
+            enemyDeath.StartCoroutine(enemyDeath.DeathCoroutine());
+            //enemyObject.gameObject.SetActive(false);
+
+            attackRangePlayer.isCanPunchPlayer = false;
+
+            attackRangePlayer.FightNonactive();
+            attackRangeBrother.FightNonactiveBrother();
+
+            audioRun.Stop();
+
+            // анимация смерти
+            spawnItems.Spawn();
+        }
+    }
 }

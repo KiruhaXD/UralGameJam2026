@@ -1401,8 +1401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   sliderHealth: {fileID: 230091207109004752}
-  damageFire: 1
-  timeFireEffect: 5
 --- !u!114 &6339711208635738669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3134,6 +3132,9 @@ MonoBehaviour:
   isTakeHitEffectIce: 0
   isTakeHitEffectShock: 0
   isTakeHitEffectFire: 0
+  effectFire: {fileID: 6676330016927377927}
+  damageFire: 1
+  timeFireEffect: 5
 --- !u!54 &4070399380762242227
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7686,6 +7687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ember
       objectReference: {fileID: 0}
+    - target: {fileID: 1988834252887022760, guid: c545b9db8b02e924685047dede0b9f3e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1988834252887022761, guid: c545b9db8b02e924685047dede0b9f3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7738,6 +7743,11 @@ PrefabInstance:
 --- !u!4 &6676330016927377925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1988834252887022761, guid: c545b9db8b02e924685047dede0b9f3e, type: 3}
+  m_PrefabInstance: {fileID: 5133774753283061420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6676330016927377927 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1988834252887022763, guid: c545b9db8b02e924685047dede0b9f3e, type: 3}
   m_PrefabInstance: {fileID: 5133774753283061420}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5206367896062220959
@@ -7878,6 +7888,10 @@ PrefabInstance:
     - target: {fileID: 8577988752438738538, guid: 55e8cb3c186ea344a8c5ec40512eb2a2, type: 3}
       propertyPath: m_Name
       value: Sparks Delay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577988752438738538, guid: 55e8cb3c186ea344a8c5ec40512eb2a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8023,6 +8037,10 @@ PrefabInstance:
     - target: {fileID: 8353506751901393123, guid: ded900b9d01910b4383239776d16671c, type: 3}
       propertyPath: m_Name
       value: Stars remains
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353506751901393123, guid: ded900b9d01910b4383239776d16671c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
