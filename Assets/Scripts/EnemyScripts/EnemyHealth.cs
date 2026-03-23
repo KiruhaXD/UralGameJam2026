@@ -5,17 +5,17 @@ public class EnemyHealth : MonoBehaviour
 {
     public Slider sliderHealth;
 
-    [SerializeField] CheckHitboxTriggerEnemy checkHitboxTriggerEnemy;
+    //[SerializeField] CheckHitboxTriggerEnemy checkHitboxTriggerEnemy;
 
-    [SerializeField] TimerEndEffect timerEndEffect;
+    //[SerializeField] TimerEndEffect timerEndEffect;
 
-    [SerializeField] ParticleSystem effectFire;
+    //[SerializeField] ParticleSystem effectFire;
 
     public float damageFire = 1;
 
     public int timeFireEffect = 5;
 
-    private void Update()
+    /*private void Update()
     {
         // Effect Hit Fire
         if (checkHitboxTriggerEnemy.isTakeHitEffectFire == true) 
@@ -36,5 +36,5 @@ public class EnemyHealth : MonoBehaviour
 
 
         }
-    }
+    }*/
 }
