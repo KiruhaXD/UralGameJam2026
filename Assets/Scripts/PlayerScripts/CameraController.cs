@@ -50,8 +50,8 @@ namespace Assets.Scripts.PlayerScripts
                 brotherRotation.Rotate(new Vector3(0f, mouseX, 0f));
                 //playerRotation.localRotation = Quaternion.Euler(0f, xRotationLimit, 0f);
 
-                if (audioRun.isPlaying) return;
-                audioRun.Play();
+                //if (audioRun.isPlaying) return;
+                //audioRun.Play();
 
             }
 

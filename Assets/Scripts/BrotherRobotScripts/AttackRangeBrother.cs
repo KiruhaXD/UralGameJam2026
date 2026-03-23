@@ -4,7 +4,7 @@ public class AttackRangeBrother : MonoBehaviour
 {
     [SerializeField] Animator brotherAnimator;
 
-    public bool isCanPunch = false;
+    public bool isCanPunchBrother = false;
 
     [Header("Brother Rotation")]
     [SerializeField] Transform brotherRotation;
@@ -18,7 +18,7 @@ public class AttackRangeBrother : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            isCanPunch = true;
+            isCanPunchBrother = true;
         }
     }
 
@@ -34,7 +34,7 @@ public class AttackRangeBrother : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            isCanPunch = false;
+            isCanPunchBrother = false;
 
             FightNonactiveBrother();
         }

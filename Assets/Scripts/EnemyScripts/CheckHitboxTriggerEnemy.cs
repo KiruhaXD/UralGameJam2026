@@ -77,7 +77,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
                 enemyDeath.StartCoroutine(enemyDeath.DeathCoroutine());
                 //enemyObject.gameObject.SetActive(false);
 
-                attackRangePlayer.isCanPunch = false;
+                attackRangePlayer.isCanPunchPlayer = false;
 
                 attackRangePlayer.FightNonactive();
                 attackRangeBrother.FightNonactiveBrother();

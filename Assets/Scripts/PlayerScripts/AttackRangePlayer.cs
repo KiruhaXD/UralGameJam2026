@@ -6,13 +6,13 @@ public class AttackRangePlayer : MonoBehaviour
 
     [SerializeField] AttackRangeBrother attackRangeBrother;
 
-    public bool isCanPunch = false;
+    public bool isCanPunchPlayer = false;
 
     [SerializeField] ChoiseEffectAttack choiseEffectAttack;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isCanPunch == true) 
+        if (Input.GetMouseButtonDown(0) && isCanPunchPlayer == true && attackRangeBrother.isCanPunchBrother == true) 
         {
             Punch();
             attackRangeBrother.PunchBrother();
@@ -24,7 +24,7 @@ public class AttackRangePlayer : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            isCanPunch = true;
+            isCanPunchPlayer = true;
         }
     }
 
@@ -32,7 +32,7 @@ public class AttackRangePlayer : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            isCanPunch = false;
+            isCanPunchPlayer = false;
 
             FightNonactive();
             attackRangeBrother.FightNonactiveBrother();

@@ -1415,7 +1415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7cc425ded1ab94d8da563bc9979a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  speedEnemy: 4
+  speedEnemy: 6
   currentNumberEnemy: 5
 --- !u!114 &1993476796153156143
 MonoBehaviour:
