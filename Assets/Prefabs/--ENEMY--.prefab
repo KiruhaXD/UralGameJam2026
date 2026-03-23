@@ -1401,6 +1401,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   sliderHealth: {fileID: 230091207109004752}
+  damageFire: 1
+  timeFireEffect: 5
 --- !u!114 &6339711208635738669
 MonoBehaviour:
   m_ObjectHideFlags: 0

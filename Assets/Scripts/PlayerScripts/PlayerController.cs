@@ -67,6 +67,7 @@ namespace Assets.Scripts.PlayerScripts
             else
             {
                 animator.SetBool("isRunningKeyboardInput", false);
+                audioRun.Stop();
             }
 
 

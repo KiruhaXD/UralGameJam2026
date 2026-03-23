@@ -74,6 +74,7 @@ public class BrotherRobotController : MonoBehaviour
         else
         {
             brotherAnimator.SetBool("isRunningKeyboardInput", false);
+            audioRun.Stop();
         }
 
 

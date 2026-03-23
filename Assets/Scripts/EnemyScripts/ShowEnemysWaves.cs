@@ -18,6 +18,9 @@ public class ShowEnemysWaves : MonoBehaviour
     [Header("Fourth Wave")]
     [SerializeField] CheckHitboxTriggerEnemy enemyBossFourthWave;
 
+    [Header("End Game Trigger")]
+    [SerializeField] GameObject endGameTrigger;
+
     private void Update()
     {
         for (int i = 0; i < enemysFirstWave.Length; i++)
@@ -52,6 +55,7 @@ public class ShowEnemysWaves : MonoBehaviour
 
         if (enemyBossFourthWave.isDeadEnemy == true)
         {
+            endGameTrigger.SetActive(true);
             // Конец игры!
         }
     }

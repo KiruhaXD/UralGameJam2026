@@ -53,6 +53,9 @@ public class FollowRange : MonoBehaviour
                 }
             }*/
         }
+
+        else
+            audioRun.Stop();
     }
 
     private void OnTriggerEnter(Collider other)
