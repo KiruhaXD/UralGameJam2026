@@ -39,7 +39,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     [Header("Settings")]
     [SerializeField] int damageCountToEnemy = 10;
     [SerializeField] int currentNumberEnemy = 0;
-    public static bool isDeadEnemy = false;
+    public bool isDeadEnemy = false;
 
     public bool isTakeHit = false;
 

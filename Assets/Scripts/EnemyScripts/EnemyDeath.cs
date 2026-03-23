@@ -11,7 +11,7 @@ public class EnemyDeath : MonoBehaviour
         attackRangeEnemy.enabled = false;
         followRange.enabled = false;
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3f);
         this.gameObject.SetActive(false);
     }
 }

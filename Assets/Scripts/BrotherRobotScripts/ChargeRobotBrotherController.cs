@@ -13,6 +13,7 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
     [Header("References")]
     [SerializeField] PlayerController playerController;
     [SerializeField] CameraController cameraController;
+    [SerializeField] ShowEnemysWaves waves;
 
     [Header("UI")]
     [SerializeField] TMP_Text textInteract;
@@ -61,6 +62,8 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
         sliderBrotherHealth.gameObject.SetActive(true);
 
         EnableScripts();
+
+        waves.ShowFirstWave();
     }
 
     private void EnableScripts()
