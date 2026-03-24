@@ -16629,6 +16629,8 @@ MonoBehaviour:
   enemy: {fileID: 1405695255}
   enemyHealth: {fileID: 1405695254}
   enemyDeath: {fileID: 0}
+  attackRangeEnemy: {fileID: 0}
+  followRangeEnemy: {fileID: 0}
   damageCountToEnemy: 10
   currentNumberEnemy: 1
   isDeadEnemy: 0
@@ -16637,9 +16639,8 @@ MonoBehaviour:
   isTakeHitEffectIce: 0
   isTakeHitEffectShock: 0
   isTakeHitEffectFire: 0
-  iceEffect: {fileID: 0}
-  slowlySpeed: 1
-  timeIceEffect: 10
+  effectShock: {fileID: 0}
+  timeShockEffect: 10
   effectFire: {fileID: 0}
   damageFire: 1
   timeFireEffect: 5
@@ -35039,7 +35040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &721387342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61140,6 +61141,9 @@ MonoBehaviour:
   playerPosition: {fileID: 539745479569102380}
   playerRotation: {fileID: 539745479569102380}
   isFollowing: 0
+  iceEffect: {fileID: 0}
+  slowlySpeed: 1
+  timeIceEffect: 10
 --- !u!135 &1275170854
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -61426,6 +61430,9 @@ MonoBehaviour:
   playerPosition: {fileID: 539745479569102380}
   playerRotation: {fileID: 539745479569102380}
   isFollowing: 0
+  iceEffect: {fileID: 0}
+  slowlySpeed: 1
+  timeIceEffect: 10
 --- !u!135 &1276021780
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -70518,6 +70525,9 @@ MonoBehaviour:
   playerPosition: {fileID: 539745479569102380}
   playerRotation: {fileID: 539745479569102380}
   isFollowing: 0
+  iceEffect: {fileID: 0}
+  slowlySpeed: 1
+  timeIceEffect: 10
 --- !u!135 &1481460899
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -79467,6 +79477,8 @@ MonoBehaviour:
   enemy: {fileID: 1747039584}
   enemyHealth: {fileID: 1747039583}
   enemyDeath: {fileID: 0}
+  attackRangeEnemy: {fileID: 0}
+  followRangeEnemy: {fileID: 0}
   damageCountToEnemy: 10
   currentNumberEnemy: 1
   isDeadEnemy: 0
@@ -79475,9 +79487,8 @@ MonoBehaviour:
   isTakeHitEffectIce: 0
   isTakeHitEffectShock: 0
   isTakeHitEffectFire: 0
-  iceEffect: {fileID: 0}
-  slowlySpeed: 1
-  timeIceEffect: 10
+  effectShock: {fileID: 0}
+  timeShockEffect: 10
   effectFire: {fileID: 0}
   damageFire: 1
   timeFireEffect: 5
@@ -92971,6 +92982,8 @@ MonoBehaviour:
   enemy: {fileID: 203608413}
   enemyHealth: {fileID: 203608412}
   enemyDeath: {fileID: 0}
+  attackRangeEnemy: {fileID: 0}
+  followRangeEnemy: {fileID: 0}
   damageCountToEnemy: 10
   currentNumberEnemy: 1
   isDeadEnemy: 0
@@ -92979,9 +92992,8 @@ MonoBehaviour:
   isTakeHitEffectIce: 0
   isTakeHitEffectShock: 0
   isTakeHitEffectFire: 0
-  iceEffect: {fileID: 0}
-  slowlySpeed: 1
-  timeIceEffect: 10
+  effectShock: {fileID: 0}
+  timeShockEffect: 10
   effectFire: {fileID: 0}
   damageFire: 1
   timeFireEffect: 5
@@ -104343,6 +104355,9 @@ MonoBehaviour:
   playerPosition: {fileID: 539745479569102380}
   playerRotation: {fileID: 539745479569102380}
   isFollowing: 0
+  iceEffect: {fileID: 0}
+  slowlySpeed: 1
+  timeIceEffect: 10
 --- !u!4 &272653709940853198
 Transform:
   m_ObjectHideFlags: 0
@@ -110383,6 +110398,8 @@ MonoBehaviour:
   enemy: {fileID: 6339711208582735176}
   enemyHealth: {fileID: 6697371897146458277}
   enemyDeath: {fileID: 8937333909400513621}
+  attackRangeEnemy: {fileID: 0}
+  followRangeEnemy: {fileID: 0}
   damageCountToEnemy: 10
   currentNumberEnemy: 13
   isDeadEnemy: 0
@@ -110391,9 +110408,8 @@ MonoBehaviour:
   isTakeHitEffectIce: 0
   isTakeHitEffectShock: 0
   isTakeHitEffectFire: 0
-  iceEffect: {fileID: 0}
-  slowlySpeed: 1
-  timeIceEffect: 10
+  effectShock: {fileID: 0}
+  timeShockEffect: 10
   effectFire: {fileID: 63324835}
   damageFire: 1
   timeFireEffect: 10

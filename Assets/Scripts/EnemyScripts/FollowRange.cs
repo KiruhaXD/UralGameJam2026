@@ -25,6 +25,11 @@ public class FollowRange : MonoBehaviour
 
     public bool isFollowing = false;
 
+    [Header("Ice Effect")]
+    [SerializeField] ParticleSystem iceEffect;
+    [SerializeField] float slowlySpeed = 1f;
+    [SerializeField] int timeIceEffect = 10;
+
     private void Update()
     {
         if (isFollowing == true) 
@@ -35,6 +40,9 @@ public class FollowRange : MonoBehaviour
 
         else
             audioRun.Stop();
+
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,7 +58,17 @@ public class FollowRange : MonoBehaviour
     {
         Vector3 moveEnemyToPlayer = (playerPosition.position - enemyPosition.position) / enemy.speedEnemy * Time.deltaTime;
 
-        enemyContoller.Move(moveEnemyToPlayer * enemy.speedEnemy);
+        if (checkHitboxTriggerEnemy.isTakeHitEffectIce == true)
+        {
+            iceEffect.gameObject.SetActive(true);
+
+            StartCoroutine(TimerForIceEffect(timeIceEffect));
+
+            enemyContoller.Move(moveEnemyToPlayer * slowlySpeed);
+        }
+
+        else
+            enemyContoller.Move(moveEnemyToPlayer * enemy.speedEnemy);
 
         RotateEnemy();
 
@@ -59,26 +77,12 @@ public class FollowRange : MonoBehaviour
 
     }
 
-    /*public void SlowlyMoveEnemy() 
-    {
-        iceEffect.Play();
-
-        Vector3 moveEnemyToPlayer = (playerPosition.position - enemyPosition.position) / slowlySpeed * Time.deltaTime;
-
-        enemyContoller.Move(moveEnemyToPlayer * slowlySpeed);
-
-        RotateEnemy();
-
-        StartCoroutine(timerEndEffect.Timer(timer));
-    }*/
-
-
     public void RotateEnemy()
     {
         enemyRotation.LookAt(playerRotation.position);
     }
 
-    public IEnumerator Timer(int startTime)
+    public IEnumerator TimerForIceEffect(int startTime)
     {
         while (startTime > 0)
         {
@@ -87,6 +91,12 @@ public class FollowRange : MonoBehaviour
 
             if (startTime <= 0)
                 startTime = 0;
+
+            if (startTime == 0) 
+            {
+                checkHitboxTriggerEnemy.isTakeHitEffectIce = false;
+                iceEffect.gameObject.SetActive(false);
+            }
 
         }
 

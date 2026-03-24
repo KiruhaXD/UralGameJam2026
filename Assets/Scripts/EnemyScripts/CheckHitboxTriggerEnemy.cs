@@ -36,6 +36,9 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     [SerializeField] EnemyHealth enemyHealth;
     [SerializeField] EnemyDeath enemyDeath;
 
+    [SerializeField] AttackRangeEnemy attackRangeEnemy;
+    [SerializeField] FollowRange followRangeEnemy;
+
     [Header("Settings")]
     [SerializeField] int damageCountToEnemy = 10;
     [SerializeField] int currentNumberEnemy = 0;
@@ -48,10 +51,10 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
     public bool isTakeHitEffectIce, isTakeHitEffectShock, isTakeHitEffectFire = false;
 
-    [Header("Ice Effect")]
-    [SerializeField] ParticleSystem iceEffect;
-    [SerializeField] float slowlySpeed = 1f;
-    [SerializeField] int timeIceEffect = 10;
+    [Header("Shock Effect")]
+    [SerializeField] ParticleSystem effectShock;
+    public int timeShockEffect = 10;
+
 
     [Header("Fire Effect")]
     [SerializeField] ParticleSystem effectFire;
@@ -106,11 +109,15 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
                 StartCoroutine(TimerForFireEffect(timeFireEffect));
             }
 
-            if (isTakeHitEffectIce == true) 
+            if (isTakeHitEffectShock == true) 
             {
-                iceEffect.gameObject.SetActive(true);
+                effectShock.gameObject.SetActive(true);
 
-                StartCoroutine(TimerForIceEffect(timeIceEffect));
+                StartCoroutine(TimerForShockEffect(timeShockEffect));
+
+                enemyAnimator.enabled = false;
+                attackRangeEnemy.enabled = false;
+                followRangeEnemy.enabled = false;
             }
         } 
 
@@ -225,26 +232,25 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
         yield return new WaitForSeconds(1);
     }
 
-    public IEnumerator TimerForIceEffect(int startTime)
+    public IEnumerator TimerForShockEffect(int startTime)
     {
         while (startTime > 0)
         {
             yield return new WaitForSeconds(1);
             startTime--;
 
-            //enemyHealth.sliderHealth.value -= damageFire;
-
             if (startTime <= 0)
                 startTime = 0;
 
-            /*if (enemyHealth.sliderHealth.value == 0)
+            if (startTime == 0)
             {
-                isTakeHitEffectFire = false;
-                //effectFire.Stop();
-                effectFire.gameObject.SetActive(false);
+                isTakeHitEffectShock = false;
+                effectShock.gameObject.SetActive(false);
 
-                Death();
-            }*/
+                enemyAnimator.enabled = true;
+                attackRangeEnemy.enabled = true;
+                followRangeEnemy.enabled = true;
+            }
 
         }
 
