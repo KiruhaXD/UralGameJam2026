@@ -41833,6 +41833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276223eab18963b4fa7e5cdd77912ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackRangePlayer
+  brotherAnimator: {fileID: 1529276059}
   playerAnimator: {fileID: 7635726066245598038}
   attackRangeBrother: {fileID: 671078389}
   isCanPunchPlayer: 0
@@ -104407,6 +104408,22 @@ PrefabInstance:
       propertyPath: timerEndEffect
       value: 
       objectReference: {fileID: 2090332423}
+    - target: {fileID: 2540415793555371226, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2540415793555371226, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2540415793555371226, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2540415793555371226, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6698113
+      objectReference: {fileID: 0}
     - target: {fileID: 2962660701715867498, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_Name
       value: --ENEMY--
@@ -104515,6 +104532,10 @@ PrefabInstance:
       propertyPath: brotherRobotHealth
       value: 
       objectReference: {fileID: 1529276068}
+    - target: {fileID: 7013865941473107273, guid: 266794d2d20a8424dab9df99987084db, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7674271930617649169, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -110081,7 +110102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3679169158059277133
 GameObject:
   m_ObjectHideFlags: 0
@@ -110383,7 +110404,7 @@ MonoBehaviour:
   isTakeHitEffectFire: 0
   effectFire: {fileID: 63324835}
   damageFire: 1
-  timeFireEffect: 5
+  timeFireEffect: 10
 --- !u!1 &3939637081764683743
 GameObject:
   m_ObjectHideFlags: 0
@@ -113906,7 +113927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &6021528128298765515
 GameObject:
   m_ObjectHideFlags: 0

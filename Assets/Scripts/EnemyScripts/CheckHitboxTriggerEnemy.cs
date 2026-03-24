@@ -51,7 +51,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     [Header("Fire Effect")]
     [SerializeField] ParticleSystem effectFire;
     public float damageFire = 1;
-    public int timeFireEffect = 5;
+    public int timeFireEffect = 10;
 
     public void ApplyDamageEnemy(int damage, string hitboxTagName) // вызывать у хитбокса руки в анимации через триггеры
     {
@@ -99,15 +99,6 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
                 //timerEndEffect.StartCoroutine(timerEndEffect.Timer(timeFireEffect));
 
                 StartCoroutine(Timer(timeFireEffect));
-
-                if (timeFireEffect == 0)
-                {
-                    isTakeHitEffectFire = false;
-                    //effectFire.Stop();
-                    effectFire.gameObject.SetActive(false);
-                }
-
-                Death();
             }
         } 
 
@@ -207,6 +198,15 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
             if (startTime <= 0)
                 startTime = 0;
+
+            if (enemyHealth.sliderHealth.value == 0)
+            {
+                isTakeHitEffectFire = false;
+                //effectFire.Stop();
+                effectFire.gameObject.SetActive(false);
+
+                Death();
+            }
 
         }
 

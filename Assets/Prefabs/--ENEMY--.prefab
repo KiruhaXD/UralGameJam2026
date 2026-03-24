@@ -3134,7 +3134,7 @@ MonoBehaviour:
   isTakeHitEffectFire: 0
   effectFire: {fileID: 6676330016927377927}
   damageFire: 1
-  timeFireEffect: 5
+  timeFireEffect: 10
 --- !u!54 &4070399380762242227
 Rigidbody:
   m_ObjectHideFlags: 0

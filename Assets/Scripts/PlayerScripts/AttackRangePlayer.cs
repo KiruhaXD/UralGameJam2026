@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class AttackRangePlayer : MonoBehaviour
 {
+    [SerializeField] Animator brotherAnimator;
     [SerializeField] Animator playerAnimator;
 
     [SerializeField] AttackRangeBrother attackRangeBrother;
@@ -25,6 +26,14 @@ public class AttackRangePlayer : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             isCanPunchPlayer = true;
+
+            attackRangeBrother.isCanPunchBrother = true;
+
+            brotherAnimator.SetBool("isBattleReady", true);
+
+            attackRangeBrother.RotateBodyToEnemys();
+
+            playerAnimator.SetBool("isBattleReady", true);
         }
     }
 
@@ -33,6 +42,7 @@ public class AttackRangePlayer : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             isCanPunchPlayer = false;
+            attackRangeBrother.isCanPunchBrother = false;
 
             FightNonactive();
             attackRangeBrother.FightNonactiveBrother();
@@ -41,7 +51,6 @@ public class AttackRangePlayer : MonoBehaviour
 
     private void Punch()
     {
-        playerAnimator.SetBool("isBattleReady", true);
         playerAnimator.SetBool("isPunching", true);
 
         choiseEffectAttack.EffectsAttack(choiseEffectAttack.currentEffect);

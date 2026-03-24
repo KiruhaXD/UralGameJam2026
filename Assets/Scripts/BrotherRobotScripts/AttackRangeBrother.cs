@@ -14,35 +14,8 @@ public class AttackRangeBrother : MonoBehaviour
 
     [SerializeField] ChoiseEffectAttack choiseEffectAttack;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            isCanPunchBrother = true;
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            RotateBodyToEnemys();
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            isCanPunchBrother = false;
-
-            FightNonactiveBrother();
-        }
-    }
-
     public void PunchBrother()
     {
-        brotherAnimator.SetBool("isBattleReady", true);
         brotherAnimator.SetBool("isPunching", true);
 
         choiseEffectAttack.EffectsAttack(choiseEffectAttack.currentEffect);
