@@ -16637,6 +16637,9 @@ MonoBehaviour:
   isTakeHitEffectIce: 0
   isTakeHitEffectShock: 0
   isTakeHitEffectFire: 0
+  iceEffect: {fileID: 0}
+  slowlySpeed: 1
+  timeIceEffect: 10
   effectFire: {fileID: 0}
   damageFire: 1
   timeFireEffect: 5
@@ -61128,10 +61131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
   menuPause: {fileID: 1392490512}
   checkHitboxTriggerEnemy: {fileID: 0}
-  iceEffect: {fileID: 0}
   audioRun: {fileID: 0}
-  slowlySpeed: 1
-  timer: 5
   enemyContoller: {fileID: 1405695257}
   enemy: {fileID: 1405695255}
   enemyPosition: {fileID: 1405695253}
@@ -61417,10 +61417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
   menuPause: {fileID: 1392490512}
   checkHitboxTriggerEnemy: {fileID: 1669620383}
-  iceEffect: {fileID: 0}
   audioRun: {fileID: 0}
-  slowlySpeed: 1
-  timer: 5
   enemyContoller: {fileID: 1747039587}
   enemy: {fileID: 1747039584}
   enemyPosition: {fileID: 1747039582}
@@ -70512,10 +70509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
   menuPause: {fileID: 1392490512}
   checkHitboxTriggerEnemy: {fileID: 0}
-  iceEffect: {fileID: 0}
   audioRun: {fileID: 0}
-  slowlySpeed: 1
-  timer: 5
   enemyContoller: {fileID: 203608416}
   enemy: {fileID: 203608413}
   enemyPosition: {fileID: 203608411}
@@ -79481,6 +79475,9 @@ MonoBehaviour:
   isTakeHitEffectIce: 0
   isTakeHitEffectShock: 0
   isTakeHitEffectFire: 0
+  iceEffect: {fileID: 0}
+  slowlySpeed: 1
+  timeIceEffect: 10
   effectFire: {fileID: 0}
   damageFire: 1
   timeFireEffect: 5
@@ -92982,6 +92979,9 @@ MonoBehaviour:
   isTakeHitEffectIce: 0
   isTakeHitEffectShock: 0
   isTakeHitEffectFire: 0
+  iceEffect: {fileID: 0}
+  slowlySpeed: 1
+  timeIceEffect: 10
   effectFire: {fileID: 0}
   damageFire: 1
   timeFireEffect: 5
@@ -104334,10 +104334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
   menuPause: {fileID: 1392490512}
   checkHitboxTriggerEnemy: {fileID: 3925043746836761003}
-  iceEffect: {fileID: 0}
   audioRun: {fileID: 8910925866158194685}
-  slowlySpeed: 1
-  timer: 5
   enemyContoller: {fileID: 382628747779867630}
   enemy: {fileID: 6339711208582735176}
   enemyPosition: {fileID: 1684840987810677853}
@@ -110394,6 +110391,9 @@ MonoBehaviour:
   isTakeHitEffectIce: 0
   isTakeHitEffectShock: 0
   isTakeHitEffectFire: 0
+  iceEffect: {fileID: 0}
+  slowlySpeed: 1
+  timeIceEffect: 10
   effectFire: {fileID: 63324835}
   damageFire: 1
   timeFireEffect: 10

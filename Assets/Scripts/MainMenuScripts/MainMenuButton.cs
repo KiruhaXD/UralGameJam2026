@@ -27,6 +27,16 @@ public class MainMenuButton : MainMenu
                 settingsWindow.SetActive(true);
                 break;
 
+            case "Text (TMP) AUTHORS":
+                menuWindow.SetActive(false);
+
+                break;
+
+            case "Text (TMP) STORY":
+                menuWindow.SetActive(false);
+
+                break;
+
             case "Text (TMP) EXIT GAME":
                 Application.Quit();
                 break;
