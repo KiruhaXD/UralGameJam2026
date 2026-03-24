@@ -9446,11 +9446,11 @@ PrefabInstance:
       objectReference: {fileID: 1529276068}
     - target: {fileID: 3324702614781151294, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3324702614781151294, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3904381148786781724, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_IsActive
@@ -9750,10 +9750,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2044611573}
     m_Modifications:
-    - target: {fileID: 268822157096923220, guid: 266794d2d20a8424dab9df99987084db, type: 3}
-      propertyPath: audioRun
-      value: 
-      objectReference: {fileID: 1451632929}
     - target: {fileID: 268822157096923220, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: menuPause
       value: 
@@ -19762,7 +19758,7 @@ MonoBehaviour:
   effectItemsTrigger:
   - {fileID: 1888953414}
   - {fileID: 399575765}
-  - {fileID: 208777945}
+  - {fileID: 1624886985}
   sprites:
   - {fileID: 21300000, guid: 9faeee7df96168647920800016f642a2, type: 3}
   - {fileID: 21300000, guid: f0eb6bb929b73bf42966495f345770b6, type: 3}
@@ -22561,11 +22557,11 @@ PrefabInstance:
       objectReference: {fileID: 1529276068}
     - target: {fileID: 3324702614781151294, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3324702614781151294, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3904381148786781724, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_IsActive
@@ -61132,7 +61128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
   menuPause: {fileID: 1392490512}
   checkHitboxTriggerEnemy: {fileID: 0}
-  timerEndEffect: {fileID: 0}
   iceEffect: {fileID: 0}
   audioRun: {fileID: 0}
   slowlySpeed: 1
@@ -61422,7 +61417,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
   menuPause: {fileID: 1392490512}
   checkHitboxTriggerEnemy: {fileID: 1669620383}
-  timerEndEffect: {fileID: 2090332423}
   iceEffect: {fileID: 0}
   audioRun: {fileID: 0}
   slowlySpeed: 1
@@ -70518,7 +70512,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
   menuPause: {fileID: 1392490512}
   checkHitboxTriggerEnemy: {fileID: 0}
-  timerEndEffect: {fileID: 0}
   iceEffect: {fileID: 0}
   audioRun: {fileID: 0}
   slowlySpeed: 1
@@ -98397,7 +98390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2028708383
 Transform:
   m_ObjectHideFlags: 0
@@ -101275,7 +101268,7 @@ MonoBehaviour:
   enemysEffects:
   - {fileID: 1888953410}
   - {fileID: 399575763}
-  - {fileID: 208777943}
+  - {fileID: 1624886983}
   choiseEffectController: {fileID: 413858143}
 --- !u!114 &2090332425
 MonoBehaviour:
@@ -104115,11 +104108,11 @@ PrefabInstance:
       objectReference: {fileID: 1529276068}
     - target: {fileID: 3324702614781151294, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3324702614781151294, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3925043747028174542, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: attackRangePlayer
@@ -104341,7 +104334,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
   menuPause: {fileID: 1392490512}
   checkHitboxTriggerEnemy: {fileID: 3925043746836761003}
-  timerEndEffect: {fileID: 2090332423}
   iceEffect: {fileID: 0}
   audioRun: {fileID: 8910925866158194685}
   slowlySpeed: 1
@@ -104438,11 +104430,11 @@ PrefabInstance:
       objectReference: {fileID: 1529276068}
     - target: {fileID: 3324702614781151294, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3324702614781151294, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3925043747028174542, guid: 266794d2d20a8424dab9df99987084db, type: 3}
       propertyPath: attackRangePlayer

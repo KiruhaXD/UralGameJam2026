@@ -106,11 +106,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
   menuPause: {fileID: 0}
   checkHitboxTriggerEnemy: {fileID: 3925043747028174542}
-  timerEndEffect: {fileID: 0}
   iceEffect: {fileID: 6804895477594863661}
   audioRun: {fileID: 8910925866144084120}
   slowlySpeed: 1
-  timer: 5
+  timer: 10
   enemyContoller: {fileID: 382628748029906059}
   enemy: {fileID: 6339711208635738669}
   enemyPosition: {fileID: 1684840987887668024}

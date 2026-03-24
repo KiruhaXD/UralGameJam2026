@@ -48,6 +48,11 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
     public bool isTakeHitEffectIce, isTakeHitEffectShock, isTakeHitEffectFire = false;
 
+    [Header("Ice Effect")]
+    [SerializeField] ParticleSystem iceEffect;
+    [SerializeField] float slowlySpeed = 1f;
+    [SerializeField] int timeIceEffect = 10;
+
     [Header("Fire Effect")]
     [SerializeField] ParticleSystem effectFire;
     public float damageFire = 1;
@@ -98,7 +103,14 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
                 //timerEndEffect.StartCoroutine(timerEndEffect.Timer(timeFireEffect));
 
-                StartCoroutine(Timer(timeFireEffect));
+                StartCoroutine(TimerForFireEffect(timeFireEffect));
+            }
+
+            if (isTakeHitEffectIce == true) 
+            {
+                iceEffect.gameObject.SetActive(true);
+
+                StartCoroutine(TimerForIceEffect(timeIceEffect));
             }
         } 
 
@@ -187,7 +199,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
         }
     }
 
-    public IEnumerator Timer(int startTime)
+    public IEnumerator TimerForFireEffect(int startTime)
     {
         while (startTime > 0)
         {
@@ -207,6 +219,32 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
                 Death();
             }
+
+        }
+
+        yield return new WaitForSeconds(1);
+    }
+
+    public IEnumerator TimerForIceEffect(int startTime)
+    {
+        while (startTime > 0)
+        {
+            yield return new WaitForSeconds(1);
+            startTime--;
+
+            //enemyHealth.sliderHealth.value -= damageFire;
+
+            if (startTime <= 0)
+                startTime = 0;
+
+            /*if (enemyHealth.sliderHealth.value == 0)
+            {
+                isTakeHitEffectFire = false;
+                //effectFire.Stop();
+                effectFire.gameObject.SetActive(false);
+
+                Death();
+            }*/
 
         }
 

@@ -6,15 +6,9 @@ public class FollowRange : MonoBehaviour
     [SerializeField] MenuPause menuPause;
 
     [SerializeField] CheckHitboxTriggerEnemy checkHitboxTriggerEnemy;
-    [SerializeField] TimerEndEffect timerEndEffect;
-    [SerializeField] ParticleSystem iceEffect;
 
     [Header("Audio")]
     [SerializeField] AudioSource audioRun;
-
-    [Header("Settings")]
-    [SerializeField] float slowlySpeed = 1f;
-    [SerializeField] int timer = 5;
 
     [Header("Enemy")]
     [SerializeField] CharacterController enemyContoller;
@@ -35,23 +29,8 @@ public class FollowRange : MonoBehaviour
     {
         if (isFollowing == true) 
         {
-            if (menuPause.countPressKeyEscape == 0) 
+            if (menuPause.countPressKeyEscape == 0 || checkHitboxTriggerEnemy.isTakeHitEffectIce == false) 
                 MoveEnemy();
-
-            /*if (checkHitboxTriggerEnemy.isTakeHitEffectIce == false)
-                MoveEnemy();
-
-            if (checkHitboxTriggerEnemy.isTakeHitEffectIce == true)
-            {
-                SlowlyMoveEnemy();
-
-                if (timer == 0)
-                {
-                    iceEffect.Stop();
-
-                    checkHitboxTriggerEnemy.isTakeHitEffectIce = false;
-                }
-            }*/
         }
 
         else
@@ -97,6 +76,21 @@ public class FollowRange : MonoBehaviour
     public void RotateEnemy()
     {
         enemyRotation.LookAt(playerRotation.position);
+    }
+
+    public IEnumerator Timer(int startTime)
+    {
+        while (startTime > 0)
+        {
+            yield return new WaitForSeconds(1);
+            startTime--;
+
+            if (startTime <= 0)
+                startTime = 0;
+
+        }
+
+        yield return new WaitForSeconds(1);
     }
 
 }
