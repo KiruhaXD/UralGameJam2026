@@ -17,6 +17,11 @@ public class ChoiseEffectController : MonoBehaviour
 
     [SerializeField] Sprite[] sprites; // done
     [SerializeField] Image[] imagesSlotEffects; // done
+
+    [Header("Background")]
+    [SerializeField] Sprite[] spritesBoards;
+    [SerializeField] Image[] imagesSlotEffectsBackground; // done
+
     [SerializeField] GameObject[] imagesEffectsWindowChoise; // done
 
     [SerializeField] GameObject choiseEffectAttackWindow;
@@ -89,6 +94,8 @@ public class ChoiseEffectController : MonoBehaviour
                         isPickUpEffectIce = true;
 
                         imagesSlotEffects[choiseIndex].sprite = sprites[0];
+                        imagesSlotEffectsBackground[choiseIndex].sprite = spritesBoards[0];
+
                         effectItemsTrigger[0].tagCurrentEffect = "";
 
                         choiseEffectAttack[choiseIndex].currentEffect = 1;
@@ -104,6 +111,8 @@ public class ChoiseEffectController : MonoBehaviour
                         isPickUpEffectShock = true;
 
                         imagesSlotEffects[choiseIndex].sprite = sprites[1];
+                        imagesSlotEffectsBackground[choiseIndex].sprite = spritesBoards[1];
+
                         effectItemsTrigger[1].tagCurrentEffect = "";
 
                         choiseEffectAttack[choiseIndex].currentEffect = 2;
@@ -120,6 +129,8 @@ public class ChoiseEffectController : MonoBehaviour
                         isPickUpEffectFire = true;
 
                         imagesSlotEffects[choiseIndex].sprite = sprites[2];
+                        imagesSlotEffectsBackground[choiseIndex].sprite = spritesBoards[2];
+
                         effectItemsTrigger[2].tagCurrentEffect = "";
 
                         choiseEffectAttack[choiseIndex].currentEffect = 3;

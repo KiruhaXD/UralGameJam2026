@@ -41,8 +41,8 @@ public class CheckHitboxTriggerPlayer : MonoBehaviour
             {
                 playerHealth.sliderHealth.value = 0;
                 playerHealth.fillSliderHealth.gameObject.SetActive(false);
-                //playerController.enabled = false;
-                //menuPause.Pause();
+                playerController.enabled = false;
+                menuPause.Pause();
                 // влючить меню для перезапуса игры
             }
         }

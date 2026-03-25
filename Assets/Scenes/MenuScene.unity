@@ -5557,7 +5557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1640878818
 Transform:
   m_ObjectHideFlags: 0
@@ -12795,24 +12795,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 599297566104982166, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 599297566104982166, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 599297566104982166, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -17
-      objectReference: {fileID: 0}
     - target: {fileID: 869901404392746472, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888519152874589490, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1899970108942361411, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
@@ -12823,37 +12807,17 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1978245144}
-    - target: {fileID: 3846491224394517654, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3846491224394517654, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -17
-      objectReference: {fileID: 0}
     - target: {fileID: 4279098581631590831, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
       propertyPath: m_Name
       value: Panel (Settings)
       objectReference: {fileID: 0}
-    - target: {fileID: 4279098581631590831, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4454534336389545202, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697387663731489276, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
-      propertyPath: m_Size
-      value: 0.5491899
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697387663731489276, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
-      propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5045621962240704682, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5198843371365220070, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -12861,19 +12825,19 @@ PrefabInstance:
       objectReference: {fileID: 1978245144}
     - target: {fileID: 7928770242527733330, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7928770242527733330, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7928770242527733330, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.45081007
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9058878042171424334, guid: 8a24f9351cd485345afa10255ff932de, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
