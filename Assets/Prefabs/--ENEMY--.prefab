@@ -106,10 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
   menuPause: {fileID: 0}
   checkHitboxTriggerEnemy: {fileID: 3925043747028174542}
-  iceEffect: {fileID: 6804895477594863661}
   audioRun: {fileID: 8910925866144084120}
-  slowlySpeed: 1
-  timer: 10
   enemyContoller: {fileID: 382628748029906059}
   enemy: {fileID: 6339711208635738669}
   enemyPosition: {fileID: 1684840987887668024}
@@ -118,6 +115,9 @@ MonoBehaviour:
   playerPosition: {fileID: 0}
   playerRotation: {fileID: 0}
   isFollowing: 0
+  iceEffect: {fileID: 6804895477594863661}
+  slowlySpeed: 1
+  timeIceEffect: 10
 --- !u!135 &2915661431280919162
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3123,6 +3123,8 @@ MonoBehaviour:
   enemy: {fileID: 6339711208635738669}
   enemyHealth: {fileID: 6697371897068261312}
   enemyDeath: {fileID: 8937333909246944048}
+  attackRangeEnemy: {fileID: 8938245654240013063}
+  followRangeEnemy: {fileID: 268822157096923220}
   damageCountToEnemy: 10
   currentNumberEnemy: 5
   isDeadEnemy: 0
@@ -3131,6 +3133,8 @@ MonoBehaviour:
   isTakeHitEffectIce: 0
   isTakeHitEffectShock: 0
   isTakeHitEffectFire: 0
+  effectShock: {fileID: 3678387637664107795}
+  timeShockEffect: 10
   effectFire: {fileID: 6676330016927377927}
   damageFire: 1
   timeFireEffect: 10
@@ -7897,6 +7901,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55e8cb3c186ea344a8c5ec40512eb2a2, type: 3}
+--- !u!198 &3678387637664107795 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7458663322782269019, guid: 55e8cb3c186ea344a8c5ec40512eb2a2, type: 3}
+  m_PrefabInstance: {fileID: 6092874241949283144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7122049938422339732 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3916062911277181916, guid: 55e8cb3c186ea344a8c5ec40512eb2a2, type: 3}

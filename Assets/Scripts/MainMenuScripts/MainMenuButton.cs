@@ -16,6 +16,7 @@ public class MainMenuButton : MainMenu
 
     public void OnMouseDown()
     {
+
         switch (currentText.name) 
         {
             case "Text (TMP) PLAY":
@@ -25,16 +26,17 @@ public class MainMenuButton : MainMenu
             case "Text (TMP) SETTINGS":
                 menuWindow.SetActive(false);
                 settingsWindow.SetActive(true);
+
+                isShowSettings = true;
                 break;
 
             case "Text (TMP) AUTHORS":
                 menuWindow.SetActive(false);
-
+                authorsWindow.SetActive(true);
                 break;
 
             case "Text (TMP) STORY":
                 menuWindow.SetActive(false);
-
                 break;
 
             case "Text (TMP) EXIT GAME":

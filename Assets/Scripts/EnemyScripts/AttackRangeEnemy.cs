@@ -17,7 +17,10 @@ public class AttackRangeEnemy : MonoBehaviour
 
             animatorEnemy.SetBool("isRunning", false);
 
-            if (checkHitboxTriggerEnemy.isTakeHit == false)
+            animatorEnemy.SetBool("isBattleReady", true);
+            animatorEnemy.SetBool("isPunching", true);
+
+            /*if (checkHitboxTriggerEnemy.isTakeHit == false)
             {
                 animatorEnemy.SetBool("isBattleReady", true);
                 animatorEnemy.SetBool("isPunching", true);
@@ -27,7 +30,7 @@ public class AttackRangeEnemy : MonoBehaviour
             {
                 animatorEnemy.SetBool("isBattleReady", false);
                 animatorEnemy.SetBool("isPunching", false);
-            }
+            }*/
         }
     }
 

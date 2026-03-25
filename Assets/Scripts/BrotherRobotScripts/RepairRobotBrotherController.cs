@@ -103,6 +103,8 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
         DisableScripts();
 
+        playerAnimator.SetBool("isFix", true);
+
         for (int i = 0; i < outlines.Length; i++)
             outlines[i].enabled = false;
 
@@ -130,5 +132,7 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         chargeBrokenRobot.SetActive(true);
 
         fixEffect.gameObject.SetActive(false);
+
+        playerAnimator.SetBool("isFix", false);
     }
 }
