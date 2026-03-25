@@ -51,6 +51,7 @@ public class ShowEnemysWaves : MonoBehaviour
                 spawnEffectsManager.SpawnEffectFire();
                 ShowFourthWave();
             }
+            
         }
 
         if (enemyBossFourthWave.isDeadEnemy == true)
