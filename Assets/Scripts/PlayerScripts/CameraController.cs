@@ -10,6 +10,7 @@ namespace Assets.Scripts.PlayerScripts
 
         [Header("Animator")]
         [SerializeField] Animator animator;
+        public Animator brotherAnimator;
 
         [Header("Player Rotation")]
         [SerializeField] Transform playerRotation;
@@ -41,6 +42,7 @@ namespace Assets.Scripts.PlayerScripts
             if (mouseX != 0)
             {
                 animator.SetBool("isRunningMouseInput", true);
+                brotherAnimator.SetBool("isRunningMouseInput", true);
 
                 xRotationLimit += mouseX;
                 //xRotationLimit = Mathf.Clamp(xRotationLimit, -40f, 40f);
@@ -58,6 +60,7 @@ namespace Assets.Scripts.PlayerScripts
             else 
             {
                 animator.SetBool("isRunningMouseInput", false);
+                brotherAnimator.SetBool("isRunningMouseInput", false);
             }
 
 

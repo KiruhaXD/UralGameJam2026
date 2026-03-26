@@ -71,7 +71,12 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
         {
             enemyHealth.sliderHealth.value -= damage;
 
-            if (audioTakeHit.isPlaying) return;
+            if (enemyHealth.sliderHealth.value <= 0)
+            {
+                enemyHealth.sliderHealth.value = 0;
+            }
+
+                if (audioTakeHit.isPlaying) return;
             audioTakeHit.Play();
 
             this.hitboxTagName = hitboxTagName;
@@ -88,10 +93,10 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
 
             //TakeHit();
-
-            Death();
-
         }
+
+        if (enemyHealth.sliderHealth.value == 0)
+            Death();
 
         if (damage < 0)
             throw new ArgumentOutOfRangeException();
@@ -266,23 +271,19 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
     public void Death() 
     {
-        if (enemyHealth.sliderHealth.value <= 0)
-        {
-            enemyHealth.sliderHealth.value = 0;
+        isDeadEnemy = true;
 
-            isDeadEnemy = true;
+        enemyDeath.StartCoroutine(enemyDeath.DeathCoroutine());
+        //enemyObject.gameObject.SetActive(false);
 
-            enemyDeath.StartCoroutine(enemyDeath.DeathCoroutine());
-            //enemyObject.gameObject.SetActive(false);
+        attackRangePlayer.isCanPunchPlayer = false;
 
-            attackRangePlayer.isCanPunchPlayer = false;
+        attackRangePlayer.FightNonactive();
+        attackRangeBrother.FightNonactiveBrother();
 
-            attackRangePlayer.FightNonactive();
-            attackRangeBrother.FightNonactiveBrother();
+        audioRun.Stop();
 
-            audioRun.Stop();
+        spawnItems.Spawn();
 
-            spawnItems.Spawn();
-        }
     }
 }

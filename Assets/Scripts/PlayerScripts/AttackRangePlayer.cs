@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class AttackRangePlayer : MonoBehaviour
 {
+    [SerializeField] CheckNotactiveEnemys checkNotactiveEnemys;
+
     [SerializeField] Animator brotherAnimator;
     [SerializeField] Animator playerAnimator;
 
@@ -14,14 +16,30 @@ public class AttackRangePlayer : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isCanPunchPlayer == true && attackRangeBrother.isCanPunchBrother == true) 
+        if (Input.GetMouseButtonDown(0) && isCanPunchPlayer == true && attackRangeBrother.isCanPunchBrother == true)
         {
             Punch();
+
+            if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
+    playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .9f)
+            {
+                playerAnimator.SetBool("isPunching", false);
+            }
+
             attackRangeBrother.PunchBrother();
 
-            StartCoroutine(EndPunchAnimationCooutine());
+            if (brotherAnimator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
+    brotherAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .9f)
+            {
+                brotherAnimator.SetBool("isPunching", false);
+            }
         }
-            
+
+        checkNotactiveEnemys.CheckDisableEnemyFirstWave();
+        checkNotactiveEnemys.CheckDisableEnemySecondWave();
+        checkNotactiveEnemys.CheckDisableEnemyThirdWave();
+        checkNotactiveEnemys.CheckDisableEnemyFourthWave();
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,21 +73,12 @@ public class AttackRangePlayer : MonoBehaviour
     private void Punch()
     {
         playerAnimator.SetBool("isPunching", true);
-
         choiseEffectAttack.EffectsAttack(choiseEffectAttack.currentEffect);
     }
 
-    public void FightNonactive() 
+    public void FightNonactive()
     {
         playerAnimator.SetBool("isPunching", false);
         playerAnimator.SetBool("isBattleReady", false);
-    }
-
-    IEnumerator EndPunchAnimationCooutine() 
-    {
-        yield return new WaitForSeconds(2);
-
-        playerAnimator.SetBool("isPunching", false);
-        brotherAnimator.SetBool("isPunching", false);
     }
 }

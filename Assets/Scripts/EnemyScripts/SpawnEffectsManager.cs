@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 
 public class SpawnEffectsManager : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class SpawnEffectsManager : MonoBehaviour
     /// SECOND wave - shock effect,
     /// THIRD wave - fire effect,
     /// </summary>
-    [SerializeField] Transform[] enemysEffects;
+    [SerializeField] RectTransform[] enemysEffects;
 
     [SerializeField] ChoiseEffectController choiseEffectController;
 
@@ -20,7 +20,7 @@ public class SpawnEffectsManager : MonoBehaviour
 
     public void SpawnEffectIce() 
     {
-        enemysEffects[0].transform.position = childSpawnPointEffectPosition.position;
+        enemysEffects[0].position = childSpawnPointEffectPosition.position;
 
         enemysEffects[0].gameObject.SetActive(true);
 
@@ -31,12 +31,14 @@ public class SpawnEffectsManager : MonoBehaviour
             enemysEffects[0].gameObject.SetActive(false);
 
             childSpawnPointEffectPosition.parent = parentSpawnEffectPosition;
+
+            childSpawnPointEffectPosition.localPosition = new Vector3(0f, 0f, 0f);
         }
     }
 
     public void SpawnEffectShock() 
     {
-        enemysEffects[1].transform.position = childSpawnPointEffectPosition.position;
+        enemysEffects[1].position = childSpawnPointEffectPosition.position;
 
         enemysEffects[1].gameObject.SetActive(true);
 
@@ -48,26 +50,26 @@ public class SpawnEffectsManager : MonoBehaviour
 
             childSpawnPointEffectPosition.parent = parentSpawnEffectPosition;
 
-            //childSpawnPointEffectPosition.position = parentSpawnEffectPosition.position;
+            childSpawnPointEffectPosition.localPosition = new Vector3(0f, 0f, 0f);
         }
 
     }
 
     public void SpawnEffectFire() 
     {
-        enemysEffects[2].transform.position = childSpawnPointEffectPosition.position;
+        enemysEffects[2].position = childSpawnPointEffectPosition.position;
 
         enemysEffects[2].gameObject.SetActive(true);
 
-        //childSpawnPointEffectPosition.parent = enemysEffectsCanvas[2];
+        childSpawnPointEffectPosition.parent = enemysEffects[2];
 
         if (choiseEffectController.isPickUpEffectFire == true)
         {
             enemysEffects[2].gameObject.SetActive(false);
 
-            //childSpawnPointEffectPosition.parent = parentSpawnEffectPosition;
+            childSpawnPointEffectPosition.parent = parentSpawnEffectPosition;
 
-            //childSpawnPointEffectPosition.position = parentSpawnEffectPosition.position;
+            childSpawnPointEffectPosition.localPosition = new Vector3(0f, 0f, 0f);
         }
 
     } 

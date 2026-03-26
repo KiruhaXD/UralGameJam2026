@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: gamer_robot
-    second: {fileID: 2100000, guid: 2bf3372f8a063b64295c0edd4093a6ac, type: 2}
+    second: {fileID: 2100000, guid: 5255f0fc583fb4d459af09f618ccba91, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
