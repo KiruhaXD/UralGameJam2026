@@ -15,6 +15,7 @@ TagManager:
   - EffectIce
   - EffectShock
   - EffectFire
+  - HitboxAttackBoss
   layers:
   - Default
   - TransparentFX

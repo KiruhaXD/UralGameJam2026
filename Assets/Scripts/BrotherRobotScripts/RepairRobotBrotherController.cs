@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class RepairRobotBrotherController : MonoBehaviour, IInteract
 {
+    [Header("Audio")]
+    [SerializeField] AudioSource audioRepair;
+
     [Header("Border Collider")]
     [SerializeField] GameObject border;
 
@@ -113,6 +116,9 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
         fixEffect.gameObject.SetActive(true);
 
+        if (audioRepair.isPlaying) return;
+        audioRepair.Play();
+
         fixButtons.SetActive(false);
 
         barBrother.gameObject.SetActive(true);
@@ -132,6 +138,8 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         chargeBrokenRobot.SetActive(true);
 
         fixEffect.gameObject.SetActive(false);
+
+        audioRepair.Stop();
 
         playerAnimator.SetBool("isFix", false);
     }

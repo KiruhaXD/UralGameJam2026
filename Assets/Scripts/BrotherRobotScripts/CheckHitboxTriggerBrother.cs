@@ -4,10 +4,13 @@ using System.Collections;
 
 public class CheckHitboxTriggerBrother : MonoBehaviour
 {
+    [SerializeField] AudioSource audioTakeHit;
+
     [SerializeField] BrotherRobotHealth brotherHealth;
     [SerializeField] BrotherRobotController brotherController;
 
     [SerializeField] int damageCountToBrother = 10;
+    [SerializeField] int damageCountBossToBrother = 30;
 
     [SerializeField] Animator brotherAnimator;
 
@@ -17,7 +20,10 @@ public class CheckHitboxTriggerBrother : MonoBehaviour
         {
             brotherHealth.sliderArmor.value -= damage;
 
-            TakeHit();
+            if (audioTakeHit.isPlaying) return;
+            audioTakeHit.Play();
+
+            //TakeHit();
 
             if (brotherHealth.sliderArmor.value <= 0) 
             {
@@ -32,7 +38,7 @@ public class CheckHitboxTriggerBrother : MonoBehaviour
         {
             brotherHealth.sliderHealth.value -= damage;
 
-            TakeHit();
+            //TakeHit();
 
             if (brotherHealth.sliderHealth.value <= 0) 
             {
@@ -53,9 +59,12 @@ public class CheckHitboxTriggerBrother : MonoBehaviour
     {
         if (other.CompareTag("HitboxAttackEnemy"))
             ApplyDamageBrotherRobot(damageCountToBrother);
+
+        if(other.CompareTag("HitboxAttackBoss"))
+            ApplyDamageBrotherRobot(damageCountBossToBrother);
     }
 
-    public void TakeHit()
+    /*public void TakeHit()
     {
         brotherAnimator.SetBool("isHit", true);
 
@@ -66,5 +75,5 @@ public class CheckHitboxTriggerBrother : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         brotherAnimator.SetBool("isHit", false);
-    }
+    }*/
 }

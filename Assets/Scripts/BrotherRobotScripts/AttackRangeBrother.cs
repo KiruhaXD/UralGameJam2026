@@ -23,8 +23,8 @@ public class AttackRangeBrother : MonoBehaviour
 
     public void FightNonactiveBrother()
     {
-        brotherAnimator.SetBool("isBattleReady", false);
         brotherAnimator.SetBool("isPunching", false);
+        brotherAnimator.SetBool("isBattleReady", false);
     }
 
     public void RotateBodyToEnemys()

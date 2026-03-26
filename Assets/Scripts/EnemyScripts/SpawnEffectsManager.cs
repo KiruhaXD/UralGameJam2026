@@ -24,14 +24,14 @@ public class SpawnEffectsManager : MonoBehaviour
 
         enemysEffects[0].gameObject.SetActive(true);
 
-        childSpawnPointEffectPosition.parent = enemysEffects[0].transform;
+        childSpawnPointEffectPosition.parent = enemysEffects[0];
 
         if (choiseEffectController.isPickUpEffectIce == true) 
         {
-            //spawnEffects[0].Stop();
             enemysEffects[0].gameObject.SetActive(false);
-        }
 
+            childSpawnPointEffectPosition.parent = parentSpawnEffectPosition;
+        }
     }
 
     public void SpawnEffectShock() 
@@ -40,13 +40,15 @@ public class SpawnEffectsManager : MonoBehaviour
 
         enemysEffects[1].gameObject.SetActive(true);
 
-        childSpawnPointEffectPosition.parent = enemysEffects[1].transform;
+        childSpawnPointEffectPosition.parent = enemysEffects[1];
 
-        if (choiseEffectController.isPickUpEffectShock == true) 
+        if (choiseEffectController.isPickUpEffectShock == true)
         {
-            //spawnEffects[1].Stop();
             enemysEffects[1].gameObject.SetActive(false);
 
+            childSpawnPointEffectPosition.parent = parentSpawnEffectPosition;
+
+            //childSpawnPointEffectPosition.position = parentSpawnEffectPosition.position;
         }
 
     }
@@ -57,12 +59,15 @@ public class SpawnEffectsManager : MonoBehaviour
 
         enemysEffects[2].gameObject.SetActive(true);
 
-        childSpawnPointEffectPosition.parent = enemysEffects[2].transform;
+        //childSpawnPointEffectPosition.parent = enemysEffectsCanvas[2];
 
-        if (choiseEffectController.isPickUpEffectFire == true) 
+        if (choiseEffectController.isPickUpEffectFire == true)
         {
-            //spawnEffects[2].Stop();
             enemysEffects[2].gameObject.SetActive(false);
+
+            //childSpawnPointEffectPosition.parent = parentSpawnEffectPosition;
+
+            //childSpawnPointEffectPosition.position = parentSpawnEffectPosition.position;
         }
 
     } 

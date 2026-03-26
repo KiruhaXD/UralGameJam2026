@@ -5,10 +5,13 @@ using Assets.Scripts.PlayerScripts;
 
 public class CheckHitboxTriggerPlayer : MonoBehaviour
 {
+    [SerializeField] AudioSource audioTakeHit;
+
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] PlayerController playerController;
 
     [SerializeField] int damageCountToPlayer = 10;
+    [SerializeField] int damageCountBossToPlayer = 30;
 
     [SerializeField] Animator playerAnimator;
 
@@ -20,7 +23,10 @@ public class CheckHitboxTriggerPlayer : MonoBehaviour
         {
             playerHealth.sliderArmor.value -= damage;
 
-            TakeHit();
+            if (audioTakeHit.isPlaying) return;
+            audioTakeHit.Play();
+
+            //TakeHit();
 
             if (playerHealth.sliderArmor.value <= 0) 
             {
@@ -35,7 +41,7 @@ public class CheckHitboxTriggerPlayer : MonoBehaviour
         {
             playerHealth.sliderHealth.value -= damage;
 
-            TakeHit();
+            //TakeHit();
 
             if (playerHealth.sliderHealth.value <= 0)
             {
@@ -56,10 +62,13 @@ public class CheckHitboxTriggerPlayer : MonoBehaviour
     {
         if (other.CompareTag("HitboxAttackEnemy"))
             ApplyDamagePlayer(damageCountToPlayer);
+
+        if (other.CompareTag("HitboxAttackBoss"))
+            ApplyDamagePlayer(damageCountBossToPlayer);
     }
 
 
-    public void TakeHit()
+    /*public void TakeHit()
     {
         playerAnimator.SetBool("isHit", true);
 
@@ -70,5 +79,5 @@ public class CheckHitboxTriggerPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         playerAnimator.SetBool("isHit", false);
-    }
+    }*/
 }

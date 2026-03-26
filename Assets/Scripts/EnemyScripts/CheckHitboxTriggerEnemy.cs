@@ -10,6 +10,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 {
     [Header("Audio")]
     [SerializeField] AudioSource audioRun;
+    [SerializeField] AudioSource audioTakeHit;
 
     [Header("Player")]
     [SerializeField] AttackRangePlayer attackRangePlayer;
@@ -43,18 +44,21 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     [SerializeField] int damageCountToEnemy = 10;
     [SerializeField] int currentNumberEnemy = 0;
 
+    [HideInInspector]
     public bool isDeadEnemy = false;
 
+    [HideInInspector]
     public bool isTakeHit = false;
 
+    [HideInInspector]
     public string hitboxTagName = string.Empty;
 
+    [HideInInspector]
     public bool isTakeHitEffectIce, isTakeHitEffectShock, isTakeHitEffectFire = false;
 
     [Header("Shock Effect")]
     [SerializeField] ParticleSystem effectShock;
     public int timeShockEffect = 10;
-
 
     [Header("Fire Effect")]
     [SerializeField] ParticleSystem effectFire;
@@ -66,6 +70,9 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
         if (enemyHealth.sliderHealth.value > 0)
         {
             enemyHealth.sliderHealth.value -= damage;
+
+            if (audioTakeHit.isPlaying) return;
+            audioTakeHit.Play();
 
             this.hitboxTagName = hitboxTagName;
 
@@ -80,7 +87,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
             }
 
 
-            TakeHit();
+            //TakeHit();
 
             Death();
 
@@ -124,7 +131,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
         
     }
 
-    public void TakeHit()
+    /*public void TakeHit()
     {
         isTakeHit = true;
 
@@ -141,7 +148,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
         isTakeHit = false;
 
         StartCoroutine(ChoiseStopEffectHit());
-    }
+    }*/
 
     IEnumerator ChoiseStopEffectHit() 
     {
@@ -275,7 +282,6 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
 
             audioRun.Stop();
 
-            // анимация смерти
             spawnItems.Spawn();
         }
     }

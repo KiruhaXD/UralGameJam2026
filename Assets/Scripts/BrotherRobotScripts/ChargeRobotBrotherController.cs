@@ -7,6 +7,9 @@ using UnityEngine.UI;
 // скрипт отвечающих за зарядку нашего брата робота
 public class ChargeRobotBrotherController : MonoBehaviour, IInteract
 {
+    [Header("Audio")]
+    [SerializeField] AudioSource audioRepair;
+
     [Header("Battery Prefab")]
     [SerializeField] GameObject batteryPlayer;
 
@@ -49,6 +52,8 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
 
         fixEffect.gameObject.SetActive(true);
 
+        audioRepair.Play();
+
         StartCoroutine(ShowNormalRobot());
     }
 
@@ -60,6 +65,8 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
         yield return new WaitForSeconds(timeForShowNextModelRobot);
 
         fixEffect.gameObject.SetActive(false);
+
+        audioRepair.Stop();
 
         this.gameObject.SetActive(false);
         normalChargedRobot.SetActive(true);

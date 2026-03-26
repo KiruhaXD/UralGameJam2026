@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AttackRangePlayer : MonoBehaviour
@@ -17,6 +18,8 @@ public class AttackRangePlayer : MonoBehaviour
         {
             Punch();
             attackRangeBrother.PunchBrother();
+
+            StartCoroutine(EndPunchAnimationCooutine());
         }
             
     }
@@ -58,7 +61,15 @@ public class AttackRangePlayer : MonoBehaviour
 
     public void FightNonactive() 
     {
-        playerAnimator.SetBool("isBattleReady", false);
         playerAnimator.SetBool("isPunching", false);
+        playerAnimator.SetBool("isBattleReady", false);
+    }
+
+    IEnumerator EndPunchAnimationCooutine() 
+    {
+        yield return new WaitForSeconds(2);
+
+        playerAnimator.SetBool("isPunching", false);
+        brotherAnimator.SetBool("isPunching", false);
     }
 }
