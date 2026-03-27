@@ -4,7 +4,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] MainMenuButton mainMenuButton;
 
-    [SerializeField] Settings settings;
+    [SerializeField] SettingsDisplay settings;
 
     public GameObject menuWindow;
     public GameObject settingsWindow;

@@ -16,6 +16,7 @@ public class ShowEnemysWaves : MonoBehaviour
     [SerializeField] CheckHitboxTriggerEnemy[] enemysThirdWave;
 
     [Header("Fourth Wave")]
+    [SerializeField] CheckHitboxTriggerEnemy[] enemysFourthWave;
     [SerializeField] CheckHitboxTriggerEnemy enemyBossFourthWave;
 
     [Header("End Game Trigger")]
@@ -43,7 +44,7 @@ public class ShowEnemysWaves : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < enemysSecondWave.Length; i++)
+        for (int i = 0; i < enemysThirdWave.Length; i++)
         {
             if (enemysThirdWave[0].isDeadEnemy == true && enemysThirdWave[1].isDeadEnemy == true &&
                 enemysThirdWave[2].isDeadEnemy == true && enemysThirdWave[3].isDeadEnemy == true)
@@ -54,10 +55,15 @@ public class ShowEnemysWaves : MonoBehaviour
             
         }
 
-        if (enemyBossFourthWave.isDeadEnemy == true)
+        for (int i = 0; i < enemysFourthWave.Length; i++)
         {
-            endGameTrigger.SetActive(true);
-            // Конец игры!
+            if (enemysFourthWave[0].isDeadEnemy == true && enemysFourthWave[1].isDeadEnemy == true &&
+                enemysFourthWave[2].isDeadEnemy == true && enemysFourthWave[3].isDeadEnemy == true && enemyBossFourthWave.isDeadEnemy == true)
+            {
+                endGameTrigger.SetActive(true);
+                // Конец игры!
+            }
+
         }
     }
 
@@ -68,4 +74,5 @@ public class ShowEnemysWaves : MonoBehaviour
     public void ShowThirdWave() => thirdWave.SetActive(true); // включать после победы над второй волной врагов
 
     public void ShowFourthWave() => fourthWave.SetActive(true); // включать после победы над третьей волной врагов
+
 }

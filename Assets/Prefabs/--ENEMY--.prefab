@@ -6191,7 +6191,7 @@ MonoBehaviour:
   enemyDeath: {fileID: 8937333909246944048}
   attackRangeEnemy: {fileID: 8938245654240013063}
   followRangeEnemy: {fileID: 268822157096923220}
-  damageCountToEnemy: 10
+  damageCountToEnemy: 15
   currentNumberEnemy: 5
   isDeadEnemy: 0
   isTakeHit: 0

@@ -5,6 +5,8 @@ namespace Assets.Scripts.PlayerScripts
 {
     public class CameraController : MonoBehaviour
     {
+        [SerializeField] SettingsMouseSensivity sensivity;
+
         [Header("Audio")]
         [SerializeField] AudioSource audioRun;
 
@@ -18,10 +20,9 @@ namespace Assets.Scripts.PlayerScripts
         [Header("Brother Rotation")]
         [SerializeField] Transform brotherRotation;
 
-        [Header("Settings")]
-        [SerializeField] float mouseSensivity = 100f;
-
         public float mouseX;
+
+        [SerializeField] GameObject brotherModel;
 
         float xRotationLimit;
 
@@ -32,7 +33,7 @@ namespace Assets.Scripts.PlayerScripts
 
         private void InputMouse()
         {
-            mouseX = Input.GetAxis("Mouse X") * mouseSensivity * Time.deltaTime;
+            mouseX = Input.GetAxis("Mouse X") * sensivity.currentMouseSensivity * Time.deltaTime;
         }
 
         private void RotateBody()
@@ -42,7 +43,9 @@ namespace Assets.Scripts.PlayerScripts
             if (mouseX != 0)
             {
                 animator.SetBool("isRunningMouseInput", true);
-                brotherAnimator.SetBool("isRunningMouseInput", true);
+
+                if(brotherModel.activeSelf == true)
+                    brotherAnimator.SetBool("isRunningMouseInput", true);
 
                 xRotationLimit += mouseX;
                 //xRotationLimit = Mathf.Clamp(xRotationLimit, -40f, 40f);
@@ -60,7 +63,9 @@ namespace Assets.Scripts.PlayerScripts
             else 
             {
                 animator.SetBool("isRunningMouseInput", false);
-                brotherAnimator.SetBool("isRunningMouseInput", false);
+
+                if (brotherModel.activeSelf == true)
+                    brotherAnimator.SetBool("isRunningMouseInput", false);
             }
 
 

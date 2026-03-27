@@ -76,7 +76,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
                 enemyHealth.sliderHealth.value = 0;
             }
 
-                if (audioTakeHit.isPlaying) return;
+            if (audioTakeHit.isPlaying) return;
             audioTakeHit.Play();
 
             this.hitboxTagName = hitboxTagName;

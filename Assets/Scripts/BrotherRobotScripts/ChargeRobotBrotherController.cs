@@ -28,6 +28,7 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
 
     [Header("Animator")]
     [SerializeField] Animator playerAnimator;
+    [SerializeField] Animator brotherAnimator;
 
     [Header("Normal Charged Robot")]
     [SerializeField] GameObject normalChargedRobot;
@@ -38,6 +39,11 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
     // происходит анимация починки
     // заетм происходят эффект телепорта батареи
     // и затем он должен как бы включиться и встать
+
+    private void Awake()
+    {
+        brotherAnimator.enabled = false;
+    }
 
     public void Interact() 
     {
@@ -65,6 +71,8 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
         yield return new WaitForSeconds(timeForShowNextModelRobot);
 
         fixEffect.gameObject.SetActive(false);
+
+        brotherAnimator.enabled = true;
 
         audioRepair.Stop();
 

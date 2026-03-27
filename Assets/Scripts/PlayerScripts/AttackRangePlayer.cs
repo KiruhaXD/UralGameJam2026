@@ -8,6 +8,8 @@ public class AttackRangePlayer : MonoBehaviour
     [SerializeField] Animator brotherAnimator;
     [SerializeField] Animator playerAnimator;
 
+    [SerializeField] GameObject brotherModel;
+
     [SerializeField] AttackRangeBrother attackRangeBrother;
 
     public bool isCanPunchPlayer = false;
@@ -20,25 +22,39 @@ public class AttackRangePlayer : MonoBehaviour
         {
             Punch();
 
-            if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
-    playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .9f)
-            {
-                playerAnimator.SetBool("isPunching", false);
-            }
+            if (brotherModel.activeSelf == true)
+                attackRangeBrother.PunchBrother();
+        }
 
-            attackRangeBrother.PunchBrother();
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
+playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .9f)
+        {
+            playerAnimator.SetBool("isPunching", false);
+        }
 
+        if (brotherModel.activeSelf == true) 
+        {
             if (brotherAnimator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
-    brotherAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .9f)
+brotherAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .9f)
             {
+
                 brotherAnimator.SetBool("isPunching", false);
             }
         }
+
 
         checkNotactiveEnemys.CheckDisableEnemyFirstWave();
         checkNotactiveEnemys.CheckDisableEnemySecondWave();
         checkNotactiveEnemys.CheckDisableEnemyThirdWave();
         checkNotactiveEnemys.CheckDisableEnemyFourthWave();
+
+        if (isCanPunchPlayer == false && attackRangeBrother.isCanPunchBrother == false) 
+        {
+            FightNonactive();
+
+            if (brotherModel.activeSelf == true)
+                attackRangeBrother.FightNonactiveBrother();
+        }
 
     }
 
@@ -50,7 +66,8 @@ public class AttackRangePlayer : MonoBehaviour
 
             attackRangeBrother.isCanPunchBrother = true;
 
-            brotherAnimator.SetBool("isBattleReady", true);
+            if (brotherModel.activeSelf == true)
+                brotherAnimator.SetBool("isBattleReady", true);
 
             attackRangeBrother.RotateBodyToEnemys();
 
@@ -66,7 +83,9 @@ public class AttackRangePlayer : MonoBehaviour
             attackRangeBrother.isCanPunchBrother = false;
 
             FightNonactive();
-            attackRangeBrother.FightNonactiveBrother();
+
+            if (brotherModel.activeSelf == true)
+                attackRangeBrother.FightNonactiveBrother();
         }
     }
 

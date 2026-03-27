@@ -15,6 +15,7 @@ public class CheckNotactiveEnemys : MonoBehaviour
     [SerializeField] GameObject[] enemysThirdWave;
 
     [Header("Fourth Wave")]
+    [SerializeField] GameObject[] enemysFourthWave;
     [SerializeField] GameObject enemyBossFourthWave;
 
     public bool checkNotactiveEnemysFirstWave = false, checkNotactiveEnemysSecondWave = false, 
@@ -69,7 +70,8 @@ public class CheckNotactiveEnemys : MonoBehaviour
     {
         if (checkNotactiveEnemysFourthWave == false)
         {
-            if (enemyBossFourthWave.activeSelf == false)
+            if (enemyBossFourthWave.activeSelf == false || enemysFourthWave[0].activeSelf == false || enemysFourthWave[1].activeSelf == false
+            || enemysFourthWave[2].activeSelf == false || enemysFourthWave[3].activeSelf == false)
             {
                 attackRangePlayer.isCanPunchPlayer = false;
                 attackRangeBrother.isCanPunchBrother = false;

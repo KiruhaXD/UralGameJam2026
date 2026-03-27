@@ -25,6 +25,7 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
     [Header("Animator")]
     [SerializeField] Animator playerAnimator;
+    [SerializeField] Animator brotherAnimator;
 
     [Header("UI")]
     [SerializeField] TMP_Text textInteract;
@@ -46,6 +47,11 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
     [Header("Settings")]
     [SerializeField] float timeForShowNextModelRobot = 3f;
+
+    private void Awake()
+    {
+        brotherAnimator.enabled = false;
+    }
 
     private void Update()
     {
