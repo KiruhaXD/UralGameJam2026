@@ -34,6 +34,7 @@ public class MenuPause : MonoBehaviour
             switch (countPressKeyEscape)
             {
                 case 0:
+                    ShowCursor();
                     Pause();
                     break;
 
@@ -45,19 +46,21 @@ public class MenuPause : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape) && isShowSettings == true) 
         {
+            ShowCursor();
+
+            Pause();
+
             isShowSettings = false;
 
             menuSettings.SetActive(false);
-
-            Pause();
         }
     }
 
     public void Pause() 
     {
-        menuPausePanel.SetActive(true);
-
         ShowCursor();
+
+        menuPausePanel.SetActive(true);
 
         pauseMenuActive = true;
 
@@ -85,9 +88,16 @@ public class MenuPause : MonoBehaviour
 
     public void Continue()
     {
-        menuPausePanel.SetActive(false);
+        if (repairRobotBrother.isCheckBrokenRobot == true)
+            ShowCursor();
 
-        HideCursor();
+        else
+            HideCursor();
+
+        if (choiseEffectController.menuChoiseEffectActive == true)
+            ShowCursor();
+
+        menuPausePanel.SetActive(false);
 
         pauseMenuActive = false;
 
@@ -103,13 +113,6 @@ public class MenuPause : MonoBehaviour
 
         audioBackgroundSource.Play();
 
-
-        if (repairRobotBrother.isCheckBrokenRobot == true) 
-            ShowCursor();
-        
-        if(choiseEffectController.menuChoiseEffectActive == true)
-            ShowCursor();
-
     }
 
     public void Settings() 
@@ -118,6 +121,8 @@ public class MenuPause : MonoBehaviour
 
         menuPausePanel.SetActive(false);
         menuSettings.SetActive(true);
+
+        ShowCursor();
     }
 
     public void ExitInMenu() 

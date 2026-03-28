@@ -87,20 +87,20 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
     private void EnableCameraCheckBrokenRobot() 
     {
+        isCheckBrokenRobot = true;
+
+        menuPause.ShowCursor();
+
         playerCamera.enabled = false;
         cinemachineCameraCheckBrokenRobot.enabled = true;
 
         DisableScripts();
-
-        menuPause.ShowCursor();
 
         imageInteract.gameObject.SetActive(false);
 
         fixButtons.SetActive(true);
 
         barBrother.gameObject.SetActive(false);
-
-        isCheckBrokenRobot = true;
     }
 
     private void EnablePlayerCamera() 
@@ -150,4 +150,6 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
         playerAnimator.SetBool("isFix", false);
     }
+
+    
 }
