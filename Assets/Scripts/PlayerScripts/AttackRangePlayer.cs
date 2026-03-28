@@ -1,4 +1,5 @@
 using System.Collections;
+using Assets.Scripts.PlayerScripts;
 using UnityEngine;
 
 public class AttackRangePlayer : MonoBehaviour
@@ -10,26 +11,39 @@ public class AttackRangePlayer : MonoBehaviour
 
     [SerializeField] GameObject brotherModel;
 
+    [SerializeField] PlayerController playerController;
+    [SerializeField] BrotherRobotController brotherRobotController;
+    [SerializeField] MenuPause menuPause;
+
     [SerializeField] AttackRangeBrother attackRangeBrother;
 
-    public bool isCanPunchPlayer = false;
+    [SerializeField] RepairRobotBrotherController repairRobotBrother;
 
     [SerializeField] ChoiseEffectAttack choiseEffectAttack;
+    [SerializeField] ChoiseEffectController choiseEffectController;
+
+    public bool isPunch = false;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isCanPunchPlayer == true && attackRangeBrother.isCanPunchBrother == true)
+        if (menuPause.pauseMenuActive == false && choiseEffectController.menuChoiseEffectActive == false) 
         {
-            Punch();
+            if (Input.GetMouseButtonDown(0) && repairRobotBrother.isCheckBrokenRobot == false /*&& isCanPunchPlayer == true && attackRangeBrother.isCanPunchBrother == true*/)
+            {
 
-            if (brotherModel.activeSelf == true)
-                attackRangeBrother.PunchBrother();
+                Punch();
+
+                if (brotherModel.activeSelf == true)
+                    attackRangeBrother.PunchBrother();
+            }
         }
 
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
 playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .7f)
         {
             playerAnimator.SetBool("isPunching", false);
+
+            isPunch = false;
         }
 
         if (brotherModel.activeSelf == true) 
@@ -37,8 +51,9 @@ playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .7f)
             if (brotherAnimator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
 brotherAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .7f)
             {
-
                 brotherAnimator.SetBool("isPunching", false);
+
+                attackRangeBrother.isPunch = false;
             }
         }
 
@@ -54,14 +69,14 @@ brotherAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .7f)
     {
         if (other.CompareTag("Enemy"))
         {
-            isCanPunchPlayer = true;
+            //isCanPunchPlayer = true;
 
-            attackRangeBrother.isCanPunchBrother = true;
+            //attackRangeBrother.isCanPunchBrother = true;
 
             if (brotherModel.activeSelf == true)
                 brotherAnimator.SetBool("isBattleReady", true);
 
-            attackRangeBrother.RotateBodyToEnemys();
+            //attackRangeBrother.RotateBodyToEnemys();
 
             playerAnimator.SetBool("isBattleReady", true);
         }
@@ -71,8 +86,8 @@ brotherAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .7f)
     {
         if (other.CompareTag("Enemy"))
         {
-            isCanPunchPlayer = false;
-            attackRangeBrother.isCanPunchBrother = false;
+            //isCanPunchPlayer = false;
+            //attackRangeBrother.isCanPunchBrother = false;
 
             FightNonactive();
 
@@ -83,6 +98,10 @@ brotherAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .7f)
 
     private void Punch()
     {
+        isPunch = true;
+
+        playerAnimator.SetBool("isRunningKeyboardInput", false);
+
         playerAnimator.SetBool("isPunching", true);
         choiseEffectAttack.EffectsAttack(choiseEffectAttack.currentEffect);
     }
@@ -90,6 +109,8 @@ brotherAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .7f)
     public void FightNonactive()
     {
         playerAnimator.SetBool("isPunching", false);
-        playerAnimator.SetBool("isBattleReady", false);
+        //playerAnimator.SetBool("isBattleReady", false);
+
+        isPunch = false;
     }
 }

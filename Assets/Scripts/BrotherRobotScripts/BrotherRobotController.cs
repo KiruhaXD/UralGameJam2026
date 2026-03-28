@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BrotherRobotController : MonoBehaviour
 {
+    [SerializeField] AttackRangeBrother attackRangeBrother;
+
     [SerializeField] MenuPause menuPause;
 
     [Header("Audio")]
@@ -38,7 +40,7 @@ public class BrotherRobotController : MonoBehaviour
             verticalDirectional = 0;
         }
 
-        else 
+        else if(attackRangeBrother.isPunch == false)
         {
             Run();
 
@@ -70,7 +72,6 @@ public class BrotherRobotController : MonoBehaviour
             if (audioRun.isPlaying) return;
             audioRun.Play();
         }
-
         else
         {
             brotherAnimator.SetBool("isRunningKeyboardInput", false);

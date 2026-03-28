@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Assets.Scripts.PlayerScripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,10 +28,14 @@ public class ChoiseEffectController : MonoBehaviour
 
     public bool isPickUpEffectIce, isPickUpEffectShock, isPickUpEffectFire = false;
 
+    public bool menuChoiseEffectActive = false;
+
     private void Update()
     {
         if (choiseEffectAttackWindow.activeSelf == true) 
         {
+            menuChoiseEffectActive = true;
+
             for (int i = 0; i < imagesEffectsWindowChoise.Length; i++)
             {
                 for (int j = 0; j < effectItemsTrigger.Length; j++)
@@ -63,7 +65,9 @@ public class ChoiseEffectController : MonoBehaviour
     {
         currentChoiseCharacterIndex = 1;
 
-        if(currentChoiseCharacterIndex == choiseBrotherIndex)
+        menuChoiseEffectActive = false;
+
+        if (currentChoiseCharacterIndex == choiseBrotherIndex)
             UseEffectAttack(currentChoiseCharacterIndex);
 
         EnableScriptsAndHideCursor();
@@ -73,7 +77,9 @@ public class ChoiseEffectController : MonoBehaviour
     {
         currentChoiseCharacterIndex = 0;
 
-        if(currentChoiseCharacterIndex == choisePlayerIndex)
+        menuChoiseEffectActive = false;
+
+        if (currentChoiseCharacterIndex == choisePlayerIndex)
             UseEffectAttack(currentChoiseCharacterIndex);
 
         EnableScriptsAndHideCursor();

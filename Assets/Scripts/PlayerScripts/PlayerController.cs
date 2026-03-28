@@ -5,6 +5,8 @@ namespace Assets.Scripts.PlayerScripts
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] AttackRangePlayer attackRangePlayer;
+
         [SerializeField] MenuPause menuPause;
 
         [Header("Audio")]
@@ -35,7 +37,7 @@ namespace Assets.Scripts.PlayerScripts
                 verticalDirectional = 0;
             }
 
-            else
+            else if(attackRangePlayer.isPunch == false)
                 Run();
 
         }

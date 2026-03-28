@@ -5,8 +5,6 @@ public class AttackRangeBrother : MonoBehaviour
 {
     [SerializeField] Animator brotherAnimator;
 
-    public bool isCanPunchBrother = false;
-
     [Header("Brother Rotation")]
     [SerializeField] Transform brotherRotation;
 
@@ -15,8 +13,14 @@ public class AttackRangeBrother : MonoBehaviour
 
     [SerializeField] ChoiseEffectAttack choiseEffectAttack;
 
+    public bool isPunch = false;
+
     public void PunchBrother()
     {
+        isPunch = true;
+
+        brotherAnimator.SetBool("isRunningKeyboardInput", false);
+
         brotherAnimator.SetBool("isPunching", true);
 
         choiseEffectAttack.EffectsAttack(choiseEffectAttack.currentEffect);
@@ -25,13 +29,15 @@ public class AttackRangeBrother : MonoBehaviour
     public void FightNonactiveBrother()
     {
         brotherAnimator.SetBool("isPunching", false);
-        brotherAnimator.SetBool("isBattleReady", false);
+        //brotherAnimator.SetBool("isBattleReady", false);
+
+        isPunch = false;
     }
 
-    public void RotateBodyToEnemys()
+    /*public void RotateBodyToEnemys()
     {
         for (int i = 0; i < enemysPosition.Length; i++)
             brotherRotation.LookAt(enemysPosition[i].position);
 
-    }
+    }*/
 }

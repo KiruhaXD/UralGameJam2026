@@ -6,6 +6,8 @@ public class MenuPause : MonoBehaviour
 {
     public int countPressKeyEscape = 0;
 
+    [SerializeField] ChoiseEffectController choiseEffectController;
+
     [SerializeField] GameObject menuPausePanel;
 
     [SerializeField] GameObject menuSettings;
@@ -105,6 +107,8 @@ public class MenuPause : MonoBehaviour
         if (repairRobotBrother.isCheckBrokenRobot == true) 
             ShowCursor();
         
+        if(choiseEffectController.menuChoiseEffectActive == true)
+            ShowCursor();
 
     }
 

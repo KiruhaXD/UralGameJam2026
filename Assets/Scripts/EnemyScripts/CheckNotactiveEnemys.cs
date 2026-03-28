@@ -29,8 +29,8 @@ public class CheckNotactiveEnemys : MonoBehaviour
             if (enemysFirstWave[0].activeSelf == false || enemysFirstWave[1].activeSelf == false
     || enemysFirstWave[2].activeSelf == false || enemysFirstWave[3].activeSelf == false)
             {
-                attackRangePlayer.isCanPunchPlayer = false;
-                attackRangeBrother.isCanPunchBrother = false;
+                //attackRangePlayer.isCanPunchPlayer = false;
+                //attackRangeBrother.isCanPunchBrother = false;
 
                 checkNotactiveEnemysFirstWave = true;
             }
@@ -46,8 +46,8 @@ public class CheckNotactiveEnemys : MonoBehaviour
             if (enemysSecondWave[0].activeSelf == false || enemysSecondWave[1].activeSelf == false
             || enemysSecondWave[2].activeSelf == false || enemysSecondWave[3].activeSelf == false)
             {
-                attackRangePlayer.isCanPunchPlayer = false;
-                attackRangeBrother.isCanPunchBrother = false;
+                //attackRangePlayer.isCanPunchPlayer = false;
+                //attackRangeBrother.isCanPunchBrother = false;
 
                 checkNotactiveEnemysSecondWave = true;
             }
@@ -63,8 +63,8 @@ public class CheckNotactiveEnemys : MonoBehaviour
             if (enemysThirdWave[0].activeSelf == false || enemysThirdWave[1].activeSelf == false
             || enemysThirdWave[2].activeSelf == false || enemysThirdWave[3].activeSelf == false)
             {
-                attackRangePlayer.isCanPunchPlayer = false;
-                attackRangeBrother.isCanPunchBrother = false;
+                //attackRangePlayer.isCanPunchPlayer = false;
+                //attackRangeBrother.isCanPunchBrother = false;
 
                 checkNotactiveEnemysThirdWave = true;
             }
@@ -80,8 +80,8 @@ public class CheckNotactiveEnemys : MonoBehaviour
             if (enemyBossFourthWave.activeSelf == false || enemysFourthWave[0].activeSelf == false || enemysFourthWave[1].activeSelf == false
             || enemysFourthWave[2].activeSelf == false || enemysFourthWave[3].activeSelf == false)
             {
-                attackRangePlayer.isCanPunchPlayer = false;
-                attackRangeBrother.isCanPunchBrother = false;
+                //attackRangePlayer.isCanPunchPlayer = false;
+                //attackRangeBrother.isCanPunchBrother = false;
 
                 checkNotactiveEnemysFourthWave = true;
             }
@@ -92,12 +92,12 @@ public class CheckNotactiveEnemys : MonoBehaviour
 
     public void CheckPunch() 
     {
-        if (attackRangePlayer.isCanPunchPlayer == false && attackRangeBrother.isCanPunchBrother == false)
+        /*if (attackRangePlayer.isCanPunchPlayer == false && attackRangeBrother.isCanPunchBrother == false)
         {
             attackRangePlayer.FightNonactive();
 
             if (brotherModel.activeSelf == true)
                 attackRangeBrother.FightNonactiveBrother();
-        }
+        }*/
     }
 }
