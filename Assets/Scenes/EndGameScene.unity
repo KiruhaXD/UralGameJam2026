@@ -763,8 +763,8 @@ MonoBehaviour:
 
     With love,'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
-  m_sharedMaterial: {fileID: 4184292188144717545, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
+  m_sharedMaterial: {fileID: -962714749647981986, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -944,8 +944,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: the team StarGames
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
-  m_sharedMaterial: {fileID: 4184292188144717545, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
+  m_sharedMaterial: {fileID: -962714749647981986, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1081,8 +1081,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: EXIT TO MENU
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
-  m_sharedMaterial: {fileID: 4184292188144717545, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
+  m_sharedMaterial: {fileID: -962714749647981986, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

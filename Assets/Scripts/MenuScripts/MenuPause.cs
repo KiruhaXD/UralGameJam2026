@@ -16,7 +16,14 @@ public class MenuPause : MonoBehaviour
     [Header("Background Audio")]
     [SerializeField] AudioSource audioBackgroundSource;
 
+    [Header("Repair Audio")]
+    [SerializeField] AudioSource audioRepairSourceFixBrokenRobot, audioRepairSourceChargeBrokenRobot;
+
     public bool isShowSettings = false;
+
+    public bool pauseMenuActive = false;
+
+    [SerializeField] RepairRobotBrotherController repairRobotBrother;
 
     private void Update()
     {
@@ -50,12 +57,18 @@ public class MenuPause : MonoBehaviour
 
         ShowCursor();
 
+        pauseMenuActive = true;
+
         countPressKeyEscape = 1;
 
-        for (int i = 0; i < audioSourcesRun.Length; i++)
-            audioSourcesRun[i].Pause();
+        //for (int i = 0; i < audioSourcesRun.Length; i++)
+          //audioSourcesRun[i].Pause();
+
+        //audioRepairSourceFixBrokenRobot.Pause();
+        //audioRepairSourceChargeBrokenRobot.Pause();
 
         audioBackgroundSource.Pause();
+
 
         Time.timeScale = 0f;
 
@@ -66,19 +79,33 @@ public class MenuPause : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    } 
+    }
 
-    public void Continue() 
+    public void Continue()
     {
         menuPausePanel.SetActive(false);
 
         HideCursor();
 
+        pauseMenuActive = false;
+
         countPressKeyEscape = 0;
 
         Time.timeScale = 1f;
 
+        //for (int i = 0; i < audioSourcesRun.Length; i++)
+          //  audioSourcesRun[i].Play();
+
+        //audioRepairSourceFixBrokenRobot.Play();
+        //audioRepairSourceChargeBrokenRobot.Play();
+
         audioBackgroundSource.Play();
+
+
+        if (repairRobotBrother.isCheckBrokenRobot == true) 
+            ShowCursor();
+        
+
     }
 
     public void Settings() 
@@ -97,15 +124,24 @@ public class MenuPause : MonoBehaviour
 
     public void ExitGame() => Application.Quit();
 
-    private void HideCursor() 
+    public void HideCursor() 
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void ShowCursor() 
+    public void ShowCursor() 
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void MenuPauseActive() 
+    {
+        if (pauseMenuActive == true)
+            ShowCursor();
+
+        else
+            HideCursor();
     }
 }

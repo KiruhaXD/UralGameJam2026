@@ -20,6 +20,8 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
     [SerializeField] PlayerController playerController;
     [SerializeField] CameraController cameraController;
     [SerializeField] ShowEnemysWaves waves;
+    [SerializeField] RepairRobotBrotherController repairRobotBrother;
+    [SerializeField] MenuPause menuPause;
 
     [Header("UI")]
     [SerializeField] TMP_Text textInteract;
@@ -45,6 +47,12 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
         brotherAnimator.enabled = false;
     }
 
+    private void Update()
+    {
+        if(textInteract.text == "CHARGE")
+            menuPause.MenuPauseActive();
+    }
+
     public void Interact() 
     {
         playerAnimator.SetBool("isRunningKeyboardInput", false);
@@ -55,6 +63,8 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
         imageInteract.gameObject.SetActive(false);
 
         PlayerInteraction.isActiveRay = false;
+
+        menuPause.MenuPauseActive();
 
         fixEffect.gameObject.SetActive(true);
 
@@ -69,6 +79,8 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
     public IEnumerator ShowNormalRobot() 
     {
         yield return new WaitForSeconds(timeForShowNextModelRobot);
+
+        menuPause.MenuPauseActive();
 
         fixEffect.gameObject.SetActive(false);
 
@@ -88,6 +100,8 @@ public class ChargeRobotBrotherController : MonoBehaviour, IInteract
         EnableScripts();
 
         waves.ShowFirstWave();
+
+        repairRobotBrother.isCheckBrokenRobot = false;
     }
 
     private void EnableScripts()

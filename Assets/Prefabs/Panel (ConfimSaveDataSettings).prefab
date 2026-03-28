@@ -200,8 +200,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: No
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
-  m_sharedMaterial: {fileID: 4184292188144717545, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
+  m_sharedMaterial: {fileID: -962714749647981986, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -472,8 +472,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Do you want to save the settings?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
-  m_sharedMaterial: {fileID: 4184292188144717545, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
+  m_sharedMaterial: {fileID: -962714749647981986, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -609,8 +609,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Yes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
-  m_sharedMaterial: {fileID: 4184292188144717545, guid: e19ffa3b5adab374b8f093a0ac513f06, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
+  m_sharedMaterial: {fileID: -962714749647981986, guid: 904ff99387ad5fd439d9a21771602763, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -696,7 +696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2970916997674822401
 RectTransform:
   m_ObjectHideFlags: 0
@@ -706,7 +706,7 @@ RectTransform:
   m_GameObject: {fileID: 9138195375763661775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.58456, y: 0.58456, z: 0.58456}
+  m_LocalScale: {x: 0.50191486, y: 0.50191486, z: 0.50191486}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4164300338645029338}

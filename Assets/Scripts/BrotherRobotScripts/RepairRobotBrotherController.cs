@@ -19,6 +19,7 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
     [Header("References")]
     [SerializeField] PlayerController playerController;
     [SerializeField] CameraController cameraController;
+    [SerializeField] MenuPause menuPause;
 
     [Header("Outline")]
     [SerializeField] Outline[] outlines;
@@ -48,6 +49,9 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
     [Header("Settings")]
     [SerializeField] float timeForShowNextModelRobot = 3f;
 
+    public bool isCheckBrokenRobot = false;
+    public bool isSwitchToPlayerCamera = false;
+
     private void Awake()
     {
         brotherAnimator.enabled = false;
@@ -58,11 +62,8 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         if (isHappenPressToggle == 6) // enable six toggle (fix all part in broken robot)                              
         {
             EnablePlayerCamera();
-            // create method for call animation (repair) and effects
 
             StartCoroutine(ShowRobotForCharge());
-
-            // after repair need charge our brother robot
         }
     }
 
@@ -81,10 +82,8 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         EnableCameraCheckBrokenRobot();
     }
 
-    public void Description() 
-    {
-        textInteract.text = "CHECK";
-    }
+    public void Description() => textInteract.text = "CHECK";
+    
 
     private void EnableCameraCheckBrokenRobot() 
     {
@@ -93,14 +92,15 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
         DisableScripts();
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        menuPause.ShowCursor();
 
         imageInteract.gameObject.SetActive(false);
 
         fixButtons.SetActive(true);
 
         barBrother.gameObject.SetActive(false);
+
+        isCheckBrokenRobot = true;
     }
 
     private void EnablePlayerCamera() 
@@ -117,8 +117,7 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         for (int i = 0; i < outlines.Length; i++)
             outlines[i].enabled = false;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        menuPause.MenuPauseActive();
 
         fixEffect.gameObject.SetActive(true);
 
@@ -128,6 +127,8 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
         fixButtons.SetActive(false);
 
         barBrother.gameObject.SetActive(true);
+
+        isSwitchToPlayerCamera = true;
     }
 
     private void DisableScripts() 

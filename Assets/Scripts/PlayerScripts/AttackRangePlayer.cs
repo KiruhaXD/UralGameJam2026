@@ -48,14 +48,6 @@ brotherAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .9f)
         checkNotactiveEnemys.CheckDisableEnemyThirdWave();
         checkNotactiveEnemys.CheckDisableEnemyFourthWave();
 
-        if (isCanPunchPlayer == false && attackRangeBrother.isCanPunchBrother == false) 
-        {
-            FightNonactive();
-
-            if (brotherModel.activeSelf == true)
-                attackRangeBrother.FightNonactiveBrother();
-        }
-
     }
 
     private void OnTriggerEnter(Collider other)

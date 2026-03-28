@@ -53,7 +53,6 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     [HideInInspector]
     public string hitboxTagName = string.Empty;
 
-    [HideInInspector]
     public bool isTakeHitEffectIce, isTakeHitEffectShock, isTakeHitEffectFire = false;
 
     [Header("Shock Effect")]

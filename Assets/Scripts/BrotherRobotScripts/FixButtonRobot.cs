@@ -11,6 +11,8 @@ public class FixButtonRobot : MonoBehaviour
     [Header("Outline")]
     [SerializeField] Outline outline;
 
+    [SerializeField] Button currentButton;
+
     public void FixPartClickBtn() 
     {
         switch (currentToggle.name)
@@ -22,6 +24,7 @@ public class FixButtonRobot : MonoBehaviour
             case "Toggle (FixLeftLeg)":
             case "Toggle (FixRightLeg)":
                 currentToggle.isOn = true;
+                currentButton.interactable = false;
                 break;
         }
 

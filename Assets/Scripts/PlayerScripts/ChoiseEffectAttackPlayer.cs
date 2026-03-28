@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class ChoiseEffectAttackPlayer : ChoiseEffectAttack
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string currentNamePerson;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        currentNamePerson = this.name;
     }
 }

@@ -4,6 +4,7 @@ public class CheckNotactiveEnemys : MonoBehaviour
 {
     [SerializeField] AttackRangePlayer attackRangePlayer;
     [SerializeField] AttackRangeBrother attackRangeBrother;
+    [SerializeField] GameObject brotherModel;
 
     [Header("First Wave")]
     [SerializeField] GameObject[] enemysFirstWave;
@@ -34,6 +35,8 @@ public class CheckNotactiveEnemys : MonoBehaviour
                 checkNotactiveEnemysFirstWave = true;
             }
         }
+
+        CheckPunch();
     }
 
     public void CheckDisableEnemySecondWave()
@@ -49,6 +52,8 @@ public class CheckNotactiveEnemys : MonoBehaviour
                 checkNotactiveEnemysSecondWave = true;
             }
         }
+
+        CheckPunch();
     }
 
     public void CheckDisableEnemyThirdWave()
@@ -64,6 +69,8 @@ public class CheckNotactiveEnemys : MonoBehaviour
                 checkNotactiveEnemysThirdWave = true;
             }
         }
+
+        CheckPunch();
     }
 
     public void CheckDisableEnemyFourthWave()
@@ -78,6 +85,19 @@ public class CheckNotactiveEnemys : MonoBehaviour
 
                 checkNotactiveEnemysFourthWave = true;
             }
+        }
+
+        CheckPunch();
+    }
+
+    public void CheckPunch() 
+    {
+        if (attackRangePlayer.isCanPunchPlayer == false && attackRangeBrother.isCanPunchBrother == false)
+        {
+            attackRangePlayer.FightNonactive();
+
+            if (brotherModel.activeSelf == true)
+                attackRangeBrother.FightNonactiveBrother();
         }
     }
 }
