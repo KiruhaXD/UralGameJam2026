@@ -27,7 +27,7 @@ public class AttackRangePlayer : MonoBehaviour
         }
 
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
-playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .9f)
+playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .7f)
         {
             playerAnimator.SetBool("isPunching", false);
         }
@@ -35,7 +35,7 @@ playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .9f)
         if (brotherModel.activeSelf == true) 
         {
             if (brotherAnimator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
-brotherAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .9f)
+brotherAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= .7f)
             {
 
                 brotherAnimator.SetBool("isPunching", false);
