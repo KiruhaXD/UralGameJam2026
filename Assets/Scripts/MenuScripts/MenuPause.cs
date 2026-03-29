@@ -69,8 +69,8 @@ public class MenuPause : MonoBehaviour
         //for (int i = 0; i < audioSourcesRun.Length; i++)
           //audioSourcesRun[i].Pause();
 
-        //audioRepairSourceFixBrokenRobot.Pause();
-        //audioRepairSourceChargeBrokenRobot.Pause();
+        audioRepairSourceFixBrokenRobot.Pause();
+        audioRepairSourceChargeBrokenRobot.Pause();
 
         audioBackgroundSource.Pause();
 
@@ -108,8 +108,8 @@ public class MenuPause : MonoBehaviour
         //for (int i = 0; i < audioSourcesRun.Length; i++)
           //  audioSourcesRun[i].Play();
 
-        //audioRepairSourceFixBrokenRobot.Play();
-        //audioRepairSourceChargeBrokenRobot.Play();
+        audioRepairSourceFixBrokenRobot.Play();
+        audioRepairSourceChargeBrokenRobot.Play();
 
         audioBackgroundSource.Play();
 
