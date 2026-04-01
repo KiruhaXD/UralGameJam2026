@@ -121,14 +121,14 @@ public class RepairRobotBrotherController : MonoBehaviour, IInteract
 
         fixEffect.gameObject.SetActive(true);
 
-        if (audioRepair.isPlaying) return;
-        audioRepair.Play();
-
         fixButtons.SetActive(false);
 
         barBrother.gameObject.SetActive(true);
 
         isSwitchToPlayerCamera = true;
+
+        if (audioRepair.isPlaying) return;
+        audioRepair.Play();
     }
 
     private void DisableScripts() 

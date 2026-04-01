@@ -13,6 +13,12 @@ public class SettingsMouseSensivity : MonoBehaviour
     float minSensivity = 100f;
     float maxSensivity = 1000f;
 
+    [ContextMenu("Delete Saves Sensivity (Польз.)")]
+    public void DeleteSavesKeys() 
+    {
+        PlayerPrefs.DeleteKey(MouseSensivityKey);
+    }
+
     private void Awake()
     {
         ChangeSensivity();

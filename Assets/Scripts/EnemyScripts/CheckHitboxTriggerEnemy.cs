@@ -50,9 +50,6 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     [HideInInspector]
     public bool isTakeHit = false;
 
-    [HideInInspector]
-    public string hitboxTagName = string.Empty;
-
     public bool isTakeHitEffectIce, isTakeHitEffectShock, isTakeHitEffectFire = false;
 
     [Header("Shock Effect")]
@@ -64,7 +61,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     public float damageFire = 1;
     public int timeFireEffect = 10;
 
-    public void ApplyDamageEnemy(int damage, string hitboxTagName) // вызывать у хитбокса руки в анимации через триггеры
+    public void ApplyDamageEnemy(int damage) // вызывать у хитбокса руки в анимации через триггеры
     {
         if (enemyHealth.sliderHealth.value > 0)
         {
@@ -78,14 +75,12 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
             if (audioTakeHit.isPlaying) return;
             audioTakeHit.Play();
 
-            this.hitboxTagName = hitboxTagName;
-
-            if (this.hitboxTagName == "HitboxAttackPlayer" && choiseEffectAttackPlayer.currentNamePerson == "Player")
+            if (choiseEffectAttackPlayer.currentNamePerson == "Player")
             {
                 PlayEffectHit(choiseEffectAttackPlayer.currentEffect);
             }
 
-            if (this.hitboxTagName == "HitboxAttackBrother" && choiseEffectAttackBrother.currentNamePerson == "Brother")
+            if (choiseEffectAttackBrother.currentNamePerson == "Brother")
             {
                 PlayEffectHit(choiseEffectAttackBrother.currentEffect);
             }
@@ -105,7 +100,7 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     {
         if (other.CompareTag("HitboxAttackPlayer") || other.CompareTag("HitboxAttackBrother") && enemy.currentNumberEnemy == currentNumberEnemy) 
         {
-            ApplyDamageEnemy(damageCountToEnemy, other.tag);
+            ApplyDamageEnemy(damageCountToEnemy);
 
             // Effect Hit Fire
             if (isTakeHitEffectFire == true)
@@ -158,12 +153,12 @@ public class CheckHitboxTriggerEnemy : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
 
-        if (this.hitboxTagName == "HitboxAttackPlayer" && choiseEffectAttackPlayer.currentNamePerson == "Player")
+        if (choiseEffectAttackPlayer.currentNamePerson == "Player")
         {
             StopEffectHit(choiseEffectAttackPlayer.currentEffect);
         }
 
-        if (this.hitboxTagName == "HitboxAttackBrother" && choiseEffectAttackBrother.currentNamePerson == "Brother")
+        if (choiseEffectAttackBrother.currentNamePerson == "Brother")
         {
             StopEffectHit(choiseEffectAttackBrother.currentEffect);
         }

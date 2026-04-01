@@ -34,7 +34,7 @@ public class FollowRange : MonoBehaviour
     {
         if (isFollowing == true) 
         {
-            if (menuPause.countPressKeyEscape == 0 || checkHitboxTriggerEnemy.isTakeHitEffectIce == false) 
+            if (menuPause.countPressKeyEscape == 0) 
                 MoveEnemy();
         }
 

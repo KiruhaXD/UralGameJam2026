@@ -12,6 +12,15 @@ public class VolumeController : MonoBehaviour
     [SerializeField] float volumeValue;
     [SerializeField] float multiplier = 20f;
 
+    [ContextMenu("Delete Saves Volumes (Польз.)")]
+    public void DeleteSavesKeys() 
+    {
+        for (int i = 0; i < volumeParametrs.Length; i++)
+        {
+            PlayerPrefs.DeleteKey(volumeParametrs[i]);
+        }
+    }
+
     private void Awake()
     {
         commonAudioSlider.onValueChanged.AddListener(HandleCommonAudioSliderValueChanged);

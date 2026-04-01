@@ -88,8 +88,13 @@ public class MenuPause : MonoBehaviour
 
     public void Continue()
     {
-        if (repairRobotBrother.isCheckBrokenRobot == true)
+        if (repairRobotBrother.isCheckBrokenRobot == true) 
+        {
             ShowCursor();
+            audioRepairSourceFixBrokenRobot.Play();
+            audioRepairSourceChargeBrokenRobot.Play();
+        }
+
 
         else
             HideCursor();
@@ -107,9 +112,6 @@ public class MenuPause : MonoBehaviour
 
         //for (int i = 0; i < audioSourcesRun.Length; i++)
           //  audioSourcesRun[i].Play();
-
-        audioRepairSourceFixBrokenRobot.Play();
-        audioRepairSourceChargeBrokenRobot.Play();
 
         audioBackgroundSource.Play();
 
